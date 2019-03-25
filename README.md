@@ -3,14 +3,14 @@
 
 
 
-#### Tipos de datos
+### Tipos de datos
 **int** numeros enteros = 10;
 **float** decimal = 3.1681;
 **char** letra = 'a';
 **char** nombre **[20]**;
     
 
-#### Funciones nativas
+### Funciones nativas
 **printf**("Hello world!\n");
 printf("mas de una variable %d, %d y %d \n", num1, num2, num1+num2);
 
@@ -25,10 +25,10 @@ confirm = **getchar()**; // idem ejemplo anterior
 **strcpy**(origen,destino); // para copiar strings
 
 
-#### Castear int a float
+### Castear int a float
 promedio = **(float)** (num1+num2)/2; 
 
-#### Visualizacion de variables
+### Visualizacion de variables
 - %d      decimal
 - %f      float
 - %.2f    float con 2 decimales (si hay mas redondea)
@@ -36,7 +36,7 @@ promedio = **(float)** (num1+num2)/2;
 - %s      array de characters (string)
 
 
-#### Crear funciones
+### Crear funciones
 //prototipo de la funcion (si usas mal la funcion da error)
 int sumar1(int,int);
 
