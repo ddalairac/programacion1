@@ -4,10 +4,10 @@
 
 
 ### Tipos de datos
-**int** numeros enteros = 10;
-**float** decimal = 3.1681;
-**char** letra = 'a';
-**char** nombre **[20]**;
+**int** numeros enteros = 10; \n
+**float** decimal = 3.1681; \n
+**char** letra = 'a'; \n
+**char** nombre **[20]**; \n
     
 
 ### Funciones nativas
@@ -16,7 +16,7 @@ printf("mas de una variable %d, %d y %d \n", num1, num2, num1+num2);
 
 **scanf**("%d", &numero);
 scanf("%s", nombre); 
-scanf("%c", &confirm);
+scanf("%c", &confirm); 
 confirm = **getchar()**;  *(idem ejemplo anterior)*
           getch(); (no espera enter y NO te muestra el caracter)
           getche(); (no espera enter y te muestra el caracter)
