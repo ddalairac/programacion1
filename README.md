@@ -15,14 +15,14 @@
 printf("mas de una variable %d, %d y %d \n", num1, num2, num1+num2);
 
 **scanf**("%d", &numero);
-scanf("%s", nombre); // 
+scanf("%s", nombre); 
 scanf("%c", &confirm);
-confirm = **getchar()**; // idem ejemplo anterior
-//        getch(); //no espera enter y NO te muestra el caracter
-//        getche(); // no espera enter y te muestra el caracter
+confirm = **getchar()**;  *(idem ejemplo anterior)*
+          getch(); (no espera enter y NO te muestra el caracter)
+          getche(); (no espera enter y te muestra el caracter)
 
-**fflush**(stdin); // limpia el buffer ( asegurarte que no quedo nada viejo)
-**strcpy**(origen,destino); // para copiar strings
+**fflush** (stdin); (limpia el buffer, para asegurarte que no quedo nada viejo)
+**strcpy** (origen,destino); (para copiar strings)
 
 
 ### Castear int a float
@@ -37,10 +37,10 @@ promedio = **(float)** (num1+num2)/2;
 
 
 ### Crear funciones
-//prototipo de la funcion (si usas mal la funcion da error)
+*prototipo de la funcion (si usas mal la funcion da error)*
 int sumar1(int,int);
 
-// desarrollo de la funcion
+*desarrollo de la funcion*
 int sumar1(int x, int y){
     int suma;
     suma = x + y;
