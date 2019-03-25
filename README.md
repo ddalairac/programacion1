@@ -4,10 +4,10 @@
 
 
 ### Tipos de datos
-**int** numeros enteros = 10; \n
-**float** decimal = 3.1681; \n
-**char** letra = 'a'; \n
-**char** nombre **[20]**; \n
+**int** numeros enteros = 10;
+**float** decimal = 3.1681;
+**char** letra = 'a';
+**char** nombre **[20]**;
     
 
 ### Funciones nativas
