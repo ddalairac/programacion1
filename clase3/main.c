@@ -1,43 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
-void obtenerMaximoPuntero(int x, int y, int z, int* maximo);
-int obtenerMaximo(int x, int y, int z);
+#include "lib.h"
+
 int main(){
+    /*
     int x = 5;
     int y = 10;
-    int z = 12;
+    int z = 12;*/
 
-    printf("return maximo: %d \n", obtenerMaximo(x, y, z));
+    printf("return maximo: %d \n", obtenerMaximo(5, 10, 12));
 
     int maximo;
 
-    obtenerMaximoPuntero(x, y, z, &maximo);
+    obtenerMaximoPuntero(15, 20, 5, &maximo);
     printf("maximo en puntero: %d \n", maximo);
 
+    system("pause");
+
+    menu();
 
     return 0;
 }
-// pasa variables x,y,z por VALOR
-int obtenerMaximo(int x, int y, int z){
-    int maximo;
 
-    maximo = x;
-    if( y > maximo){
-        maximo = y;
-    }
-    if( z > maximo){
-        maximo = z;
-    }
-    return maximo;
-}
-
-// pasa variables x,y,z por VALOR, y maximo por REFERENCIA
-void obtenerMaximoPuntero(int x, int y, int z, int* maximo){
-    *maximo = x;
-    if( y > *maximo){
-        *maximo = y;
-    }
-    if( z > *maximo){
-        *maximo = z;
-    }
-}
