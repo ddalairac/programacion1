@@ -17,9 +17,9 @@ printf("mas de una variable %d, %d y %d \n", num1, num2, num1+num2);  <br>
 **scanf**("%d", &numero);
 scanf("%s", nombre);  <br>
 scanf("%c", &confirm);   <br>
-confirm = **getchar()**;  *(idem ejemplo anterior)*  <br>
-.          getch(); (no espera enter y NO te muestra el caracter)  <br>
-.          getche(); (no espera enter y te muestra el caracter)  <br>
+...       confirm = **getchar()**;  *(idem ejemplo anterior)*  <br>
+...       getch(); (no espera enter y NO te muestra el caracter)  <br>
+...       getche(); (no espera enter y te muestra el caracter)  <br>
 
 **fflush** (stdin); (limpia el buffer, para asegurarte que no quedo nada viejo)  <br>
 **strcpy** (origen,destino); (para copiar strings)  <br>
