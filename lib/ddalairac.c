@@ -44,7 +44,17 @@ char inputChar(char message[]){
     return character;
 }
 
-getRandomNumber(int begin, int to){
-    //return begin + (rand() % (to + 1 - begin) );
-    return rand() ;
+/** \brief Generar numero aleatorio
+ *
+ * \param desde
+ * \param hasta
+ * \param fue inicializado rand?
+ * \return numero aleatorio
+ *
+ */
+int getRandomNumber(int from, int to, int init){
+    if (!init){
+        srand(time(NULL));
+    }
+    return from + (rand() % (to + 1 - from) );
 }

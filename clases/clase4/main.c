@@ -11,14 +11,16 @@ int main()
     int random;
 
 
-    /*intNum = inputInt("Ingrese un numero entero");
+    intNum = inputInt("Ingrese un numero entero");
     floatNum = inputFloat("Ingrese un numero decimal");
-    charLetter = inputChar("Ingrese una letra");*/
-    random = getRandomNumber(0,10);
+    charLetter = inputChar("Ingrese una letra");
+    random = getRandomNumber(0,100,0);
 
-    /*printf("int %d: \n", intNum);
+
+    printf("\n");
+    printf("int %d: \n", intNum);
     printf("float %f: \n", floatNum);
-    printf("char %c: \n", charLetter);*/
+    printf("char %c: \n", charLetter);
     printf("random %d: \n", random);
 
 
