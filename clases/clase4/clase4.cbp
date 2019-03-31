@@ -30,7 +30,12 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add directory="../../lib" />
 		</Compiler>
+		<Unit filename="../../lib/ddalaira.h" />
+		<Unit filename="../../lib/ddalairac.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

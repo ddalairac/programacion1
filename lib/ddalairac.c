@@ -58,3 +58,62 @@ int getRandomNumber(int from, int to, int init){
     }
     return from + (rand() % (to + 1 - from) );
 }
+
+
+/** \brief Recibe 2 valores y los suma
+ * \param a int
+ * \param b int
+ * \return int
+ */
+int addition(int a, int b){
+    int result = a + b;
+    return result;
+}
+
+/** \brief Recibe 2 valores y los resta
+ * \param a int
+ * \param b int
+ * \return int
+ */
+int subtraction(int a, int b){
+    int result = a - b;
+    return result;
+}
+
+/** \brief Recibe 2 valores y los multiplica
+ * \param a int
+ * \param b int
+ * \return int
+ */
+int multiplication(int a, int b){
+    int result = a * b;
+    return result;
+}
+
+/** \brief Recibe 2 valores y los divide
+ * \param a int
+ * \param b int
+ * \return int
+ */
+int division(int a, int b){
+    int result = a / b;
+    return result;
+}
+
+/** \brief Recibe 1 valores, e imprime en pantalla sus divisores
+ * \param n int
+ * \return void
+ */
+void factoring(int number){
+    int flag = 0;
+    for (int i = 1; i <= number; i++){
+        if(number%i == 0){
+            if(flag == 0){
+                flag = 1;
+            } else {
+                printf(",");
+            }
+            printf("%d", i);
+		}
+    }
+}

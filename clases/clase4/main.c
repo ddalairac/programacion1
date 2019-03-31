@@ -5,9 +5,11 @@
 
 int main()
 {
+    /*
     int intNum;
     float floatNum;
     char charLetter;
+    int array[5] = {1,2,3,4,5,6};
     int random;
 
 
@@ -17,12 +19,21 @@ int main()
     random = getRandomNumber(0,100,0);
 
 
+
     printf("\n");
     printf("int %d: \n", intNum);
     printf("float %f: \n", floatNum);
     printf("char %c: \n", charLetter);
-    printf("random %d: \n", random);
+    for(int i=0; i < 5; i++){
+        printf("array[%d]: %d \n", i, array[i]);
+    }
+    printf("random %d: \n", random);*/
 
 
-    return 0;
+    int array[5] = {1,"hola",3,4,5,6};
+
+    for(int i=0; i < 5; i++){
+        printf("array[%d]: %d \n", i, array[i]);
+    }
+
 }
