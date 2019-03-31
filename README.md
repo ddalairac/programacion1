@@ -9,7 +9,7 @@
 **char** letra = 'a';  <br>
 
 **int** arrayEnteros**[20]** = { 10, 14, 18 }; <br>
-**float** arrayDecimal**[20]** = { 3.16, 8.1, 1.1 };  <br>
+**float** arrayDecimales**[20]** = { 3.16, 8.1, 1.1 };  <br>
 **char** arrayLetras**[20]** = {'a', 'b', 'c',};  <br>
     
 
