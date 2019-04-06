@@ -110,12 +110,9 @@ void printRow(char sex[],int leg[],int num[], int size,int findLeg){
     return index;
 }
 void userNameInput(){
-    printf("no rompe");
-
     char name[20];
     char surname[25];
     char fullName[46]; //19+25+2
-
 
     printf("ingrese su nombre: ");
     gets(name);
