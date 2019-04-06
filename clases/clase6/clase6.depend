@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1554509601 source:c:\users\alumno\desktop\programacion1\lib\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+
+1554509654 source:c:\users\alumno\desktop\programacion1\clases\clase6\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
