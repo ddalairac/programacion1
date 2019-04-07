@@ -1,4 +1,4 @@
-### CLASE 4 Página
+### CLASE 4 
 Funciones y bibliotecas: Diseño de una función. Recursividad. Biblioteca de funciones propias.
 - [Biblioteca Inputs](https://www.utnfravirtual.org.ar/pluginfile.php/10484/mod_folder/content/0/biblioteca_input_v2.pdf?forcedownload=1)<br>
 
