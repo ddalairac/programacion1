@@ -27,7 +27,7 @@ confirm = **getchar()**;  *(idem ejemplo anterior)*  <br>
 ### Castear int a float
 promedio = **(float)** (num1+num2)/2;   <br>
 
-### Visualizacion de variables
+### Mascaras / Visualizacion de variables
 - %d      decimal
 - %f      float
 - %.2f    float con 2 decimales (si hay mas redondea)
