@@ -15,10 +15,7 @@ void userNameInput(){
     char fullName[46]; //19+25+2
 
     inputStr("Ingrese su nombre", name);
-    inputStr("Ingrese su nombre", surname);
-
-    // puts(name);
-    // puts(surname);
+    inputStr("Ingrese su apellido", surname);
 
     strcpy(fullName, surname);
     strcat(fullName, ", ");
@@ -26,8 +23,6 @@ void userNameInput(){
 
     // Convertir a letra capital
     strCapitalize(fullName);
-
-
 
     puts(fullName);
 

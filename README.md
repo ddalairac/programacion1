@@ -1,6 +1,7 @@
 # UTN
 
-## programacion1
+## programacion1 :: C
+[funciones natiavas y librerias](http://pablin.com.ar/computer/cursos/c2/manc8.htm)
 
 ### Tipos de datos
 **int** numeros enteros = 10; <br>
@@ -48,3 +49,11 @@ int sumar1(int x, int y){  <br>
 
 #define TAM 10
 Crea la constante TAM de valor 10
+
+### Manejo de Strings
+- strcpy(strVec1, strVec2);  <br>
+  Sobre escribe strVec1 con los caracteres de strVec2 <br>
+- strcat(strVec1, strVec2);  <br>
+  Concatena los valores de strVec2 despues del el ultimo caracter de strVec1<br>
+- strlwr(vec);  <br>
+  Combierte todos los caracteres en minusculas<br>
