@@ -28,6 +28,7 @@ char inputChar(char message[]){
     scanf("%c", &character);
     return character;
 }
+
 void inputStr(char message[],char str[]){
 
     printf("%s: ",message);
@@ -43,28 +44,28 @@ int getRandomNumber(int from, int to, int init){
     return from + (rand() % (to + 1 - from) );
 }
 
-int addition(int a, int b){
+int calcAddition(int a, int b){
     int result = a + b;
     return result;
 }
 
-int subtraction(int a, int b){
+int calcSubtraction(int a, int b){
     int result = a - b;
     return result;
 }
 
-int multiplication(int a, int b){
+int calcMultiplication(int a, int b){
     int result = a * b;
     return result;
 }
 
-int division(int a, int b){
+int calcDivision(int a, int b){
     int result = a / b;
     return result;
 }
 
-void factoring(int number){
-    /*int flag = 0;
+void calcFactoring(int number){
+    int flag = 0;
     for (int i = 1; i <= number; i++){
         if(number%i == 0){
             if(flag == 0){
@@ -74,5 +75,17 @@ void factoring(int number){
             }
             printf("%d", i);
 		}
-    }*/
+    }
+}
+
+int findInt(int num, int vec[], int vecSize){
+    int index = -1;
+    for(int i=0; i< vecSize; i++){
+        if( num == vec[i])
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
 }

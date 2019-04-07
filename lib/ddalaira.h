@@ -67,3 +67,15 @@ int division(int a, int b);
  * \return void
  */
 void factoring(int number);
+
+
+/** \brief Recibe un numero entero para buscar en el contenido de un vector.
+ * Si no encuentra retorna -1, caso positivo retorna el indice
+ *
+ * \param num int
+ * \param vec[] int
+ * \param vecSize int
+ * \return int
+ *
+ */
+int findInt(int num, int vec[], int vecSize);

@@ -1,16 +1,12 @@
-# programacion1
-1 cuatrimestre UTN
+#UTN
 
-
+## programacion1
 
 ### Tipos de datos
-**int** numeroEntero = 10; <br>
-**float** numeroDecimal = 3.1681;  <br>
+**int** numeros enteros = 10; <br>
+**float** decimal = 3.1681;  <br>
 **char** letra = 'a';  <br>
-
-**int** arrayEnteros **[20]** = { 10, 14, 18 }; <br>
-**float** arrayDecimales **[20]** = { 3.16, 8.1, 1.1 };  <br>
-**char** arrayLetras **[20]** = {'a', 'b', 'c',};  <br>
+**char** nombre **[20]**;  <br>
     
 
 ### Funciones nativas
@@ -20,9 +16,9 @@ printf("mas de una variable %d, %d y %d \n", num1, num2, num1+num2);  <br>
 **scanf**("%d", &numero);
 scanf("%s", nombre);  <br>
 scanf("%c", &confirm);   <br>
-. . . . . confirm = **getchar()**;  *(idem ejemplo anterior)*  <br>
-. . . . . getch(); (no espera enter y NO te muestra el caracter)  <br>
-. . . . . getche(); (no espera enter y te muestra el caracter)  <br>
+confirm = **getchar()**;  *(idem ejemplo anterior)*  <br>
+.          getch(); (no espera enter y NO te muestra el caracter)  <br>
+.          getche(); (no espera enter y te muestra el caracter)  <br>
 
 **fflush** (stdin); (limpia el buffer, para asegurarte que no quedo nada viejo)  <br>
 **strcpy** (origen,destino); (para copiar strings)  <br>
@@ -40,7 +36,7 @@ promedio = **(float)** (num1+num2)/2;   <br>
 
 
 ### Crear funciones
-*prototipo de la funcion (si usas mal la funcion avisa del error)*  <br>
+*prototipo de la funcion (si usas mal la funcion da error)*  <br>
 int sumar1(int,int);  <br>
 
 *desarrollo de la funcion*  <br>
