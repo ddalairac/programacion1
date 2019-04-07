@@ -79,3 +79,32 @@ void factoring(int number);
  *
  */
 int findInt(int num, int vec[], int vecSize);
+
+/** \brief Ordena el vector recibido (ascendente o descendente) por tecnica de insercion:
+ * Compara un indice del vector con sus predecesores, y de ser necesario mueve sus predecesores hacia adelante para insertar el indice en su posicion correcta.
+ * \param vec[] int
+ * \param size int
+ * \param order char
+ * \return void
+ *
+ */
+void sortIntVectorByInsertion(int vec[], int size, char order);
+
+/** \brief Ordena el vector recibido (ascendente o descendente) por tecnica de burbujeo:
+ * Compara un indice del vector con sus predecesores, y de ser necesario los intercambia
+ *
+ * \param vec[] int
+ * \param size int
+ * \param order char
+ * \return void
+ *
+ */
+void sortIntVector(int vec[],int size, char order);
+
+/** \brief Recibe una cadena de caracteres y comierte la primer letra de cada palabra a mayuscula y el resto a minuscula
+ *
+ * \param vec[] char
+ * \return void
+ *
+ */
+void strCapitalize(char vec[]);

@@ -21,12 +21,14 @@ int main()
     printf("Cantidad de pares = %d \n", pairs);
 
     printArr(nums, 10);
-    bubbleSort (nums, 10);
+    //bubbleSort (nums, 10);
+    sortIntVector(nums, 10,'a');
+    //sortIntVectorByInsertion(nums, 10,'a');
     printArr(nums, 10);
     printf("\n\n");
 
-    eje5();
-    ejemploGoupAndOrderBy();
+    //eje5();
+    //ejemploGoupAndOrderBy();
 
     return 0;
 
@@ -65,7 +67,6 @@ void printArr(int arr[], int size){
     }
     printf("\n");
 }
-
 void eje5(){
     int tam = 5;
     int i;
@@ -135,8 +136,6 @@ void eje5(){
     printf("\n");
 
 }
-
-
 void ejemploGoupAndOrderBy(){
 
     int size = 10;

@@ -45,3 +45,6 @@ int sumar1(int x, int y){  <br>
 .    suma = x + y;  <br>
 .    return suma;  <br>
 }  <br>
+
+#define TAM 10
+Crea la constante TAM de valor 10
