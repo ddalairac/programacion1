@@ -1,5 +1,5 @@
 
-#CLASES
+# CLASES
 
 ### CLASE 1 Página
 Introducción al lenguaje C, Forma general de un programa, Sentencias de control y bucles, Variables, constantes y operadores.
