@@ -65,8 +65,18 @@ int calcDivision(int a, int b){
     return result;
 }
 
-void calcFactoring(int number){
+int factorial(int number){
+    int result = 1;
+    int i;
+    for (i=number;i>0;i--){
+        result = result*i;
+    }
+    return result;
+}
+
+int serchDividers(int number){
     int flag = 0;
+    int isPrime = 1;
     for (int i = 1; i <= number; i++){
         if(number%i == 0){
             if(flag == 0){
@@ -75,8 +85,10 @@ void calcFactoring(int number){
                 printf(",");
             }
             printf("%d", i);
+            isPrime = 0;
 		}
     }
+    return isPrime;
 }
 
 int findInt(int num, int vec[], int vecSize){

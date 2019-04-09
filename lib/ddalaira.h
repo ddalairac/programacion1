@@ -62,11 +62,19 @@ int multiplication(int a, int b);
  */
 int division(int a, int b);
 
+/** \brief Calcula y retorna el factorial del numero ingresado
+ *
+ * \param number int
+ * \return int / Resultado del cálculo
+ *
+ */
+int factorial(int number);
+
 /** \brief Recibe 1 valores, e imprime en pantalla sus divisores
  * \param n int
- * \return void
+ * \return void 1 is prime, 0 has dividers
  */
-void factoring(int number);
+int printDividers(int number)
 
 
 /** \brief Recibe un numero entero para buscar en el contenido de un vector.
