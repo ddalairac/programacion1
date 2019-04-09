@@ -143,6 +143,40 @@ void strCapitalize(char vec[]){
     }
 }
 
+int validNumber(char str[]){
+   int i=0;
+   int validation = 1;
+   while(str[i] != '\0'){
+       if(str[i] < '0' || str[i] > '9'){
+           validation = 0;
+        }
+       i++;
+   }
+   return validation;
+}
 
+int validLetter(char str[]){
+   int i=0;
+   int validation = 1;
+   while(str[i] != '\0'){
+       if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z')){
+           validation = 0;
+        }
+       i++;
+   }
+   return validation;
+}
+
+int validAlphaNumeric(char str[]){
+   int i=0;
+   int validation = 1;
+   while(str[i] != '\0'){
+       if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z') && (str[i] < '0' || str[i] > '9')){
+           validation = 0;
+       }
+       i++;
+   }
+   return validation;
+}
 
 

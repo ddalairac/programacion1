@@ -108,3 +108,27 @@ void sortIntVector(int vec[],int size, char order);
  *
  */
 void strCapitalize(char vec[]);
+
+/** \brief Validar que la cadena ingresada sea solo numerica
+ *
+ * \param cadena a validar
+ * \return int 0=false  1=true
+ *
+ */
+int validNumber(char str[]);
+
+/** \brief Validar que la cadena ingresada sea letras (' ', a-z, A-Z)
+ *
+ * \param str[] char
+ * \return int 0=false  1=true
+ *
+ */
+int validLetter(char str[]);
+
+/** \brief Validar que la cadena ingresada sea alfanumerica (' ', a-z, A-Z, 0-9)
+ *
+ * \param str[] char
+ * \return int 0=false  1=true
+ *
+ */
+int validAlphaNumeric(char str[]);

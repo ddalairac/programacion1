@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1554773820 source:c:\users\user\desktop\code\programacion1\lib\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+
+1554771247 source:c:\users\user\desktop\code\programacion1\clases\clase7\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../lib/ddalaira.h"
+
+1554678574 c:\users\user\desktop\code\programacion1\lib\ddalaira.h
+
