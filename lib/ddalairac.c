@@ -1,8 +1,22 @@
- #include <stdio.h>
- #include <stdlib.h>
-// #include <ctype.h>
-// #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <time.h>
+#include <conio.h>
 
+/**********************************************
+*
+*  Libreria de funciones genericas.
+*
+***********************************************/
+
+/** \brief Solicita introducir un numero al usuario
+ *
+ * \param message[] char / mensaje que se imprime en pantalla al solicitar informacion al usuario
+ * \return int
+ *
+ */
 int inputInt(char message[]){
     int number;
     //printf("Ingrese un int \n");
@@ -11,6 +25,12 @@ int inputInt(char message[]){
     return number;
 }
 
+/** \brief Solicita introducir un numero al usuario
+ *
+ * \param message[] char / mensaje que se imprime en pantalla al solicitar informacion al usuario
+ * \return float
+ *
+ */
 float inputFloat(char message[]){
     float number;
     //printf("Ingrese un float \n");
@@ -20,6 +40,12 @@ float inputFloat(char message[]){
     return number;
 }
 
+/** \brief Solicita introducir una letra al usuario
+ *
+ * \param message[] char / mensaje que se imprime en pantalla al solicitar informacion al usuario
+ * \return char
+ *
+ */
 char inputChar(char message[]){
     char character;
     //printf("Ingrese una letra \n");
@@ -30,6 +56,13 @@ char inputChar(char message[]){
     return character;
 }
 
+/** \brief Solicita introducir una cadena al usuario, recibe un vector y lo modifica
+ *
+ * \param message[] char / mensaje que se imprime en pantalla al solicitar informacion al usuario
+ * \param str[] char
+ * \return void
+ *
+ */
 void inputStr(char message[],char str[]){
 
     printf("%s: ",message);
@@ -38,6 +71,14 @@ void inputStr(char message[],char str[]){
     gets(str);
 }
 
+/** \brief Generar numero aleatorio
+ *
+ * \param desde
+ * \param hasta
+ * \param fue inicializado rand?
+ * \return numero aleatorio
+ *
+ */
 int getRandomNumber(int from, int to, int init){
     if (!init){
         srand(time(NULL));
@@ -45,27 +86,51 @@ int getRandomNumber(int from, int to, int init){
     return from + (rand() % (to + 1 - from) );
 }
 
+/** \brief Recibe 2 valores y los suma
+ * \param a int
+ * \param b int
+ * \return int
+ */
 int calcAddition(int a, int b){
     int result = a + b;
     return result;
 }
-
+/** \brief Recibe 2 valores y los resta
+ * \param a int
+ * \param b int
+ * \return int
+ */
 int calcSubtraction(int a, int b){
     int result = a - b;
     return result;
 }
-
+/** \brief Recibe 2 valores y los multiplica
+ * \param a int
+ * \param b int
+ * \return int
+ */
 int calcMultiplication(int a, int b){
     int result = a * b;
     return result;
 }
 
-int calcDivision(int a, int b){
-    int result = a / b;
+/** \brief Recibe 2 valores y los divide
+ * \param a int
+ * \param b int
+ * \return int
+ */
+float calcDivision(int a, int b){
+    float result = (float)a / b;
     return result;
 }
 
-int factorial(int number){
+/** \brief Calcula y retorna el factorial del numero ingresado
+ *
+ * \param number int
+ * \return int / Resultado del cálculo
+ *
+ */
+int calcFactorial(int number){
     int result = 1;
     int i;
     for (i=number;i>0;i--){
@@ -74,10 +139,15 @@ int factorial(int number){
     return result;
 }
 
-int serchDividers(int number){
+/** \brief Recibe 1 valores, e imprime en pantalla sus divisores
+ * \param n int
+ * \return void 1 is prime, 0 has dividers
+ */
+int calcPrime(int number){
+    int i;
     int flag = 0;
     int isPrime = 1;
-    for (int i = 1; i <= number; i++){
+    for (i = 1; i <= number; i++){
         if(number%i == 0){
             if(flag == 0){
                 flag = 1;
@@ -91,9 +161,19 @@ int serchDividers(int number){
     return isPrime;
 }
 
+/** \brief Recibe un numero entero para buscar en el contenido de un vector.
+ * Si no encuentra retorna -1, caso positivo retorna el indice
+ *
+ * \param num int
+ * \param vec[] int
+ * \param vecSize int
+ * \return int
+ *
+ */
 int findInt(int num, int vec[], int vecSize){
+    int i;
     int index = -1;
-    for(int i=0; i< vecSize; i++){
+    for(i=0; i< vecSize; i++){
         if( num == vec[i])
         {
             index = i;
@@ -103,6 +183,14 @@ int findInt(int num, int vec[], int vecSize){
     return index;
 }
 
+/** \brief Ordena el vector recibido (ascendente o descendente) por tecnica de insercion:
+ * Compara un indice del vector con sus predecesores, y de ser necesario mueve sus predecesores hacia adelante para insertar el indice en su posicion correcta.
+ * \param vec[] int
+ * \param size int
+ * \param order char
+ * \return void
+ *
+ */
 void sortIntVectorByInsertion(int vec[], int size, char order){
     // Insertion technique
     int i,j,aux;
@@ -121,6 +209,15 @@ void sortIntVectorByInsertion(int vec[], int size, char order){
     }
 }
 
+/** \brief Ordena el vector recibido (ascendente o descendente) por tecnica de burbujeo:
+ * Compara un indice del vector con sus predecesores, y de ser necesario los intercambia
+ *
+ * \param vec[] int
+ * \param size int
+ * \param order char
+ * \return void
+ *
+ */
 void sortIntVector(int vec[],int size, char order){
     // Bubbling technique
     int i,j,aux;
@@ -143,6 +240,12 @@ void sortIntVector(int vec[],int size, char order){
     }
 }
 
+/** \brief Recibe una cadena de caracteres y comierte la primer letra de cada palabra a mayuscula y el resto a minuscula
+ *
+ * \param vec[] char
+ * \return void
+ *
+ */
 void strCapitalize(char vec[]){
     int i = 0;
     strlwr(vec);
@@ -155,6 +258,12 @@ void strCapitalize(char vec[]){
     }
 }
 
+/** \brief Validar que la cadena ingresada sea solo numerica
+ *
+ * \param cadena a validar
+ * \return int 0=false  1=true
+ *
+ */
 int validNumber(char str[]){
    int i=0;
    int validation = 1;
@@ -167,6 +276,44 @@ int validNumber(char str[]){
    return validation;
 }
 
+/** \brief Validar que la cadena ingresada  contenga solo numeros y un punto como maximo. Si hay un punto, debe haber por lo menos 2 numeros.
+ *
+ * \param cadena a validar
+ * \return int 0=false  1=true
+ *
+ */
+int validFloat(char str[]){
+    int i=0;
+    int validation = 1;
+    int contDot = 0;
+    int contNum = 0;
+    while(str[i] != '\0'){
+        if(str[i] < '0' || str[i] > '9' ){
+            if( str[i] != '.'){
+                validation = 0;
+            } else if( str[i] == '.'){
+                contDot++;
+            }
+        } else {
+            contNum++;
+        }
+        i++;
+    }
+    if(contDot > 1){
+        validation = 0;
+    }
+    if(contDot == 1 && contNum < 2){
+        validation = 0;
+    }
+    return validation;
+}
+
+/** \brief Validar que la cadena ingresada sea letras (' ', a-z, A-Z)
+ *
+ * \param str[] char
+ * \return int 0=false  1=true
+ *
+ */
 int validLetter(char str[]){
    int i=0;
    int validation = 1;
@@ -179,6 +326,12 @@ int validLetter(char str[]){
    return validation;
 }
 
+/** \brief Validar que la cadena ingresada sea alfanumerica (' ', a-z, A-Z, 0-9)
+ *
+ * \param str[] char
+ * \return int 0=false  1=true
+ *
+ */
 int validAlphaNumeric(char str[]){
    int i=0;
    int validation = 1;
@@ -191,4 +344,15 @@ int validAlphaNumeric(char str[]){
    return validation;
 }
 
+/** \brief Funcion de pausa con leyenda en español
+ *
+ * \return char
+ *
+ */
+void pause(){
+    printf("\nPresione cualquier tecla para continuar");
+    getche();
+
+    //system("pause");
+}
 
