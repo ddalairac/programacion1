@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
-#include <conio.h>
+//#include <conio.h>
 
 /**********************************************
 *
@@ -68,7 +68,8 @@ void inputStr(char message[],char str[]){
     printf("%s: ",message);
     fflush(stdin);// Win
     //fpurge(stdn);// Linux OSx
-    gets(str);
+    //gets(str);
+    scanf("%s",str);
 }
 
 /** \brief Generar numero aleatorio
