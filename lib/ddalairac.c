@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
+#include <ctype.h>// tolower
 #include <time.h>
-#include <conio.h>
+#include <conio.h> // input output
+
+//#include <linux/string.h> // linux
+//#include <termios.h> // linux
 
 /**********************************************
 *
@@ -11,12 +14,7 @@
 *
 ***********************************************/
 
-/** \brief Solicita introducir un numero al usuario
- *
- * \param message[] char / mensaje que se imprime en pantalla al solicitar informacion al usuario
- * \return int
- *
- */
+
 int inputInt(char message[]){
     int number;
     //printf("Ingrese un int \n");
@@ -25,27 +23,13 @@ int inputInt(char message[]){
     return number;
 }
 
-/** \brief Solicita introducir un numero al usuario
- *
- * \param message[] char / mensaje que se imprime en pantalla al solicitar informacion al usuario
- * \return float
- *
- */
 float inputFloat(char message[]){
     float number;
-    //printf("Ingrese un float \n");
     printf("%s: ",message);
-    fflush(stdin);// Win
     scanf("%f", &number);
     return number;
 }
 
-/** \brief Solicita introducir una letra al usuario
- *
- * \param message[] char / mensaje que se imprime en pantalla al solicitar informacion al usuario
- * \return char
- *
- */
 char inputChar(char message[]){
     char character;
     //printf("Ingrese una letra \n");
@@ -56,80 +40,62 @@ char inputChar(char message[]){
     return character;
 }
 
-/** \brief Solicita introducir una cadena al usuario, recibe un vector y lo modifica
- *
- * \param message[] char / mensaje que se imprime en pantalla al solicitar informacion al usuario
- * \param str[] char
- * \return void
- *
- */
 void inputStr(char message[],char str[]){
 
     printf("%s: ",message);
     fflush(stdin);// Win
     //fpurge(stdn);// Linux OSx
-    gets(str);
+    gets(str); // win
+    //scanf("%s",str);//linux
 }
 
-/** \brief Generar numero aleatorio
- *
- * \param desde
- * \param hasta
- * \param fue inicializado rand?
- * \return numero aleatorio
- *
- */
 int getRandomNumber(int from, int to, int init){
     if (!init){
         srand(time(NULL));
     }
     return from + (rand() % (to + 1 - from) );
 }
+char getRandomChar( int init){
+    char randomletter;
+    if (!init){
+        srand(time(NULL));
+    }
+    randomletter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[getRandomNumber(0, 25, init)];
+    return randomletter;
+}
 
-/** \brief Recibe 2 valores y los suma
- * \param a int
- * \param b int
- * \return int
- */
+void getRandomString(char string[], int size, int init){
+    char randomString[size];
+    int i;
+    if (!init){
+        srand(time(NULL));
+    }
+    for(i=0; i < size; i++){
+        randomString[i] = getRandomChar(init);
+    }
+    strcpy(string,randomString);
+    printf("%s", string);
+}
 int calcAddition(int a, int b){
     int result = a + b;
     return result;
 }
-/** \brief Recibe 2 valores y los resta
- * \param a int
- * \param b int
- * \return int
- */
+
 int calcSubtraction(int a, int b){
     int result = a - b;
     return result;
 }
-/** \brief Recibe 2 valores y los multiplica
- * \param a int
- * \param b int
- * \return int
- */
+
 int calcMultiplication(int a, int b){
     int result = a * b;
     return result;
 }
 
-/** \brief Recibe 2 valores y los divide
- * \param a int
- * \param b int
- * \return int
- */
 float calcDivision(int a, int b){
     float result = (float)a / b;
     return result;
 }
 
-/** \brief Calcula y retorna el factorial del numero ingresado
- *
- * \param number int
- * \return int / Resultado del cálculo
- *
- */
 int calcFactorial(int number){
     int result = 1;
     int i;
@@ -139,10 +105,6 @@ int calcFactorial(int number){
     return result;
 }
 
-/** \brief Recibe 1 valores, e imprime en pantalla sus divisores
- * \param n int
- * \return void 1 is prime, 0 has dividers
- */
 int calcPrime(int number){
     int i;
     int flag = 0;
@@ -161,15 +123,20 @@ int calcPrime(int number){
     return isPrime;
 }
 
-/** \brief Recibe un numero entero para buscar en el contenido de un vector.
- * Si no encuentra retorna -1, caso positivo retorna el indice
- *
- * \param num int
- * \param vec[] int
- * \param vecSize int
- * \return int
- *
- */
+float calcAverage(int total, int amount){
+    float response = (float) total / amount;
+    return response;
+}
+
+int calcTotal(int vec[], int length){
+    int i;
+    int total = 0;
+    for(i = 0; i < length; i++){
+        total += vec[i];
+    }
+    return total;
+}
+
 int findInt(int num, int vec[], int vecSize){
     int i;
     int index = -1;
@@ -183,14 +150,6 @@ int findInt(int num, int vec[], int vecSize){
     return index;
 }
 
-/** \brief Ordena el vector recibido (ascendente o descendente) por tecnica de insercion:
- * Compara un indice del vector con sus predecesores, y de ser necesario mueve sus predecesores hacia adelante para insertar el indice en su posicion correcta.
- * \param vec[] int
- * \param size int
- * \param order char
- * \return void
- *
- */
 void sortIntVectorByInsertion(int vec[], int size, char order){
     // Insertion technique
     int i,j,aux;
@@ -209,15 +168,6 @@ void sortIntVectorByInsertion(int vec[], int size, char order){
     }
 }
 
-/** \brief Ordena el vector recibido (ascendente o descendente) por tecnica de burbujeo:
- * Compara un indice del vector con sus predecesores, y de ser necesario los intercambia
- *
- * \param vec[] int
- * \param size int
- * \param order char
- * \return void
- *
- */
 void sortIntVector(int vec[],int size, char order){
     // Bubbling technique
     int i,j,aux;
@@ -240,12 +190,6 @@ void sortIntVector(int vec[],int size, char order){
     }
 }
 
-/** \brief Recibe una cadena de caracteres y comierte la primer letra de cada palabra a mayuscula y el resto a minuscula
- *
- * \param vec[] char
- * \return void
- *
- */
 void strCapitalize(char vec[]){
     int i = 0;
     strlwr(vec);
@@ -258,12 +202,6 @@ void strCapitalize(char vec[]){
     }
 }
 
-/** \brief Validar que la cadena ingresada sea solo numerica
- *
- * \param cadena a validar
- * \return int 0=false  1=true
- *
- */
 int validNumber(char str[]){
    int i=0;
    int validation = 1;
@@ -276,12 +214,6 @@ int validNumber(char str[]){
    return validation;
 }
 
-/** \brief Validar que la cadena ingresada  contenga solo numeros y un punto como maximo. Si hay un punto, debe haber por lo menos 2 numeros.
- *
- * \param cadena a validar
- * \return int 0=false  1=true
- *
- */
 int validFloat(char str[]){
     int i=0;
     int validation = 1;
@@ -302,18 +234,19 @@ int validFloat(char str[]){
     if(contDot > 1){
         validation = 0;
     }
-    if(contDot == 1 && contNum < 2){
+
+    /* introducir solo '.' es valido. Es igual a 0.00,
+    pero me parece sucio asi que valido que introduzca por lo menos 1 numero*/
+    if(contDot == 1 && contNum < 1){
         validation = 0;
     }
+    if(str[0] == '.'){
+        validation = 0;
+    }
+
     return validation;
 }
 
-/** \brief Validar que la cadena ingresada sea letras (' ', a-z, A-Z)
- *
- * \param str[] char
- * \return int 0=false  1=true
- *
- */
 int validLetter(char str[]){
    int i=0;
    int validation = 1;
@@ -326,12 +259,6 @@ int validLetter(char str[]){
    return validation;
 }
 
-/** \brief Validar que la cadena ingresada sea alfanumerica (' ', a-z, A-Z, 0-9)
- *
- * \param str[] char
- * \return int 0=false  1=true
- *
- */
 int validAlphaNumeric(char str[]){
    int i=0;
    int validation = 1;
@@ -344,15 +271,64 @@ int validAlphaNumeric(char str[]){
    return validation;
 }
 
-/** \brief Funcion de pausa con leyenda en español
- *
- * \return char
- *
- */
+
+
+
+/*
+static struct termios old, new;
+
+// Initialize new terminal i/o settings
+void initTermios(int echo)
+{
+  tcgetattr(0, &old); // grab old terminal i/o settings
+  new = old; // make new settings same as old settings
+  new.c_lflag &= ~ICANON; // disable buffered i/o
+  if (echo) {
+      new.c_lflag |= ECHO; // set echo mode
+  } else {
+      new.c_lflag &= ~ECHO; // set no echo mode
+  }
+  tcsetattr(0, TCSANOW, &new); // use these new terminal i/o settings now
+}
+
+// Restore old terminal i/o settings
+void resetTermios(void)
+{
+  tcsetattr(0, TCSANOW, &old);
+}
+
+// Read 1 character - echo defines echo mode
+char getch_(int echo)
+{
+  char ch;
+  initTermios(echo);
+  ch = getchar();
+  resetTermios();
+  return ch;
+}
+
+// Read 1 character without echo
+char getch(void)
+{
+  return getch_(0);
+}
+
+// Read 1 character with echo
+char getche(void)
+{
+  return getch_(1);
+}
+*/
+
+
+
+
 void pause(){
     printf("\nPresione cualquier tecla para continuar");
+    //printf("Press 'Enter' to continue: ... ");
     getche();
-
+    //getch();
     //system("pause");
 }
+
 
