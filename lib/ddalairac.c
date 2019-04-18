@@ -32,7 +32,6 @@ float inputFloat(char message[]){
 
 char inputChar(char message[]){
     char character;
-    //printf("Ingrese una letra \n");
     printf("%s: ",message);
     fflush(stdin);// Win
     //fpurge(stdn);// Linux OSx
@@ -41,41 +40,40 @@ char inputChar(char message[]){
 }
 
 void inputStr(char message[],char str[]){
-
     printf("%s: ",message);
     fflush(stdin);// Win
-    //fpurge(stdn);// Linux OSx
     gets(str); // win
+    //fpurge(stdn);// Linux OSx
     //scanf("%s",str);//linux
 }
 
-int getRandomNumber(int from, int to, int init){
-    if (!init){
+void initRandom(int* init){
+    if (*init == 0){
         srand(time(NULL));
+        *init = 1;
     }
+}
+int getRandomNumber(int from, int to, int* init){
+    initRandom(&init);
     return from + (rand() % (to + 1 - from) );
 }
-char getRandomChar( int init){
+
+char getRandomChar(int* init){
     char randomletter;
-    if (!init){
-        srand(time(NULL));
-    }
-    randomletter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[getRandomNumber(0, 25, init)];
+    randomletter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[getRandomNumber(0, 25, &init)];
     return randomletter;
 }
 
-void getRandomString(char string[], int size, int init){
+void getRandomString(char string[], int size, int* init){
     char randomString[size];
     int i;
-    if (!init){
-        srand(time(NULL));
-    }
     for(i=0; i < size; i++){
-        randomString[i] = getRandomChar(init);
+        randomString[i] = getRandomChar(&init);
     }
     strcpy(string,randomString);
     printf("%s", string);
 }
+
 int calcAddition(int a, int b){
     int result = a + b;
     return result;

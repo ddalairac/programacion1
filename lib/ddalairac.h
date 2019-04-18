@@ -40,9 +40,9 @@ void inputStr(char message[],char str[]);
 
 /** \brief Generar numero aleatorio
  *
- * \param desde
- * \param hasta
- * \param init: time fue inicializado
+ * \param from int, desde
+ * \param to int, hasta
+ * \param init int: time fue inicializado
  * \return numero aleatorio
  *
  */
@@ -50,11 +50,21 @@ int getRandomNumber(int from, int to, int init);
 
 /** \brief Genera un caracter aleatorio
  *
- * \param init: time fue inicializado
+ * \param init int: time fue inicializado
  * \return char
  *
  */
 char getRandomChar( int init);
+
+/** \brief Genera una cadena aleatoria
+ *
+ * \param string[] char, vector donde se va a copiar la cadena generada
+ * \param size int, cantidad de caracteres a generar
+ * \param init int: time fue inicializado
+ * \return void
+ *
+ */
+void getRandomString(char string[], int size, int init);
 
 /** \brief Recibe 2 valores y los suma
  * \param a int

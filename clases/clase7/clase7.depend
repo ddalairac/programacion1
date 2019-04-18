@@ -1,7 +1,11 @@
 # depslib dependency file v1.0
-1554773820 source:c:\users\user\desktop\code\programacion1\lib\ddalairac.c
+1555628187 source:c:\users\user\desktop\code\programacion1\lib\ddalairac.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	<conio.h>
 
 1554782715 source:c:\users\user\desktop\code\programacion1\clases\clase7\main.c
 	<stdio.h>
