@@ -5,6 +5,9 @@
 #include <time.h>
 #include <conio.h> // input output
 
+#define TRUE 1
+#define FALSE 0
+
 //#include <linux/string.h> // linux
 //#include <termios.h> // linux
 
@@ -13,39 +16,6 @@
 *  Libreria de funciones genericas.
 *
 ***********************************************/
-
-
-int inputInt(char message[]){
-    int number;
-    //printf("Ingrese un int \n");
-    printf("%s: ",message);
-    scanf("%d", &number);
-    return number;
-}
-
-float inputFloat(char message[]){
-    float number;
-    printf("%s: ",message);
-    scanf("%f", &number);
-    return number;
-}
-
-char inputChar(char message[]){
-    char character;
-    printf("%s: ",message);
-    fflush(stdin);// Win
-    //fpurge(stdn);// Linux OSx
-    scanf("%c", &character);
-    return character;
-}
-
-void inputStr(char message[],char str[]){
-    printf("%s: ",message);
-    fflush(stdin);// Win
-    gets(str); // win
-    //fpurge(stdn);// Linux OSx
-    //scanf("%s",str);//linux
-}
 
 int validNumber(char str[]){
    int i=0;
@@ -115,6 +85,140 @@ int validAlphaNumeric(char str[]){
    }
    return validation;
 }
+
+int inputInt(char message[]){
+    int number;
+    //printf("Ingrese un int \n");
+    printf("%s",message);
+    scanf("%d", &number);
+    return number;
+}
+
+float inputFloat(char message[]){
+    float number;
+    printf("%s",message);
+    scanf("%f", &number);
+    return number;
+}
+
+char inputChar(char message[]){
+    char character;
+    printf("%s",message);
+    fflush(stdin);// Win
+    //fpurge(stdn);// Linux OSx
+    scanf("%c", &character);
+    return character;
+}
+
+void inputStr(char message[],char str[]){
+    printf("%s ",message);
+    fflush(stdin);// Win
+    gets(str); // win
+    //fpurge(stdn);// Linux OSx
+    //scanf("%s",str);//linux
+}
+
+int inputValidInt(char message[], int max){
+    int value;
+    char input[500] ;
+    int length;
+    int loop = TRUE;
+
+    do{
+        if(max < 0){
+            printf("Error de configuracion: inputValidInt(.. max) debe ser un numero positivo \n\n");
+            break;
+        }
+        inputStr(message,input);
+        length = strlen (input);
+        if(length > 0){
+            if(validNumber(input)){
+                if(max == 0 || atoi(input) <= max){
+                    value = atoi(input);
+                    loop = FALSE;
+                } else {
+                    printf("Error, debe introducir un numero menor o igual a %d. \n\n",max);
+                }
+            } else {
+                printf("Error, debe introducir solo numeros. \n\n");
+            }
+
+        } else {
+            if(length == 0){
+                printf("Error, Este campo es Obligatorio. \n\n");
+            } else {
+            }
+        }
+
+    }while(loop);
+
+    return value;
+}
+
+float inputValidFloat(char message[], int max){
+    float value;
+    char input[500] ;
+    int length;
+    int loop = TRUE;
+
+    do{
+    if(max < 0){
+        printf("Error de configuracion: inputValidInt(.. max) debe ser un numero positivo \n\n");
+        break;
+    }
+    inputStr(message,input);
+    length = strlen (input);
+    if(length > 0){
+        if(validNumber(input)){
+            if(max == 0 || atoi(input) <= max){
+                value = atoi(input);
+                loop = FALSE;
+            } else {
+                printf("Error, debe introducir un numero entre 0 y %d. \n\n",max);
+            }
+        } else {
+            printf("Error, debe introducir solo numeros. \n\n");
+        }
+    } else {
+        if(length == 0){
+            printf("Error, Este campo es Obligatorio. \n\n");
+        } else {
+        }
+    }
+
+    }while(loop);
+
+    return value;
+}
+
+void inputValidLetterString(char message[], char name[],int length){
+    char input[300] ;
+    int inputLength;
+    int loop = TRUE;
+    int max = length - 1;
+
+    do{
+        inputStr(message,input);
+        inputLength = strlen (input);
+        if(inputLength > 0 && inputLength < max){
+            if(validLetter(input)){
+                strcpy(name, input);
+                loop = FALSE;
+
+            } else {
+                printf("Error, debe introducir solo letras \n\n");
+            }
+
+        } else {
+            if(inputLength == 0){
+                printf("Error, Este campo es Obligatorio. \n\n");
+            } else {
+                printf("Error, El maximo de caracteres es %d. \n\n", max);
+            }
+        }
+    }while(loop);
+}
+
 
 
 void initRandom(){
@@ -274,55 +378,81 @@ void strCapitalize(char vec[]){
 }
 
 
+int displayMenu(char menuOptions[][100], int size, int type){
+    int option, i;
+    int loop = 0;
 
-/*
-static struct termios old, new;
+    do{
+        switch(type){
+            case 0:
+                system("cls");
+                printf("***************************************************************************************************************** \n\n");
+                printf("   %s \n\n",menuOptions[0]);
+                printf("***************************************************************************************************************** \n\n");
+                printf("   ** Menu de opciones: **\n");
+                for(i = 1; i <= size; i++){
+                    printf("   %d. %s \n",i,menuOptions[i]);
+                }
+                printf("\n");
+                break;
+            case 1:
+                displayTitle(menuOptions[0]);
+                printf("   ** Menu de opciones: **\n");
+                for(i = 1; i <= size; i++){
+                    printf("   %d. %s \n",i,menuOptions[i]);
+                }
+                printf("\n");
+                break;
 
-// Initialize new terminal i/o settings
-void initTermios(int echo)
-{
-  tcgetattr(0, &old); // grab old terminal i/o settings
-  new = old; // make new settings same as old settings
-  new.c_lflag &= ~ICANON; // disable buffered i/o
-  if (echo) {
-      new.c_lflag |= ECHO; // set echo mode
-  } else {
-      new.c_lflag &= ~ECHO; // set no echo mode
-  }
-  tcsetattr(0, TCSANOW, &new); // use these new terminal i/o settings now
+            case 2:
+                displaySubtitle(menuOptions[0]);
+                printf("   ** Menu de opciones: **\n");
+                for(i = 1; i <= size; i++){
+                    printf("   %d. %s \n",i,menuOptions[i]);
+                }
+                printf("\n");
+                break;
+
+            default:
+                printf("Error de configuracion: 'type' debe ser de 0 a 2 \n\n",size);
+                break;
+
+        }
+        option = inputValidInt("- Seleccione una opcion: ",size);
+        if(option != 0){
+            loop = 1;
+        } else {
+            printf("Error, debe introducir un numero mayor a 0 y menor o igual a %d. \n\n",size);
+            if(type == 0){
+                pause();
+            }
+
+        }
+    }while(loop == 0);
+
+    printf("\n");
+    return option;
 }
 
-// Restore old terminal i/o settings
-void resetTermios(void)
-{
-  tcsetattr(0, TCSANOW, &old);
+int displayMenuConfirmacion(){
+    int option, i;
+    int loop = 0;
+
+    printf("   ** Menu de opciones: **\n");
+    printf("   0. Cancelar \n" );
+    printf("   1. Confirmar \n" );
+    option = inputValidInt("- Seleccione una opcion: ",1);
+
 }
 
-// Read 1 character - echo defines echo mode
-char getch_(int echo)
-{
-  char ch;
-  initTermios(echo);
-  ch = getchar();
-  resetTermios();
-  return ch;
+void displayTitle(char message[]){
+    printf("   %s \n",message);
+    printf("----------------------------------------------------------------------------------------------------------------- \n");
 }
-
-// Read 1 character without echo
-char getch(void)
-{
-  return getch_(0);
+void displaySubtitle(char message[]){
+    printf("   ** %s ** \n",message);
+    printf("   -- \n\n");
 }
-
-// Read 1 character with echo
-char getche(void)
-{
-  return getch_(1);
-}
-*/
-
-
-
 
 void pause(){
     printf("\nPresione cualquier tecla para continuar");

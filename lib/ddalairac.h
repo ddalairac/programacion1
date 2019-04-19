@@ -5,6 +5,78 @@
 *
 ***********************************************/
 
+/** \brief Muestra en pantalla un menu y solicita al usuario introducir una opcion
+ *
+ * \param menuOptions[][100] char, el index 0 es el titulo, los demas elementos son opciones del menu
+ * \param size int, cantidad de items del menu
+ * \param type int, 0 menu principal, 1 menu secundario
+ * \return int, retorna la opcion valida introducida por el usuario
+ *
+ */
+int displayMenu(char menuOptions[][100], int size, int type);
+
+/** \brief Muestra en pantalla un menu con opciones de cancelar y aceptar, y solicita al usuario seleccionar una
+ *
+ * \return int, rerorna opcion seleccionada
+ *
+ */
+int displayMenuConfirmacion();
+
+/** \brief Formatea el mensaje introducido en forma de titulo
+ *
+ * \param message[] char
+ * \return void
+ *
+ */
+void displayTitle(char message[]);
+
+/** \brief Formatea el mensaje introducido en forma de sub-titulo
+ *
+ * \param message[] char
+ * \return void
+ *
+ */
+void displaySubtitle(char message[]);
+
+/** \brief Funcion de pausa con leyenda en español
+ *
+ * \return char
+ *
+ */
+void pause();
+
+/** \brief Validar que la cadena ingresada sea solo numerica
+ *
+ * \param cadena a validar
+ * \return int 0=false  1=true
+ *
+ */
+int validNumber(char str[]);
+
+/** \brief Validar que la cadena ingresada  contenga solo numeros y un punto como maximo. Si hay un punto, debe haber por lo menos 2 numeros.
+ *
+ * \param cadena a validar
+ * \return int 0=false  1=true
+ *
+ */
+int validFloat(char str[]);
+
+/** \brief Validar que la cadena ingresada sea letras (' ', a-z, A-Z)
+ *
+ * \param str[] char
+ * \return int 0=false  1=true
+ *
+ */
+int validLetter(char str[]);
+
+/** \brief Validar que la cadena ingresada sea alfanumerica (' ', a-z, A-Z, 0-9)
+ *
+ * \param str[] char
+ * \return int 0=false  1=true
+ *
+ */
+int validAlphaNumeric(char str[]);
+
 /** \brief Solicita introducir un numero al usuario
  *
  * \param message[] char / mensaje que se imprime en pantalla al solicitar informacion al usuario
@@ -37,6 +109,11 @@ char inputChar(char message[]);
  *
  */
 void inputStr(char message[],char str[]);
+
+
+int inputValidInt(char message[], int max);
+float inputValidFloat(char message[], int max);
+void inputValidLetterString(char message[], char name[],int length);
 
 /** \brief Inicializa "srand(time(NULL))" para poder utilizar rand()
  *
@@ -168,41 +245,3 @@ void sortIntVector(int vec[],int size, char order);
  */
 void strCapitalize(char vec[]);
 
-/** \brief Validar que la cadena ingresada sea solo numerica
- *
- * \param cadena a validar
- * \return int 0=false  1=true
- *
- */
-int validNumber(char str[]);
-
-/** \brief Validar que la cadena ingresada  contenga solo numeros y un punto como maximo. Si hay un punto, debe haber por lo menos 2 numeros.
- *
- * \param cadena a validar
- * \return int 0=false  1=true
- *
- */
-int validFloat(char str[]);
-
-/** \brief Validar que la cadena ingresada sea letras (' ', a-z, A-Z)
- *
- * \param str[] char
- * \return int 0=false  1=true
- *
- */
-int validLetter(char str[]);
-
-/** \brief Validar que la cadena ingresada sea alfanumerica (' ', a-z, A-Z, 0-9)
- *
- * \param str[] char
- * \return int 0=false  1=true
- *
- */
-int validAlphaNumeric(char str[]);
-
-/** \brief Funcion de pausa con leyenda en español
- *
- * \return char
- *
- */
-void pause();
