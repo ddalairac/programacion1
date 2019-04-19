@@ -38,6 +38,13 @@ char inputChar(char message[]);
  */
 void inputStr(char message[],char str[]);
 
+/** \brief Inicializa "srand(time(NULL))" para poder utilizar rand()
+ *
+ * \return void
+ *
+ */
+void initRandom();
+
 /** \brief Generar numero aleatorio
  *
  * \param from int, desde
@@ -46,7 +53,7 @@ void inputStr(char message[],char str[]);
  * \return numero aleatorio
  *
  */
-int getRandomNumber(int from, int to, int init);
+int getRandomNumber(int from, int to);
 
 /** \brief Genera un caracter aleatorio
  *
@@ -54,17 +61,26 @@ int getRandomNumber(int from, int to, int init);
  * \return char
  *
  */
-char getRandomChar( int init);
+char getRandomChar();
+
+/** \brief Selecciona un caracter de la cadena recibida aleatoreamente
+ *
+ * \param options[] char, cadena de donde se obtiene el caracter random
+ * \param size int, Ultimo index de la cadena introducida
+ * \return char
+ *
+ */
+char getRandomCharCustom(char options[], int size);
 
 /** \brief Genera una cadena aleatoria
  *
  * \param string[] char, vector donde se va a copiar la cadena generada
- * \param size int, cantidad de caracteres a generar
+ * \param size int, cantidad de caracteres a generar menos 1 (el ultimo sera \0)
  * \param init int: time fue inicializado
  * \return void
  *
  */
-void getRandomString(char string[], int size, int init);
+void getRandomString(char string[], int size);
 
 /** \brief Recibe 2 valores y los suma
  * \param a int

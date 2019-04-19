@@ -47,31 +47,104 @@ void inputStr(char message[],char str[]){
     //scanf("%s",str);//linux
 }
 
-void initRandom(int* init){
-    if (*init == 0){
-        srand(time(NULL));
-        *init = 1;
-    }
+int validNumber(char str[]){
+   int i=0;
+   int validation = 1;
+   while(str[i] != '\0'){
+       if(str[i] < '0' || str[i] > '9'){
+           validation = 0;
+        }
+       i++;
+   }
+   return validation;
 }
-int getRandomNumber(int from, int to, int* init){
-    initRandom(&init);
+
+int validFloat(char str[]){
+    int i=0;
+    int validation = 1;
+    int contDot = 0;
+    int contNum = 0;
+    while(str[i] != '\0'){
+        if(str[i] < '0' || str[i] > '9' ){
+            if( str[i] != '.'){
+                validation = 0;
+            } else if( str[i] == '.'){
+                contDot++;
+            }
+        } else {
+            contNum++;
+        }
+        i++;
+    }
+    if(contDot > 1){
+        validation = 0;
+    }
+
+    /* introducir solo '.' es valido. Es igual a 0.00,
+    pero me parece sucio asi que valido que introduzca por lo menos 1 numero*/
+    if(contDot == 1 && contNum < 1){
+        validation = 0;
+    }
+    if(str[0] == '.'){
+        validation = 0;
+    }
+
+    return validation;
+}
+
+int validLetter(char str[]){
+   int i=0;
+   int validation = 1;
+   while(str[i] != '\0'){
+       if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z')){
+           validation = 0;
+        }
+       i++;
+   }
+   return validation;
+}
+
+int validAlphaNumeric(char str[]){
+   int i=0;
+   int validation = 1;
+   while(str[i] != '\0'){
+       if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z') && (str[i] < '0' || str[i] > '9')){
+           validation = 0;
+       }
+       i++;
+   }
+   return validation;
+}
+
+
+void initRandom(){
+    srand(time(NULL));
+}
+
+int getRandomNumber(int from, int to){
     return from + (rand() % (to + 1 - from) );
 }
 
-char getRandomChar(int* init){
+char getRandomChar(){
     char randomletter;
-    randomletter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[getRandomNumber(0, 25, &init)];
+    randomletter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[getRandomNumber(0, 25)];
     return randomletter;
 }
 
-void getRandomString(char string[], int size, int* init){
+char getRandomCharCustom(char options[], int size){
+    char randomletter;
+    randomletter = options[getRandomNumber(0, size)];
+    return randomletter;
+}
+
+void getRandomString(char string[], int size){
     char randomString[size];
     int i;
-    for(i=0; i < size; i++){
-        randomString[i] = getRandomChar(&init);
+    for(i=0; i < size - 1; i++){
+        randomString[i] = getRandomChar();
     }
+    randomString[size] = '\0';
     strcpy(string,randomString);
-    printf("%s", string);
 }
 
 int calcAddition(int a, int b){
@@ -199,76 +272,6 @@ void strCapitalize(char vec[]){
         i++;
     }
 }
-
-int validNumber(char str[]){
-   int i=0;
-   int validation = 1;
-   while(str[i] != '\0'){
-       if(str[i] < '0' || str[i] > '9'){
-           validation = 0;
-        }
-       i++;
-   }
-   return validation;
-}
-
-int validFloat(char str[]){
-    int i=0;
-    int validation = 1;
-    int contDot = 0;
-    int contNum = 0;
-    while(str[i] != '\0'){
-        if(str[i] < '0' || str[i] > '9' ){
-            if( str[i] != '.'){
-                validation = 0;
-            } else if( str[i] == '.'){
-                contDot++;
-            }
-        } else {
-            contNum++;
-        }
-        i++;
-    }
-    if(contDot > 1){
-        validation = 0;
-    }
-
-    /* introducir solo '.' es valido. Es igual a 0.00,
-    pero me parece sucio asi que valido que introduzca por lo menos 1 numero*/
-    if(contDot == 1 && contNum < 1){
-        validation = 0;
-    }
-    if(str[0] == '.'){
-        validation = 0;
-    }
-
-    return validation;
-}
-
-int validLetter(char str[]){
-   int i=0;
-   int validation = 1;
-   while(str[i] != '\0'){
-       if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z')){
-           validation = 0;
-        }
-       i++;
-   }
-   return validation;
-}
-
-int validAlphaNumeric(char str[]){
-   int i=0;
-   int validation = 1;
-   while(str[i] != '\0'){
-       if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z') && (str[i] < '0' || str[i] > '9')){
-           validation = 0;
-       }
-       i++;
-   }
-   return validation;
-}
-
 
 
 
