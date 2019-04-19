@@ -1,49 +1,10 @@
+#include "struct_date.h"
 
 /**********************************************
 *
 *  Libreria de funciones genericas.
 *
 ***********************************************/
-
-/** \brief Muestra en pantalla un menu y solicita al usuario introducir una opcion
- *
- * \param menuOptions[][100] char, el index 0 es el titulo, los demas elementos son opciones del menu
- * \param size int, cantidad de items del menu
- * \param type int, 0 menu principal, 1 menu secundario
- * \return int, retorna la opcion valida introducida por el usuario
- *
- */
-int displayMenu(char menuOptions[][100], int size, int type);
-
-/** \brief Muestra en pantalla un menu con opciones de cancelar y aceptar, y solicita al usuario seleccionar una
- *
- * \return int, rerorna opcion seleccionada
- *
- */
-int displayMenuConfirmacion();
-
-/** \brief Formatea el mensaje introducido en forma de titulo
- *
- * \param message[] char
- * \return void
- *
- */
-void displayTitle(char message[]);
-
-/** \brief Formatea el mensaje introducido en forma de sub-titulo
- *
- * \param message[] char
- * \return void
- *
- */
-void displaySubtitle(char message[]);
-
-/** \brief Funcion de pausa con leyenda en español
- *
- * \return char
- *
- */
-void pause();
 
 /** \brief Validar que la cadena ingresada sea solo numerica
  *
@@ -76,6 +37,16 @@ int validLetter(char str[]);
  *
  */
 int validAlphaNumeric(char str[]);
+
+/** \brief Recive 3 cadenas (dia, mes año) y las valida
+ *
+ * \param cdd[] char, Dia
+ * \param cmm[] char, Mes
+ * \param cyy[] char, Año
+ * \return int 1 fecha valida, !=1 error (0 no numerico, -1 dia invalido, -2 mes invalido, -3 año invalido)
+ *
+ */
+int validDate(char cdd[],char cmm[],char cyy[]);
 
 /** \brief Solicita introducir un numero al usuario
  *
@@ -110,10 +81,52 @@ char inputChar(char message[]);
  */
 void inputStr(char message[],char str[]);
 
-
+/** \brief Solicita introducir un entero al usuario y lo valida
+ *
+ * \param message[] char, mensaje custom
+ * \param max int, numero maximo a validar (0 no valida maximo)
+ * \return int, numero entero validado
+ *
+ */
 int inputValidInt(char message[], int max);
+
+/** \brief Solicita introducir un flotante al usuario y lo valida
+ *
+ * \param message[] char, mensaje custom
+ * \param max int, numero maximo a validar (0 no valida maximo)
+ * \return int, numero flotante validado
+ *
+ */
 float inputValidFloat(char message[], int max);
-void inputValidLetterString(char message[], char name[],int length);
+
+/** \brief Solicita introducir una cadera al usuario y la valida (solo letras)
+ *
+ * \param message[] char, mensaje custom
+ * \param name[] char, cadena donde se copiara el resultado validado
+ * \param length int, index maximo de la cadena a validar
+ * \return void
+ *
+ */
+void inputValidLetterString(char message[], char str[],int length);
+
+/** \brief Solicita introducir una cadera al usuario y la valida (solo letras y umeros)
+ *
+ * \param message[] char, mensaje custom
+ * \param name[] char, cadena donde se copiara el resultado validado
+ * \param length int, index maximo de la cadena a validar
+ * \return void
+ *
+ */
+void inputValidAlphaNumericString(char message[], char str[],int length);
+
+/** \brief Solicita introducir una fecha al usuario y la valida
+ *
+ * \param message[] char, mensaje custom
+ * \param date Date, estructura date donde se copiara el resultado validado
+ * \return void
+ *
+ */
+void inputValidDate(char message[], eDate date);
 
 /** \brief Inicializa "srand(time(NULL))" para poder utilizar rand()
  *
@@ -245,3 +258,48 @@ void sortIntVector(int vec[],int size, char order);
  */
 void strCapitalize(char vec[]);
 
+/** \brief Formatea el mensaje introducido en forma de titulo
+ *
+ * \param message[] char
+ * \return void
+ *
+ */
+void displayTitle(char message[]);
+
+/** \brief Formatea el mensaje introducido en forma de sub-titulo
+ *
+ * \param message[] char
+ * \return void
+ *
+ */
+void displaySubtitle(char message[]);
+
+/** \brief Muestra en pantalla un menu y solicita al usuario introducir una opcion
+ *
+ * \param menuOptions[][100] char, el index 0 es el titulo, los demas elementos son opciones del menu
+ * \param size int, cantidad de items del menu
+ * \param type int, 0 menu principal, 1 menu secundario
+ * \return int, retorna la opcion valida introducida por el usuario
+ *
+ */
+int displayMenu(char menuOptions[][100], int size, int type);
+
+/** \brief Muestra en pantalla un menu con opciones de cancelar y aceptar, y solicita al usuario seleccionar una
+ *
+ * \return int, rerorna opcion seleccionada
+ *
+ */
+int displayMenuConfirmacion();
+
+/** \brief Funcion de pausa con leyenda en español
+ *
+ * \return char
+ *
+ */
+void pause();
+
+
+/** \brief Imprime espacios en pantalla
+ * \return void
+ */
+void margen();

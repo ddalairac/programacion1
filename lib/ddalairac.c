@@ -11,11 +11,15 @@
 //#include <linux/string.h> // linux
 //#include <termios.h> // linux
 
+#include "struct_date.h"
+
+
 /**********************************************
 *
 *  Libreria de funciones genericas.
 *
 ***********************************************/
+
 
 int validNumber(char str[]){
    int i=0;
@@ -83,6 +87,54 @@ int validAlphaNumeric(char str[]){
        }
        i++;
    }
+   return validation;
+}
+
+int validDate(char cdd[],char cmm[],char cyy[]){
+   int vd,vm,vy,dd,mm,yy;
+   int validation = 0;
+
+   vd = validNumber(cdd);
+   vm = validNumber(cmm);
+   vy = validNumber(cyy);
+
+   if(vd+vm+vy == 3){
+        dd = atoi(cdd);
+        mm = atoi(cmm);
+        yy = atoi(cyy);
+        //valid year
+        if(yy>=1800 && yy<=9999){
+            //valid month
+            if(mm>=1 && mm<=12){
+                //valid days
+                if((dd>=1 && dd<=31) && (mm==1 || mm==3 || mm==5 || mm==7 || mm==8 || mm==10 || mm==12)){
+                    //printf("Date is valid.\n");
+                    validation = 1;
+                } else if((dd>=1 && dd<=30) && (mm==4 || mm==6 || mm==9 || mm==11)){
+                    //printf("Date is valid.\n");
+                    validation = 1;
+                } else if((dd>=1 && dd<=28) && (mm==2)){
+                    //printf("Date is valid.\n");
+                    validation = 1;
+                } else if(dd==29 && mm==2 && (yy%400==0 ||(yy%4==0 && yy%100!=0))){
+                    //printf("Date is valid.\n");
+                    validation = 1;
+                } else {
+                    //printf("Error, dia es invalido\n");
+                    validation = -1;
+                }
+            } else {
+                //printf("Error, mes es invalido \n");
+                validation = -2;
+            }
+        } else {
+            //printf("Error, año es invalido\n");
+            validation = -3;
+        }
+    } else {
+        //printf("Error, fecha invalida. Ingrese solo numeros separados por espacios\n");
+        validation = 0;
+    }
    return validation;
 }
 
@@ -191,7 +243,7 @@ float inputValidFloat(char message[], int max){
     return value;
 }
 
-void inputValidLetterString(char message[], char name[],int length){
+void inputValidLetterString(char message[], char str[],int length){
     char input[300] ;
     int inputLength;
     int loop = TRUE;
@@ -202,7 +254,7 @@ void inputValidLetterString(char message[], char name[],int length){
         inputLength = strlen (input);
         if(inputLength > 0 && inputLength < max){
             if(validLetter(input)){
-                strcpy(name, input);
+                strcpy(str, input);
                 loop = FALSE;
 
             } else {
@@ -219,7 +271,81 @@ void inputValidLetterString(char message[], char name[],int length){
     }while(loop);
 }
 
+void inputValidAlphaNumericString(char message[], char str[],int length){
+    char input[300] ;
+    int inputLength;
+    int loop = TRUE;
+    int max = length - 1;
 
+    do{
+        inputStr(message,input);
+        inputLength = strlen (input);
+        if(inputLength > 0 && inputLength < max){
+            if(validAlphaNumeric(input)){
+                strcpy(str, input);
+                loop = FALSE;
+
+            } else {
+                printf("Error, debe introducir solo letras o numeros \n\n");
+            }
+
+        } else {
+            if(inputLength == 0){
+                printf("Error, Este campo es Obligatorio. \n\n");
+            } else {
+                printf("Error, El maximo de caracteres es %d. \n\n", max);
+            }
+        }
+    }while(loop);
+}
+
+void inputValidDate(char message[], eDate date){
+    int dd,mm,yy;
+    char cdd[20],cmm[20],cyy[20];
+    int loop = TRUE;
+    int validation = 0;
+
+    do{
+        printf("%s",message);
+        printf("(DD MM YYYY formato): ");
+        scanf("%s %s %s", cdd, cmm, cyy);
+
+        validation = validDate(cdd,cmm,cyy);
+        switch(validation){
+            case 0:
+                printf("Error, fecha invalida. Ingrese solo numeros separados por espacios\n");
+                break;
+
+            case -1:
+                printf("Error, dia invalido\n");
+                break;
+
+            case -2:
+                printf("Error, mes invalido \n");
+                break;
+
+            case -3:
+                printf("Error, ano invalido\n");
+                break;
+
+            case 1:
+                loop = FALSE;
+                dd = atoi(cdd);
+                mm = atoi(cmm);
+                yy = atoi(cyy);
+                //printf("Fecha correcta %d/%d/%d \n",dd,mm,yy);
+                break;
+            default:
+                printf("Error, fecha invalida. \n");
+                break;
+        }
+
+    } while(loop == TRUE);
+
+    date.day = dd;
+    date.month = mm;
+    date.year = yy;
+}
 
 void initRandom(){
     srand(time(NULL));
@@ -377,7 +503,6 @@ void strCapitalize(char vec[]){
     }
 }
 
-
 int displayMenu(char menuOptions[][100], int size, int type){
     int option, i;
     int loop = 0;
@@ -435,31 +560,32 @@ int displayMenu(char menuOptions[][100], int size, int type){
 }
 
 int displayMenuConfirmacion(){
-    int option, i;
-    int loop = 0;
-
+    int option;
     printf("   ** Menu de opciones: **\n");
     printf("   0. Cancelar \n" );
     printf("   1. Confirmar \n" );
     option = inputValidInt("- Seleccione una opcion: ",1);
 
+    return option;
 }
 
 void displayTitle(char message[]){
     printf("   %s \n",message);
     printf("----------------------------------------------------------------------------------------------------------------- \n");
 }
+
 void displaySubtitle(char message[]){
     printf("   ** %s ** \n",message);
     printf("   -- \n\n");
 }
 
 void pause(){
-    printf("\nPresione cualquier tecla para continuar");
+    printf("\n   Presione cualquier tecla para continuar");
     //printf("Press 'Enter' to continue: ... ");
     getche();
-    //getch();
-    //system("pause");
 }
 
+void margen(){
+    printf("   ");
+}
 
