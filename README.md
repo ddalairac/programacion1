@@ -7,7 +7,9 @@
 **int** numeros enteros = 10; <br>
 **float** decimal = 3.1681;  <br>
 **char** letra = 'a';  <br>
-**char** nombre **[20]**;  <br>
+char nombre **[20]**;  <br>
+char nombre **[ ] [20]**;   <br>
+**eEstruct** estruct  <br>
     
 
 ### Funciones nativas
