@@ -7,26 +7,31 @@
 **int** numeros enteros = 10; <br>
 **float** decimal = 3.1681;  <br>
 **char** letra = 'a';  <br>
-**char** nombre **[20]**;  <br>
+char nombre **[20]**;  <br>
+char nombre **[ ] [20]**;   <br>
+**eEstruct** estruct  <br>
     
 
 ### Funciones nativas
 **printf**("Hello world!\n");  <br>
 printf("mas de una variable %d, %d y %d \n", num1, num2, num1+num2);  <br>
 
-**scanf**("%d", &numero);
+**scanf**("%d", &numero);<br>
 scanf("%s", nombre);  <br>
 scanf("%c", &confirm);   <br>
 confirm = **getchar()**;  *(idem ejemplo anterior)*  <br>
-.          getch(); (no espera enter y NO te muestra el caracter)  <br>
-.          getche(); (no espera enter y te muestra el caracter)  <br>
+. . . . . . . getch(); (no espera enter y NO te muestra el caracter)  <br>
+. . . . . . . getche(); (no espera enter y te muestra el caracter)  <br>
 
 **fflush** (stdin); (limpia el buffer, para asegurarte que no quedo nada viejo)  <br>
 **strcpy** (origen,destino); (para copiar strings)  <br>
 
 
 ### Castear int a float
-promedio = **(float)** (num1+num2)/2;   <br>
+(float) 2 = 2.0 <br>
+atoi( “2”) = 2 <br>
+itoa(12345,vec,5); = “1,2,3,4,\0”  <br>
+ 
 
 ### Mascaras / Visualizacion de variables
 - %d      decimal
