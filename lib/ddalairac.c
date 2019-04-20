@@ -138,6 +138,33 @@ int validDate(char cdd[],char cmm[],char cyy[]){
    return validation;
 }
 
+int validPhone(char str[]){
+    int i=0;
+    int countHyphen=0;
+    int countPluss=0;
+    int validation = 1;
+    while(str[i] != '\0'){
+        if((str[i] != '+') && (str[i] != ' ') && (str[i] != '-') && (str[i] < '0' || str[i] > '9')){
+            validation = 0;
+        }
+        if(str[i] == '-'){
+            countHyphen++;
+        }
+        if(str[i] == '+'){
+            countPluss++;
+        }
+        i++;
+   }
+    if(countHyphen > 2){ // debe tener 2 guiones maximo
+        validation = -1;
+    }
+    if(countPluss > 1){ // debe tener 1 mas como maximo
+        validation = -2;
+    }
+
+    return validation;
+}
+
 int inputInt(char message[]){
     int number;
     //printf("Ingrese un int \n");
@@ -197,7 +224,7 @@ int inputValidInt(char message[], int max){
 
         } else {
             if(length == 0){
-                printf("Error, Este campo es Obligatorio. \n\n");
+                printf("Error, este campo es Obligatorio. \n\n");
             } else {
             }
         }
@@ -233,7 +260,7 @@ float inputValidFloat(char message[], int max){
         }
     } else {
         if(length == 0){
-            printf("Error, Este campo es Obligatorio. \n\n");
+            printf("Error, este campo es Obligatorio. \n\n");
         } else {
         }
     }
@@ -263,9 +290,9 @@ void inputValidLetterString(char message[], char str[],int length){
 
         } else {
             if(inputLength == 0){
-                printf("Error, Este campo es Obligatorio. \n\n");
+                printf("Error, este campo es Obligatorio. \n\n");
             } else {
-                printf("Error, El maximo de caracteres es %d. \n\n", max);
+                printf("Error, el maximo de caracteres es %d. \n\n", max);
             }
         }
     }while(loop);
@@ -291,9 +318,9 @@ void inputValidAlphaNumericString(char message[], char str[],int length){
 
         } else {
             if(inputLength == 0){
-                printf("Error, Este campo es Obligatorio. \n\n");
+                printf("Error, este campo es Obligatorio. \n\n");
             } else {
-                printf("Error, El maximo de caracteres es %d. \n\n", max);
+                printf("Error, el maximo de caracteres es %d. \n\n", max);
             }
         }
     }while(loop);
@@ -307,7 +334,7 @@ void inputValidDate(char message[], eDate date){
 
     do{
         printf("%s",message);
-        printf("(DD MM YYYY formato): ");
+        printf("(DD MM YYYY): ");
         scanf("%s %s %s", cdd, cmm, cyy);
 
         validation = validDate(cdd,cmm,cyy);
@@ -347,6 +374,46 @@ void inputValidDate(char message[], eDate date){
     date.year = yy;
 }
 
+void inputValidPhone(char message[], char str[],int length){
+    char input[300] ;
+    int inputLength, valitation;
+    int loop = TRUE;
+    int max = length - 1;
+
+    do{
+        inputStr(message,input);
+        inputLength = strlen (input);
+        if(inputLength > 0 && inputLength <= max){
+            valitation = validPhone(input);
+            if(valitation == 1){
+                strcpy(str, input);
+                loop = FALSE;
+
+            } else {
+                switch(valitation){
+                    case 0:
+                        printf("Error, caracter incorrecto (validos: numeros, espacios, guiones y un signo mas) \n\n");
+                        break;
+                    case -1:
+                        printf("Error, no puede haber mas de 2 guiones \n\n");
+                        break;
+                    case -2:
+                        printf("Error, solo puede haber un signo + \n\n");
+                        break;
+                }
+            }
+
+        } else {
+            if(inputLength == 0){
+                printf("Error, Este campo es Obligatorio. \n\n");
+            } else {
+                printf("Error, El maximo de caracteres es %d. \n\n", max);
+            }
+        }
+    }while(loop);
+}
+
+
 void initRandom(){
     srand(time(NULL));
 }
@@ -357,7 +424,8 @@ int getRandomNumber(int from, int to){
 
 char getRandomChar(){
     char randomletter;
-    randomletter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[getRandomNumber(0, 25)];
+    int r = getRandomNumber(0, 25);
+    randomletter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[r];
     return randomletter;
 }
 
@@ -368,13 +436,21 @@ char getRandomCharCustom(char options[], int size){
 }
 
 void getRandomString(char string[], int size){
-    char randomString[size];
+    char randomString[size+1];
     int i;
-    for(i=0; i < size - 1; i++){
+    for(i=0; i < size; i++){
         randomString[i] = getRandomChar();
     }
     randomString[size] = '\0';
     strcpy(string,randomString);
+}
+
+void setSleep(int ms){
+    #ifdef __unix__
+        usleep(ms*1000);
+    #else
+        _sleep(ms);
+    #endif // __unix__
 }
 
 int calcAddition(int a, int b){
@@ -437,6 +513,28 @@ int calcTotal(int vec[], int length){
     }
     return total;
 }
+
+int calcMax(int vec[], int length){
+    int i,max;
+    max = vec[0];
+    for(i=1; i<length; i++){
+        if(max < vec[i]){
+            max = vec[i];
+        }
+    }
+    return max;
+}
+int calcMin(int vec[], int length){
+    int i,min;
+    min = vec[0];
+    for(i=1; i<length; i++){
+        if(min > vec[i]){
+            min = vec[i];
+        }
+    }
+    return min;
+}
+
 
 int findInt(int num, int vec[], int vecSize){
     int i;
@@ -583,6 +681,14 @@ void pause(){
     printf("\n   Presione cualquier tecla para continuar");
     //printf("Press 'Enter' to continue: ... ");
     getche();
+}
+
+void clear(){
+    #ifdef __unix--
+        system("clear");
+    #else
+        system("cls");
+    #endif // __unix
 }
 
 void margen(){

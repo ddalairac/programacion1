@@ -43,10 +43,18 @@ int validAlphaNumeric(char str[]);
  * \param cdd[] char, Dia
  * \param cmm[] char, Mes
  * \param cyy[] char, Año
- * \return int 1 fecha valida, !=1 error (0 no numerico, -1 dia invalido, -2 mes invalido, -3 año invalido)
+ * \return int, 1 fecha valida, !=1 error (0 no numerico, -1 dia invalido, -2 mes invalido, -3 año invalido)
  *
  */
 int validDate(char cdd[],char cmm[],char cyy[]);
+
+/** \brief Validar que la cadena ingresada sea un numero valido (+54 345-2345)
+ *
+ * \param str[] char, cadena a validar
+ * \return int, 1 telefono valido, !=1 error (0 caracter incorrecto, -1 mas de 2 guiones, -2 mas de un simbolo +)
+ *
+ */
+int validPhone(char str[]);
 
 /** \brief Solicita introducir un numero al usuario
  *
@@ -128,6 +136,16 @@ void inputValidAlphaNumericString(char message[], char str[],int length);
  */
 void inputValidDate(char message[], eDate date);
 
+/** \brief Solicita introducir una telefono al usuario y la valida
+ *
+ * \param message[] char
+ * \param str[] char, cadena donde se copiara el te,efono validado
+ * \param length int, index maximo de la cadena a validar
+ * \return void
+ *
+ */
+void inputValidPhone(char message[], char str[],int length);
+
 /** \brief Inicializa "srand(time(NULL))" para poder utilizar rand()
  *
  * \return void
@@ -172,6 +190,14 @@ char getRandomCharCustom(char options[], int size);
  */
 void getRandomString(char string[], int size);
 
+/** \brief Pausa la ejecusion por la cantidad de milisegundos ingresados
+ *
+ * \param ms int
+ * \return void
+ *
+ */
+void setSleep(int ms);
+
 /** \brief Recibe 2 valores y los suma
  * \param a int
  * \param b int
@@ -214,9 +240,41 @@ int calcFactorial(int number);
  */
 int calcPrime(int number);
 
+/** \brief Recibe 2 numeros (total y cantidad) y saca el promedio
+ *
+ * \param total int
+ * \param amount int
+ * \return float
+ *
+ */
 float calcAverage(int total, int amount);
 
+/** \brief Recibe un vector y suma el contenido de todos sus indices
+ *
+ * \param vec[] int
+ * \param length int
+ * \return int
+ *
+ */
 int calcTotal(int vec[], int length);
+
+/** \brief Recibe un vector y calcula cual es el valor maximo de sus indices
+ *
+ * \param vec[] int
+ * \param length int
+ * \return int
+ *
+ */
+int calcMax(int vec[], int length);
+
+/** \brief Recibe un vector y calcula cual es el valor minimo de sus indices
+ *
+ * \param vec[] int
+ * \param length int
+ * \return int
+ *
+ */
+int calcMin(int vec[], int length);
 
 /** \brief Recibe un numero entero para buscar en el contenido de un vector.
  * Si no encuentra retorna -1, caso positivo retorna el indice
@@ -298,6 +356,12 @@ int displayMenuConfirmacion();
  */
 void pause();
 
+/** \brief Limpia la pantalla dependiendo del OS
+ *
+ * \return void
+ *
+ */
+void clear();
 
 /** \brief Imprime espacios en pantalla
  * \return void
