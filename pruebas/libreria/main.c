@@ -23,7 +23,6 @@ int main(){
     //char phone[20];
     //inputValidPhone("Ingrese su telefono", phone, 13);
 
-
     return 0;
 }
 

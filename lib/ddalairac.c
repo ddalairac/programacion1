@@ -445,6 +445,60 @@ void getRandomString(char string[], int size){
     strcpy(string,randomString);
 }
 
+int getRandomName(char string[],int size){
+    char names[][20] = {
+        {'A','v','a','\0'}, {'L','i','a','m','\0'}, {'E','m','m','a','\0'}, {'N','o','a','h','\0'}, {'W','i','l','l','i','a','m','\0'}, {'J','a','m','e','s','\0'}, {'L','o','g','a','n','\0'}, {'B','e','n','j','a','m','i','n','\0'}, {'M','a','s','o','n','\0'}, {'E','l','i','j','a','h','\0'}, {'O','l','i','v','e','r','\0'}, {'J','a','c','o','b','\0'}, {'L','u','c','a','s','\0'}, {'M','i','c','h','a','e','l','\0'}, {'A','l','e','x','a','n','d','e','r','\0'}, {'E','t','h','a','n','\0'}, {'D','a','n','i','e','l','\0'}, {'S','o','f','i','a','\0'}, {'M','a','t','t','h','e','w','\0'}, {'E','l','l','a','\0'}, {'A','i','d','e','n','\0'}, {'H','e','n','r','y','\0'}, {'J','o','s','e','p','h','\0'}, {'J','a','c','k','s','o','n','\0'}, {'A','r','i','a','\0'}, {'S','a','m','u','e','l','\0'}, {'G','r','a','c','e','\0'}, {'S','e','b','a','s','t','i','a','n','\0'}, {'D','a','v','i','d','\0'}, {'C','a','r','t','e','r','\0'}, {'W','y','a','t','t','\0'}, {'R','i','l','e','y','\0'}, {'J','a','y','d','e','n','\0'}, {'L','a','y','l','a','\0'}, {'J','o','h','n','\0'}, {'O','w','e','n','\0'}, {'N','o','r','a','\0'}, {'D','y','l','a','n','\0'}, {'Z','o','e','y','\0'}, {'L','u','k','e','\0'}, {'M','i','l','a','\0'}, {'G','a','b','r','i','e','l','\0'}, {'H','a','n','n','a','h','\0'}, {'I','s','a','a','c','\0'}, {'L','i','l','y','\0'}, {'G','r','a','y','s','o','n','\0'}, {'J','a','c','k','\0'}, {'J','u','l','i','a','n','\0'}, {'L','e','v','i','\0'}, {'L','u','n','a','\0'}, {'C','h','r','i','s','t','o','p','h','e','r','\0'}, {'J','o','s','h','u','a','\0'}, {'A','n','d','r','e','w','\0'}, {'L','e','a','h','\0'}, {'M','a','t','e','o','\0'}, {'R','y','a','n','\0'}, {'H','a','z','e','l','\0'}, {'J','a','x','o','n','\0'}, {'E','l','l','i','e','\0'}, {'N','a','t','h','a','n','\0'}
+    };
+    char name[20] = " ";
+    int i,length;
+    int valid = 0;
+    for(i=0; i < 60; i++){
+        strcpy(name,names[getRandomNumber(0,59)]);
+        length = strlen(name);
+        if(length < size){
+            valid = 1;
+            break;
+        }
+    }
+    //printf("length %5d name %20s \n",length,name);
+    strcpy(string,name);
+    return valid;
+}
+int getRandomLastname(char string[],int size){
+    char names[][20] = {
+        {'A','l','v','a','r','e','z','\0'},
+        {'B','e','n','í','t','e','z','\0'},
+        {'B','e','r','m','u','d','e','z','\0'},
+        {'B','l','á','z','q','u','e','z','\0'},
+        {'D','í','e','z','\0'},
+        {'D','o','m','í','n','g','u','e','z','\0'},
+        {'E','n','r','í','q','u','e','z','\0'},
+        {'F','e','r','n','á','n','d','e','z','\0'},
+        {'M','u','l','l','e','r','\0'},
+        {'S','m','i','r','n','o','v','\0'},
+        {'S','m','i','t','h','\0'},
+        {'H','e','r','n','a','n','d','e','z','\0'},
+        {'G','o','n','z','a','l','e','z','\0'},
+        {'G','a','r','c','i','a','\0'},
+        {'N','g','u','y','e','n','\0'},
+    };
+    char name[20] = " ";
+    int i,length;
+    int valid = 0;
+    for(i=0; i < 15; i++){
+        strcpy(name,names[getRandomNumber(0,14)]);
+        length = strlen(name);
+        if(length < size){
+            valid = 1;
+            break;
+        }
+    }
+    //printf("length %5d name %20s \n",length,name);
+    strcpy(string,name);
+    return valid;
+}
+
+
 void setSleep(int ms){
     #ifdef __unix__
         usleep(ms*1000);

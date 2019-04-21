@@ -190,6 +190,24 @@ char getRandomCharCustom(char options[], int size);
  */
 void getRandomString(char string[], int size);
 
+/** \brief Copia en la cadena introducida un nombre seleccionado al azar de una lista
+ *
+ * \param string[] char
+ * \param size int, maximo de caracteres del nombre
+ * \return int, 1 si encontro un nombre con esa cantidad de caracteres, 0 si no lo encontro
+ *
+ */
+int getRandomName(char string[],int size);
+
+/** \brief Copia en la cadena introducida un apellido seleccionado al azar de una lista
+ *
+ * \param string[] char
+ * \param size int, maximo de caracteres del apellido
+ * \return int, 1 si encontro un apellido con esa cantidad de caracteres, 0 si no lo encontro
+ *
+ */
+int getRandomLastname(char string[],int size);
+
 /** \brief Pausa la ejecusion por la cantidad de milisegundos ingresados
  *
  * \param ms int
