@@ -6,6 +6,26 @@
 *
 ***********************************************/
 
+/** \brief Funcion de pausa con leyenda en español
+ *
+ * \return char
+ *
+ */
+void setPause();
+
+/** \brief Limpia la pantalla dependiendo del OS
+ *
+ * \return void
+ *
+ */
+void clear();
+
+/** \brief Imprime espacios en pantalla
+ * \return void
+ */
+void margen();
+
+
 /** \brief Validar que la cadena ingresada sea solo numerica
  *
  * \param cadena a validar
@@ -367,21 +387,3 @@ int displayMenu(char menuOptions[][100], int size, int type);
  */
 int displayMenuConfirmacion();
 
-/** \brief Funcion de pausa con leyenda en español
- *
- * \return char
- *
- */
-void pause();
-
-/** \brief Limpia la pantalla dependiendo del OS
- *
- * \return void
- *
- */
-void clear();
-
-/** \brief Imprime espacios en pantalla
- * \return void
- */
-void margen();

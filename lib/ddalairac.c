@@ -7,6 +7,7 @@
     #include <linux/string.h> // linux
     #include <termios.h> // linux
     #include <stdio_ext.h>
+    #include <unistd.h>
 #else
     #include <string.h>
     #include <conio.h> // input output
@@ -24,6 +25,28 @@
 *  Libreria de funciones genericas.
 *
 ***********************************************/
+
+void setPause(){
+    printf("\n   Presione una tecla para continuar...");
+    #ifdef __unix__
+        while(getchar() != '\n') continue; //clear input buffer
+        getchar();
+    #else
+        getche();
+    #endif // __unix
+}
+
+void clear(){
+    #ifdef __unix__
+        system("clear");
+    #else
+        system("cls");
+    #endif // __unix
+}
+
+void margen(){
+    printf("   ");
+}
 
 
 int validNumber(char str[]){
@@ -668,6 +691,16 @@ void strCapitalize(char vec[]){
     }
 }
 
+void displayTitle(char message[]){
+    printf("   %s \n",message);
+    printf("--------------------------------------------------------------------------- \n");
+}
+
+void displaySubtitle(char message[]){
+    printf("   ** %s ** \n",message);
+    printf("   -- \n\n");
+}
+
 int displayMenu(char menuOptions[][100], int size, int type){
     int option, i;
     int loop = 0;
@@ -675,10 +708,10 @@ int displayMenu(char menuOptions[][100], int size, int type){
     do{
         switch(type){
             case 0:
-                system("cls");
-                printf("***************************************************************************************************************** \n\n");
+                clear();
+                printf("*************************************************************************** \n\n");
                 printf("   %s \n\n",menuOptions[0]);
-                printf("***************************************************************************************************************** \n\n");
+                printf("*************************************************************************** \n\n");
                 printf("   ** Menu de opciones: **\n");
                 for(i = 1; i <= size; i++){
                     printf("   %d. %s \n",i,menuOptions[i]);
@@ -704,7 +737,7 @@ int displayMenu(char menuOptions[][100], int size, int type){
                 break;
 
             default:
-                printf("Error de configuracion: 'type' debe ser de 0 a 2 \n\n",size);
+                printf("Error de configuracion: 'type' debe ser de 0 a 2 \n\n");
                 break;
 
         }
@@ -714,7 +747,7 @@ int displayMenu(char menuOptions[][100], int size, int type){
         } else {
             printf("Error, debe introducir un numero mayor a 0 y menor o igual a %d. \n\n",size);
             if(type == 0){
-                pause();
+                setPause();
             }
 
         }
@@ -732,38 +765,5 @@ int displayMenuConfirmacion(){
     option = inputValidInt("- Seleccione una opcion: ",1);
 
     return option;
-}
-
-void displayTitle(char message[]){
-    printf("   %s \n",message);
-    printf("----------------------------------------------------------------------------------------------------------------- \n");
-}
-
-void displaySubtitle(char message[]){
-    printf("   ** %s ** \n",message);
-    printf("   -- \n\n");
-}
-
-void pause(){
-    printf("\n   Presione cualquier tecla para continuar");
-    //printf("Press 'Enter' to continue: ... ");
-
-    #ifdef __unix__
-        int c = getchar();
-    #else
-        getche();
-    #endif // __unix
-}
-
-void clear(){
-    #ifdef __unix__
-        system("clear");
-    #else
-        system("cls");
-    #endif // __unix
-}
-
-void margen(){
-    printf("   ");
 }
 
