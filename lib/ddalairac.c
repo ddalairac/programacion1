@@ -1,15 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <ctype.h>// tolower
 #include <time.h>
-#include <conio.h> // input output
+
+#ifdef __unix__
+    #include <linux/string.h> // linux
+    #include <termios.h> // linux
+    #include <stdio_ext.h>
+#else
+    #include <string.h>
+    #include <conio.h> // input output
+#endif // __unix
 
 #define TRUE 1
 #define FALSE 0
 
-//#include <linux/string.h> // linux
-//#include <termios.h> // linux
 
 #include "struct_date.h"
 
@@ -191,10 +196,13 @@ char inputChar(char message[]){
 
 void inputStr(char message[],char str[]){
     printf("%s ",message);
-    fflush(stdin);// Win
-    gets(str); // win
-    //fpurge(stdn);// Linux OSx
-    //scanf("%s",str);//linux
+    #ifdef __unix__
+        //fpurge(stdn);// Linux OSx
+        scanf("%s",str);//linux
+    #else
+        fflush(stdin);// Win
+        gets(str); // win
+    #endif // __unix
 }
 
 int inputValidInt(char message[], int max){
@@ -591,7 +599,12 @@ void sortIntVector(int vec[],int size, char order){
 
 void strCapitalize(char vec[]){
     int i = 0;
-    strlwr(vec);
+
+    #ifdef __unix__
+
+    #else
+        strlwr(vec);
+    #endif // __unix
     vec[0] = toupper(vec[0]);
     while( vec[i] != '\0'){
         if( vec[i] == ' '){
@@ -680,11 +693,16 @@ void displaySubtitle(char message[]){
 void pause(){
     printf("\n   Presione cualquier tecla para continuar");
     //printf("Press 'Enter' to continue: ... ");
-    getche();
+
+    #ifdef __unix__
+        int c = getchar();
+    #else
+        getche();
+    #endif // __unix
 }
 
 void clear(){
-    #ifdef __unix--
+    #ifdef __unix__
         system("clear");
     #else
         system("cls");
