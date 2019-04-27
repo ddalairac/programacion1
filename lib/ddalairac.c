@@ -280,15 +280,15 @@ float inputValidFloat(char message[], int max){
     inputStr(message,input);
     length = strlen (input);
     if(length > 0){
-        if(validNumber(input)){
+        if(validFloat(input)){
             if(max == 0 || atoi(input) <= max){
-                value = atoi(input);
+                value = atof(input);
                 loop = FALSE;
             } else {
                 printf("Error, debe introducir un numero entre 0 y %d. \n\n",max);
             }
         } else {
-            printf("Error, debe introducir solo numeros. \n\n");
+            printf("Error, debe introducir solo numeros o un punto \n\n");
         }
     } else {
         if(length == 0){
