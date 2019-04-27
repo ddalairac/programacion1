@@ -11,6 +11,7 @@
 #else
     #include <string.h>
     #include <conio.h> // input output
+    #include <Windows.h> // for sleep
 #endif // __unix
 
 #define TRUE 1
@@ -498,13 +499,13 @@ int getRandomName(char string[],int size){
 int getRandomLastname(char string[],int size){
     char names[][20] = {
         {'A','l','v','a','r','e','z','\0'},
-        {'B','e','n','í','t','e','z','\0'},
+        {'B','e','n','i','t','e','z','\0'},
         {'B','e','r','m','u','d','e','z','\0'},
-        {'B','l','á','z','q','u','e','z','\0'},
+        {'B','l','a','z','q','u','e','z','\0'},
         {'D','í','e','z','\0'},
-        {'D','o','m','í','n','g','u','e','z','\0'},
-        {'E','n','r','í','q','u','e','z','\0'},
-        {'F','e','r','n','á','n','d','e','z','\0'},
+        {'D','o','m','i','n','g','u','e','z','\0'},
+        {'E','n','r','i','q','u','e','z','\0'},
+        {'F','e','r','n','a','n','d','e','z','\0'},
         {'M','u','l','l','e','r','\0'},
         {'S','m','i','r','n','o','v','\0'},
         {'S','m','i','t','h','\0'},
@@ -534,7 +535,7 @@ void setSleep(int ms){
     #ifdef __unix__
         usleep(ms*1000);
     #else
-        _sleep(ms);
+        Sleep(ms);
     #endif // __unix__
 }
 
