@@ -1,4 +1,9 @@
-#include "struct_date.h"
+
+typedef struct{
+    int day;
+    int month;
+    int year;
+} eDate;
 
 /**********************************************
 *
