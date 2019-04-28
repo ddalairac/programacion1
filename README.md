@@ -9,8 +9,10 @@
 **char** letra = 'a';  <br>
 char nombre **[20]**;  <br>
 char nombre **[ ] [20]**;   <br>
-**eEstruct** estruct  <br>
-    
+**eEstruct** estruct  <br>  <br>
+
+***pointer** referencia a la memoria  <br>
+(*vec+0) = vec[0]   <br>    
 
 ### Funciones nativas
 **printf**("Hello world!\n");  <br>
