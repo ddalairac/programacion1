@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1556575780 source:/home/alumno/Documentos/git/programacion1/lib/ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+
+1556575780 /home/alumno/Documentos/git/programacion1/lib/ddalairac.h
+
+1556580959 source:/home/alumno/Documentos/git/programacion1/clases/clase12/abmLib.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"../../lib/ddalairac.h"
+	"abmLib.h"
+
+1556582559 /home/alumno/Documentos/git/programacion1/clases/clase12/abmLib.h
+
+1556582557 source:/home/alumno/Documentos/git/programacion1/clases/clase12/main.c
+	<stdio.h>
+	<stdlib.h>
+	"../../lib/ddalairac.h"
+	"abmLib.h"
+
