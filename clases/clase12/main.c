@@ -7,12 +7,25 @@
 #define TRUE 1
 #define FALSE 0
 #define SiEm 10
-#define SiFo 10
-#define SiAl 10
+#define SiFo 5
 
 int main(){
-    eFoodMenu menuFoods[SiFo];
-    //eLunch alm[SiAl];
+    eFoodMenu menuFoods[] = {
+        {0,"Hamburguesa & fritas"},
+        {1,"Ensalada Cesar"},
+        {2,"Pastas con fileto"},
+        {3,"Milanesa & Fritas"},
+        {4,"Pizza"},
+    };
+    eSector sectors[]  = {
+        {0,"RRHH"},
+        {1,"Frontend"},
+        {2,"Backend"},
+        {3,"Funcional"},
+        {4,"PO"},
+    };
+    //eLunch alm[SiEm];
+
     eEmployee employees[SiEm];
 
     int option;
@@ -29,7 +42,7 @@ int main(){
     };
 
     result = initEmployees(employees, SiEm);
-    result = initFoodMenu(menuFoods, SiFo);
+    //result = initFoodMenu(menuFoods, SiFo);
 
 
     /** HARCODE LISTS */
@@ -38,11 +51,11 @@ int main(){
         margen();printf("No se puedieron cargar empleados de ejemplo \n");
         setPause();
     }
-    result = hardcodeFoodMenu(menuFoods, SiFo, SiFo);
+    /*result = hardcodeFoodMenu(menuFoods, SiFo, SiFo);
     if(result == -1){
         margen();printf("No se puedieron cargar comidas de ejemplo \n");
         setPause();
-    }
+    }*/
 
     do{
         option = displayMenu(mainMenu,5,0);
@@ -72,7 +85,7 @@ int main(){
                 break;*/
 
             case 4:
-                result = secInforms(employees, SiEm, menuFoods, SiFo);
+                result = secInforms(employees, SiEm, menuFoods, SiFo, sectors, SiFo);
 
 
                 if(result == -1){

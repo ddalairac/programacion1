@@ -38,3 +38,42 @@
 	"../../lib/ddalairac.h"
 	"abmLib.h"
 
+1556486946 source:c:\users\user\desktop\code\programacion1\lib\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+
+1556486927 c:\users\user\desktop\code\programacion1\lib\ddalairac.h
+
+1556595010 source:c:\users\user\desktop\code\programacion1\clases\clase12\abmlib.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"../../lib/ddalairac.h"
+	"abmLib.h"
+
+1556594943 c:\users\user\desktop\code\programacion1\clases\clase12\abmlib.h
+
+1556594665 source:c:\users\user\desktop\code\programacion1\clases\clase12\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../../lib/ddalairac.h"
+	"abmLib.h"
+

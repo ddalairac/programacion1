@@ -1,11 +1,11 @@
-/*
+
 typedef struct
 {
-    int dia;
-    int mes;
-    int anno;
+    int id;
+    char name[21];
 
-} eFecha;*/
+} eSector;
+
 typedef struct
 {
     int id;
@@ -39,14 +39,15 @@ typedef struct
 int initEmployees(eEmployee list[], int length);
 int initFoodMenu(eFoodMenu list[], int length);
 int hardcodeEmployees(eEmployee list[], int length, int hc);
-int hardcodeFoodMenu(eFoodMenu list[], int length);
+int hardcodeFoodMenu(eFoodMenu list[], int length, int hc);
 int calcTotalActiveEmployees(eEmployee list[], int length);
 void swapEmployees(eEmployee list[], int i, int j);
 int sortEmployees(eEmployee list[], int length, int order);
+void getSectorName(char srt[], eSector list[], int length, int id);
 void printTableHeader();
-void printTableEmployee(eEmployee item);
-void printEmployees(eEmployee list[], int length);
+void printTableEmployee(eEmployee item, eSector sectors[], int length);
+void printEmployees(eEmployee list[], int length, eSector sectors[], int lenSec);
 void printTableHeaderFoodMenu();
 void printTableFoodItem(eFoodMenu item);
 void printFoodMenu(eFoodMenu list[], int length);
-int secInforms(eEmployee listEmp[], int length, eFoodMenu listFood, int lenFood);
+int secInforms(eEmployee listEmp[], int length, eFoodMenu listFood[], int lenFood, eSector sectors[], int lenSec);
