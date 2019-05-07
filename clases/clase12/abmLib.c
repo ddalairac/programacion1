@@ -25,7 +25,7 @@
     char name[51];
     char lastName[51];
     char sex;
-    int file;
+    int id;
     int idSector;
     int isEmpty;
     float salary;
@@ -41,7 +41,7 @@ int initEmployees(eEmployee list[], int length){
             list[i].name[0] = '\0';
             list[i].lastName[0] = '\0';
             list[i].sex = 'n';
-            list[i].file = 0;
+            list[i].id = 0;
             list[i].salary = 0;
             list[i].idSector = 0;
             list[i].date.day = 0;
@@ -61,7 +61,7 @@ int hardcodeEmployees(eEmployee list[], int length, int hc){
     if (list != NULL && length > 0){
         response = 0;
         for(i = 0; i < length && i < hc; i++){
-            list[i].file = i;
+            list[i].id = i;
             getRandomName(list[i].name,10);
             getRandomLastname(list[i].lastName,10);
             strCapitalize(list[i].name);
@@ -147,8 +147,26 @@ void getSectorName(char srt[], eSector list[], int length, int id){
     }
 }
 
-void printTableHeader(){
-    margen();printf("%10s | %12s | %12s | %3s | %10s | %4s | %12s \n", "Sector", "Last Name", "Name", "Sex", "Salary","file","Date");
+void getEmployeeName(char srt[], eEmployee list[], int length, int id){
+    int i;
+    for(i=0; i<length; i++){
+        if(list[i].id == id){
+            strcpy(srt, list[i].name);
+        }
+    }
+}
+
+void getFoodName(char srt[], eFoodMenu list[], int length, int id){
+    int i;
+    for(i=0; i<length; i++){
+        if(list[i].id == id){
+            strcpy(srt, list[i].name);
+        }
+    }
+}
+
+void printTableEmployeeHeader(){
+    margen();printf("%10s | %12s | %12s | %3s | %10s | %4s | %12s \n", "Sector", "Last Name", "Name", "Sex", "Salary","id","Date");
     margen();printf("--------------------------------------------------------------------------------\n");
 }
 
@@ -156,13 +174,13 @@ void printTableEmployee(eEmployee item, eSector sectors[], int length){
     char secName[21];
     getSectorName(secName, sectors, length, item.idSector);
     margen();
-    //printf("%8s | %12s | %12s | %3s | %15s | %5s | %8s \n", "Sector", "Last Name", "Name", "Sex", "Salary","file","Date");
-    printf("%10s | %12s | %12s | %3c | %10.2f | %4d | %4d/%2d/%4d  \n", secName, item.lastName, item.name, item.sex, item.salary,item.file,item.date.day, item.date.month, item.date.year);
+    //printf("%8s | %12s | %12s | %3s | %15s | %5s | %8s \n", "Sector", "Last Name", "Name", "Sex", "Salary","id","Date");
+    printf("%10s | %12s | %12s | %3c | %10.2f | %4d | %4d/%2d/%4d  \n", secName, item.lastName, item.name, item.sex, item.salary,item.id,item.date.day, item.date.month, item.date.year);
 }
 
 void printEmployees(eEmployee list[], int length, eSector sectors[], int lenSec){
     int i;
-    printTableHeader();
+    printTableEmployeeHeader();
     for(i=0; i<length; i++){
         if(list[i].isEmpty == FALSE){
             printTableEmployee(list[i],sectors,lenSec);
@@ -170,52 +188,136 @@ void printEmployees(eEmployee list[], int length, eSector sectors[], int lenSec)
     }
 }
 
-void printTableHeaderFoodMenu(){
+
+void printTableEmployeeBySectorHeader(){
+    margen();printf("%12s | %12s | %3s | %10s | %4s | %12s \n", "Last Name", "Name", "Sex", "Salary","id","Date");
+    margen();printf("--------------------------------------------------------------------------------\n");
+}
+
+void printTableEmployeeBySector(eEmployee item, eSector sectors[], int length){
+    char secName[21];
+    getSectorName(secName, sectors, length, item.idSector);
+    margen();
+    //printf("%8s | %12s | %12s | %3s | %15s | %5s | %8s \n", "Sector", "Last Name", "Name", "Sex", "Salary","id","Date");
+    printf("%10s | %12s | %12s | %3c | %10.2f | %4d | %4d/%2d/%4d  \n", secName, item.lastName, item.name, item.sex, item.salary,item.id,item.date.day, item.date.month, item.date.year);
+}
+
+void printEmployeesBySector(eEmployee listEmp[], int lenEmp, eSector sectors[], int lenSec){
+    int i,result;
+    char sector[21];
+    result = sortEmployees(listEmp, lenEmp, DOWN);
+    if(result != -1){
+            printTableEmployeeBySectorHeader();
+            for(i=0; i<lenEmp; i++){
+                if(listEmp[i].isEmpty == FALSE){
+                    printTableEmployeeBySector(listEmp[i],sectors,lenSec);
+                }
+            }
+    } else {
+        margen();printf("No se puedieron ordenar los empleados \n");
+    }
+
+}
+void printTableFoodHeader(){
     margen();printf("%8s | %20s \n", "id", "Comida");
     margen();printf("--------------------------------------------------------------------------------\n");
 }
 
-void printTableFoodItem(eFoodMenu item){
+void printTableFood(eFoodMenu item){
     margen();
     printf("%8d | %20s \n", item.id, item.name);
 }
 
-void printFoodMenu(eFoodMenu list[], int length){
+void printFood(eFoodMenu list[], int length){
     int i;
-    printTableHeaderFoodMenu();
+    printTableFoodHeader();
     for(i=0; i<length; i++){
-        printTableFoodItem(list[i]);
+        printTableFood(list[i]);
     }
 }
 
+void printTableSectorHeader(){
+    margen();printf("%8s | %20s \n", "id", "Sector");
+    margen();printf("--------------------------------------------------------------------------------\n");
+}
 
-int secInforms(eEmployee listEmp[], int length, eFoodMenu listFood[], int lenFood, eSector sectors[], int lenSec){
+void printTableSector(eSector item){
+    margen();
+    printf("%8d | %20s \n", item.id, item.name);
+}
+
+void printSector(eSector list[], int length){
+    int i;
+    printTableSectorHeader();
+    for(i=0; i<length; i++){
+        printTableSector(list[i]);
+    }
+}
+
+void printTableLunchHeader(){
+    margen();printf("%8s | %20s | %20s | %20s \n", "id", "Empleado", "Lunch", "Fecha");
+    margen();printf("--------------------------------------------------------------------------------\n");
+}
+
+void printTableLunch(eLunch item, eEmployee listEmp[], int lenEmp, eFoodMenu listFood[], int lenFood){
+    margen();
+    char foodName[21];
+    char employeeName[21];
+    getEmployeeName(employeeName,listEmp,lenEmp,item.idEmp);
+    getFoodName(foodName,listFood,lenFood,item.idLaunch);
+    printf("%8d | %20s | %20s | %d/%d/%d \n", item.id, employeeName, foodName, item.date.day, item.date.month, item.date.year);
+}
+
+void printLunchs(eLunch lunchs[], int lenLun, eEmployee listEmp[], int lenEmp, eFoodMenu listFood[], int lenFood){
+    int i;
+    printTableLunchHeader();
+    for(i=0; i<lenLun; i++){
+        printTableLunch(lunchs[i], listEmp, lenEmp, listFood, lenFood);
+    }
+}
+
+int secInforms(eEmployee listEmp[], int lenEmp, eFoodMenu listFood[], int lenFood, eSector sectors[], int lenSec,  eLunch lunchs[], int lenLun){
     int option,result;
     int response = -1;
-    //int totalEmpoyees = calcTotalActiveEmployees(listEmp, length);
+    //int totalEmpoyees = calcTotalActiveEmployees(listEmp, lenEmp);
     char informarMenu[][100] = {
         "4. INFORMAR ",
         "Listado de los empleados ordenados alfabeticamente por Apellido y Sector.",
-        "Menu de comidas",
-        "Comidas asignadas a empleados"
+        "Listado de comidas",
+        "Listado de sectores",
+        "Listar comidas asignadas a empleados",
+        "Listar sectores, y por cada sector ordenar empleados por nombre",
+        "Listar todos los empleados de un sector",
+        "Mostrar los datos del/los empleado/s que mas gana/n"
     };
-    if (listEmp != NULL && length > 0){
-        response = 0;
-        option = displayMenu(informarMenu,3,1);
-        switch(option){
-            case 1:
-                result = sortEmployees(listEmp, length, DOWN);
-                if(result == -1){
-                    response = -1;
-                    margen();printf("No se puedieron ordenar los empleados \n");
-                }
-                printEmployees(listEmp, length, sectors, lenSec);
-                break;
+    response = 0;
+    option = displayMenu(informarMenu,7,1);
+    switch(option){
+        case 1:
+            result = sortEmployees(listEmp, lenEmp, DOWN);
+            if(result == -1){
+                response = -1;
+                margen();printf("No se puedieron ordenar los empleados \n");
+            }
+            printEmployees(listEmp, lenEmp, sectors, lenSec);
+            break;
 
-            case 2:
-                printFoodMenu(listFood,lenFood);
-                break;
-        }
+        case 2:
+            printFood(listFood,lenFood);
+            break;
+
+        case 3:
+            printSector(sectors,lenSec);
+            break;
+
+        case 4:
+            printLunchs(lunchs,lenLun,listEmp,lenEmp,listFood,lenFood);
+            break;
+
+        case 5:
+            printEmployeesBySector(listEmp, lenEmp, sectors, lenSec);
+            break;
+
     }
     return response;
 }

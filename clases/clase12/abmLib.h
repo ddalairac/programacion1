@@ -16,7 +16,7 @@ typedef struct
 typedef struct
 {
     int id;
-    int fileEmp;
+    int idEmp;
     int idLaunch;
     eDate date;
 
@@ -27,7 +27,7 @@ typedef struct
     char name[51];
     char lastName[51];
     char sex;
-    int file;
+    int id;
     int idSector;
     int isEmpty;
     float salary;
@@ -44,10 +44,10 @@ int calcTotalActiveEmployees(eEmployee list[], int length);
 void swapEmployees(eEmployee list[], int i, int j);
 int sortEmployees(eEmployee list[], int length, int order);
 void getSectorName(char srt[], eSector list[], int length, int id);
-void printTableHeader();
+void printTableEmployeeHeader();
 void printTableEmployee(eEmployee item, eSector sectors[], int length);
 void printEmployees(eEmployee list[], int length, eSector sectors[], int lenSec);
-void printTableHeaderFoodMenu();
-void printTableFoodItem(eFoodMenu item);
-void printFoodMenu(eFoodMenu list[], int length);
-int secInforms(eEmployee listEmp[], int length, eFoodMenu listFood[], int lenFood, eSector sectors[], int lenSec);
+void printTableFoodHeader();
+void printTableFood(eFoodMenu item);
+void printFood(eFoodMenu list[], int length);
+int secInforms(eEmployee listEmp[], int lenEmp, eFoodMenu listFood[], int lenFood, eSector sectors[], int lenSec,  eLunch lunchs[], int lenLun);

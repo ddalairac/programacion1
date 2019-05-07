@@ -8,6 +8,7 @@
 #define FALSE 0
 #define SiEm 10
 #define SiFo 5
+#define SiLu 4
 
 int main(){
     eFoodMenu menuFoods[] = {
@@ -24,7 +25,12 @@ int main(){
         {3,"Funcional"},
         {4,"PO"},
     };
-    //eLunch alm[SiEm];
+    eLunch lunchs[SiLu] = {
+        { 1,1,1,{ 19,10,1982} },
+        { 2,2,2,{ 19,10,1982} },
+        { 3,3,3,{ 19,10,1982} },
+        { 4,4,4,{ 19,10,1982} },
+    };
 
     eEmployee employees[SiEm];
 
@@ -85,9 +91,7 @@ int main(){
                 break;*/
 
             case 4:
-                result = secInforms(employees, SiEm, menuFoods, SiFo, sectors, SiFo);
-
-
+                result = secInforms(employees, SiEm, menuFoods, SiFo, sectors, SiFo,lunchs, SiLu);
                 if(result == -1){
                     margen();printf("No se puedo generar el informe \n");
                 }
