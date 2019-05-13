@@ -32,7 +32,8 @@ confirm = **getchar()**;  *(idem ejemplo anterior)*  <br>
 ### Castear int a float
 (float) 2 = 2.0 <br>
 atoi( “2”) = 2 <br>
-itoa(12345,vec,5); = “1,2,3,4,\0”  <br>
+itoa(12345,vec,10); = “1,2,3,4,\0”  <br>
+. . . (2: binary, 10: decimal, 16: hexadecimal)
  
 
 ### Mascaras / Visualizacion de variables
