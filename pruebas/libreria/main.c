@@ -17,8 +17,9 @@ int main(){
     //char an[50];
     //inputValidAlphaNumericString("input  Valid AlphaNumeric String",an,50);*/
 
-    //eDate anydate ;
-    //inputValidDate("Ingrese la fecha: ",anydate);
+    eDate anydate ;
+    inputValidDate("Ingrese la fecha: ",&anydate.day, &anydate.month, &anydate.year);
+    printf("date %d %d %d",anydate.day,anydate.month,anydate.year);
 
     //char phone[20];
     //inputValidPhone("Ingrese su telefono", phone, 13);

@@ -358,7 +358,8 @@ void inputValidAlphaNumericString(char message[], char str[],int length){
     }while(loop);
 }
 
-void inputValidDate(char message[], int *dd,int *mm,int *yy){
+void inputValidDate(char message[], eDate date){
+    int dd,mm,yy;
     char cdd[20],cmm[20],cyy[20];
     int loop = TRUE;
     int validation = 0;
@@ -388,9 +389,9 @@ void inputValidDate(char message[], int *dd,int *mm,int *yy){
 
             case 1:
                 loop = FALSE;
-                *dd = atoi(cdd);
-                *mm = atoi(cmm);
-                *yy = atoi(cyy);
+                dd = atoi(cdd);
+                mm = atoi(cmm);
+                yy = atoi(cyy);
                 //printf("Fecha correcta %d/%d/%d \n",dd,mm,yy);
                 break;
             default:
@@ -400,9 +401,9 @@ void inputValidDate(char message[], int *dd,int *mm,int *yy){
 
     } while(loop == TRUE);
 
-    /*date.day = dd;
+    date.day = dd;
     date.month = mm;
-    date.year = yy;*/
+    date.year = yy;
 }
 
 void inputValidPhone(char message[], char str[],int length){

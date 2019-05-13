@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include "ddalairac.h"
 #include "ArrayEmployees.h"
+
 #define T 1000
-//#define NULL 0
 #define TRUE 1
 #define FALSE 0
-//#define UP 1
-//#define DOWN 0
+#define UP 1
+#define DOWN 0
+
+
 /** Trabajo Práctico número 2
  *  Programación I – Laboratorio I.
  *  Tecnicatura Superior en Programación.
@@ -18,33 +20,82 @@
 
 
 
-int main()
-{
-    Employee employees[T];
-    initEmployees(employees, T);
+int main(){
+    int option;
     int loop = TRUE;
+    int result = -1;
+    Employee employees[T];
+
+
+    char mainMenu[][100] = {
+        "ADMIN: Nomina de empleados",
+        "ALTAS ",
+        "MODIFICAR ",
+        "BAJA ",
+        "INFORMAR ",
+        "SALIR ",
+    };
+
+    result = initEmployees(employees, T);
+    if(result == -1){
+        printf("No se inicializaron correctamente los empleados \n");
+        setPause();
+    }
+
+    /** HARCODE EMPLOYEE LIST */ /*
+    result = hardcodeEmployees(employees, T, 30);
+    if(result == -1){
+        margen();printf("No se puedieron cargar empleados de ejemplo \n");
+    }*/
+
 
     do{
-        int option = displayMenu();
+        option = displayMenu(mainMenu,5,0);
+        switch(option){
+            case 1:
+                result = secNewEmployee(employees, T);
+                if(result == -1){
+                    margen();printf("No se puedo agregar el empleado \n");
+                }
+                setPause();
+                break;
 
-        if(option == 1){
-            //Se debe permitir ingresar un empleado calculando automáticamente el número de Id. El resto de los campos se le pedirá al usuario.
-        } else if(option == 2){
-            // Se ingresará el Número de Id, permitiendo modificar: o Nombre o Apellido o Salario o Sector
-        } else if(option == 3){
-            // Se ingresará el Número de Id y se eliminará el empleado del sistema.
-        } else if(option == 4){
-            printf("   INFORMAR:\n");
-            printf("\t 1. Listado de los empleados ordenados alfabeticamente por Apellido y Sector. \n");
-            printf("\t 2. Total y promedio de los salarios, y cuantos empleados superan el salario promedio. \n");
+            case 2:
+                result = secFindAndEditEmployee(employees, T);
+                if(result == -1){
+                    margen();printf("No se puedo editar el empleado \n");
+                }
+                setPause();
+                break;
 
-            printEmployees(employees, 10);
+            case 3:
+                result = secFindAndRemoveEmployee(employees, T);
+                if(result == -1){
+                    margen();printf("No se puedo remover el empleado \n");
+                }
+                setPause();
+                break;
 
-        } else if(option == 5){
-            loop = FALSE;
+            case 4:
+                result = secInforms(employees, T);
+                if(result == -1){
+                    margen();printf("No se puedo generar el informe \n");
+                }
+                setPause();
+                break;
+
+            case 5:
+                margen();printf("Esta por salir del programa \n" );
+                loop = FALSE;
+                break;
+
+            default:
+                margen();printf("Debe elegir una opcion del menu \n");
+                setPause();
+                break;
         }
-        system("pause");
     } while(loop);
 
     return 0;
 }
+

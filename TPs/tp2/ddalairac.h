@@ -152,6 +152,14 @@ void inputValidLetterString(char message[], char str[],int length);
  */
 void inputValidAlphaNumericString(char message[], char str[],int length);
 
+/** \brief Solicita introducir una fecha al usuario y la valida
+ *
+ * \param message[] char, mensaje custom
+ * \param date Date, estructura date donde se copiara el resultado validado
+ * \return void
+ *
+ */
+void inputValidDate(char message[], eDate date);
 
 /** \brief Solicita introducir una telefono al usuario y la valida
  *

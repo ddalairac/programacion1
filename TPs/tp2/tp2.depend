@@ -9,3 +9,145 @@
 
 1554855063 source:c:\users\user\desktop\code\programacion1\tps\tp2\arrayemployees.c
 
+1556487247 source:c:\users\user\desktop\code\utn-lab-tp2\tp2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<linux/string.h>
+	<string.h>
+	"ddalairac.h"
+	"ArrayEmployees.h"
+
+1556486946 source:c:\users\user\desktop\code\utn-lab-tp2\tp2\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+
+1556668913 source:c:\users\user\desktop\code\utn-lab-tp2\tp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ddalairac.h"
+	"ArrayEmployees.h"
+
+1556487306 c:\users\user\desktop\code\utn-lab-tp2\tp2\arrayemployees.h
+
+1556486927 c:\users\user\desktop\code\utn-lab-tp2\tp2\ddalairac.h
+
+1555023655 c:\users\user\desktop\code\utn-lab-tp2\tp2\arrayemployeescustom.h
+
+1555023627 source:c:\users\user\desktop\code\utn-lab-tp2\tp2\arrayemployeescustom.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayEmployees.h"
+	"ddalairac.h"
+
+1555371379 c:\users\user\desktop\code\utn-lab-tp2\tp2\struct_employee.h
+
+1555027028 source:c:\users\user\desktop\code\utn-lab-tp2\tp2\struct_employee.c
+
+1555116456 source:/home/alumno/Escritorio/git/UTN-LAB-TP2/tp2/ArrayEmployees.c
+	<stdio.h>
+	<stdlib.h>
+	<linux/string.h>
+	<string.h>
+	<ctype.h>
+	"ddalairac.h"
+	"struct_employee.h"
+
+1555105801 /home/alumno/Escritorio/git/UTN-LAB-TP2/tp2/ddalairac.h
+
+1555105801 /home/alumno/Escritorio/git/UTN-LAB-TP2/tp2/struct_employee.h
+
+1555116469 source:/home/alumno/Escritorio/git/UTN-LAB-TP2/tp2/main.c
+	<stdio.h>
+	<stdlib.h>
+	<linux/string.h>
+	<string.h>
+	<ctype.h>
+	"ArrayEmployees.h"
+	"ddalairac.h"
+
+1555105801 /home/alumno/Escritorio/git/UTN-LAB-TP2/tp2/ArrayEmployees.h
+	"struct_employee.h"
+
+1555115018 source:/home/alumno/Escritorio/git/UTN-LAB-TP2/tp2/ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+
+1556403052 source:c:\users\user\desktop\code\programacion1\lib\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"struct_date.h"
+
+1556402885 c:\users\user\desktop\code\programacion1\lib\ddalairac.h
+	"struct_date.h"
+
+1556402885 c:\users\user\desktop\code\programacion1\lib\struct_date.h
+
+1555715561 c:\users\user\desktop\code\utn-lab-tp2\tp2\struct_date.h
+
+1556326954 source:/home/alumno/Escritorio/UTN-LAB-TP2/tp2/ArrayEmployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"../../programacion1/lib/ddalairac.h"
+	"struct_employee.h"
+
+1556318481 /home/alumno/Escritorio/UTN-LAB-TP2/tp2/ddalairac.h
+	"struct_date.h"
+
+1556315807 /home/alumno/Escritorio/UTN-LAB-TP2/tp2/struct_date.h
+
+1556315807 /home/alumno/Escritorio/UTN-LAB-TP2/tp2/struct_employee.h
+
+1556320971 source:/home/alumno/Escritorio/UTN-LAB-TP2/tp2/main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayEmployees.h"
+	"../../programacion1/lib/ddalairac.h"
+
+1556322560 /home/alumno/Escritorio/UTN-LAB-TP2/tp2/ArrayEmployees.h
+	"struct_employee.h"
+
+1556318481 /home/alumno/Escritorio/programacion1/lib/ddalairac.h
+	"struct_date.h"
+
+1556315852 /home/alumno/Escritorio/programacion1/lib/struct_date.h
+
+1556321523 source:/home/alumno/Escritorio/programacion1/lib/ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	"struct_date.h"
+

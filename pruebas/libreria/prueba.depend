@@ -1,12 +1,17 @@
 # depslib dependency file v1.0
-1555789812 source:c:\users\user\desktop\code\programacion1\lib\ddalairac.c
+1557706712 source:c:\users\user\desktop\code\programacion1\lib\ddalairac.c
 	<stdio.h>
 	<stdlib.h>
-	<string.h>
 	<ctype.h>
 	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
 	<conio.h>
-	"struct_date.h"
+	<Windows.h>
+	"ddalairac.h"
 
 1555717233 source:c:\users\user\desktop\code\prueba\main.c
 	<stdio.h>
@@ -14,14 +19,13 @@
 	<time.h>
 	"../programacion1/lib/ddalairac.h"
 
-1555789573 c:\users\user\desktop\code\programacion1\lib\ddalairac.h
-	"struct_date.h"
+1557705945 c:\users\user\desktop\code\programacion1\lib\ddalairac.h
 
 1555715563 source:c:\users\user\desktop\code\programacion1\lib\struct_date.c
 
 1555715561 c:\users\user\desktop\code\programacion1\lib\struct_date.h
 
-1555789358 source:c:\users\user\desktop\code\programacion1\pruebas\libreria\main.c
+1557706346 source:c:\users\user\desktop\code\programacion1\pruebas\libreria\main.c
 	<stdio.h>
 	<stdlib.h>
 	"../../lib/ddalairac.h"

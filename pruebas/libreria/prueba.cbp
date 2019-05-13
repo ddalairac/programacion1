@@ -31,14 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../programacion1/lib/ddalairac.c">
+		<Unit filename="../../lib/ddalairac.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../programacion1/lib/ddalairac.h" />
-		<Unit filename="../programacion1/lib/struct_date.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../programacion1/lib/struct_date.h" />
+		<Unit filename="../../lib/ddalairac.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
