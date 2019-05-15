@@ -1,0 +1,143 @@
+# depslib dependency file v1.0
+1557711938 source:c:\users\user\desktop\code\programacion1\parciales\parcial1\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+
+1557712006 c:\users\user\desktop\code\programacion1\parciales\parcial1\ddalairac.h
+
+1557710031 source:c:\users\user\desktop\code\programacion1\parciales\parcial1\lib-brand.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+	"lib-brand.h"
+	"lib-car.h"
+	"lib-color.h"
+	"lib-service.h"
+	"lib-work.h"
+
+1557678755 c:\users\user\desktop\code\programacion1\parciales\parcial1\lib-brand.h
+	"structs.h"
+
+1557678755 c:\users\user\desktop\code\programacion1\parciales\parcial1\structs.h
+
+1557892147 c:\users\user\desktop\code\programacion1\parciales\parcial1\lib-car.h
+	"structs.h"
+
+1557678755 c:\users\user\desktop\code\programacion1\parciales\parcial1\lib-color.h
+	"structs.h"
+
+1557872251 c:\users\user\desktop\code\programacion1\parciales\parcial1\lib-service.h
+	"structs.h"
+
+1557872251 c:\users\user\desktop\code\programacion1\parciales\parcial1\lib-work.h
+	"structs.h"
+
+1557872251 source:c:\users\user\desktop\code\programacion1\parciales\parcial1\lib-car.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+	"lib-brand.h"
+	"lib-car.h"
+	"lib-color.h"
+	"lib-service.h"
+	"lib-work.h"
+
+1557709982 source:c:\users\user\desktop\code\programacion1\parciales\parcial1\lib-color.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+	"lib-brand.h"
+	"lib-car.h"
+	"lib-color.h"
+	"lib-service.h"
+	"lib-work.h"
+
+1557872251 source:c:\users\user\desktop\code\programacion1\parciales\parcial1\lib-service.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+	"lib-brand.h"
+	"lib-car.h"
+	"lib-color.h"
+	"lib-service.h"
+	"lib-work.h"
+
+1557891352 source:c:\users\user\desktop\code\programacion1\parciales\parcial1\lib-work.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+	"lib-brand.h"
+	"lib-car.h"
+	"lib-color.h"
+	"lib-service.h"
+	"lib-work.h"
+
+1557890784 source:c:\users\user\desktop\code\programacion1\parciales\parcial1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ddalairac.h"
+	"lib-brand.h"
+	"lib-car.h"
+	"lib-color.h"
+	"lib-service.h"
+	"lib-work.h"
+	"inform.h"
+
+1557872251 c:\users\user\desktop\code\programacion1\parciales\parcial1\inform.h
+	"structs.h"
+
