@@ -105,6 +105,9 @@ int main(){
     printf("ingrese un numero: ");
     scanf("%d",&pEmp->id);
 
+    printf("ingrese un nombre: ");
+    scanf("%s",&pEmp->nombre);
+
     printf("pEmp = ->id: %d ->nombre %s \n\n",pEmp->id, pEmp->nombre);
 
     eEmployee emps[] = {
