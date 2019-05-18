@@ -139,12 +139,19 @@ void fPointertoPonter(int *x, int len){
 
 void mostrarEmpleado(eEmployee *emps, int len){
     int i;
-    for(i=0; i<len;i++){
-        printf("  emp%d: %d - %s \n",i, (emps+i)->id, (emps+i)->nombre );
-    }
 
-    /*for(i=0; i<len;i++){
-        printf("  emp: %d - %s \n", emps->id, emps->nombre );
+    for(i=0; i<len;i++){
+        printf("  emps->: %d - %s \n", emps->id, emps->nombre );
+        printf("  emps++ \n");
         emps++;
-    }*/
+    }
+    printf("\n");
+    for(i=0; i<len;i++){
+        printf("  (emps+%d)->: %d - %s \n",i, (emps+i)->id, (emps+i)->nombre );
+    }
+    printf("\n");
+    for(i=0; i<len;i++){
+        printf("  (*(emps+%d)): %d - %s \n",i, (*(emps+i)).id, (*(emps+i)).nombre );
+    }
+    printf("\n");
 }
