@@ -11,9 +11,11 @@
     no alcanza para mapear nombres mas largos.
 */
 void fVecToVec(int x[], int len);
-//void fVecToPointer(int x[], int len);
 void fPointertoPonter(int *x, int len);
-//void fPointerToVec(int *x, int len);
+typedef struct {
+    int id;
+    char nombre[15];
+} eEmployee;
 
 int main(){
     int x;
@@ -60,7 +62,6 @@ int main(){
 
     printf("\n____________________________________________________________________________\n\n");
     int vec[5] = {1,3,5,7,9};
-
     printf("  int vec[5] = {1,3,5,7,9}; \n\n", vec);
     printf("  vec: %x \n", vec);
     printf("  &vec[0]: %x \n", &vec[0]);
@@ -71,25 +72,60 @@ int main(){
 
     printf("\n____________________________________________________________________________\n\n");
 
-
     int a[] = {0,1,2,3,4};
 
     fVecToVec(a,5);
-    //void fVecToPointer(a,5);
     fPointertoPonter(a,5);
-    //void fPointerToVec(a,5);*/
+
+    printf("\n____________________________________________________________________________\n\n");
+
+    char cadena[] = "cadena de caracteres";
+    char *c;
+
+    /**
+    c = &cadena[0];  IDEM  */
+    c = cadena;
+
+    printf("c++ lleva a la sigueinte posicion de memoria, no hace falta usar incrementador \n\n");
+    while(*c != '\0'){
+        printf("%c ", *c);
+        c++; /** va a la posicion siguiente de memoria */
+    }
+
+
+    printf("\n____________________________________________________________________________\n\n");
+
+    eEmployee emp1 = { 1234, "diego"};
+    eEmployee *pEmp;
+    pEmp = &emp1;
+
+    printf("emp1 = .id: %d .nombre %s \n",emp1.id,emp1.nombre);
+    printf("pEmp = ->id: %d ->nombre %s \n\n",pEmp->id, pEmp->nombre);
+
+    printf("ingrese un numero: ");
+    scanf("%d",&pEmp->id);
+
+    printf("pEmp = ->id: %d ->nombre %s \n\n",pEmp->id, pEmp->nombre);
+
+    eEmployee emps[] = {
+        { 1234, "diego"},
+        { 5678, "Jorge"},
+        { 9101, "Norberto"},
+    };
+    mostrarEmpleado(emps,3);
+
+
+    printf("\n\n");
     return 0;
 }
 
 void fVecToVec(int x[], int len){
-
     int i;
     for(i=0; i<len;i++){
         printf("  x[%d]: %d  \n", i, x[i] );
     }
     printf("\n");
 }
-//void fVecToPointer(int x[], int len){}
 void fPointertoPonter(int *x, int len){
     int i;
     for(i=0; i<len;i++){
@@ -97,6 +133,15 @@ void fPointertoPonter(int *x, int len){
     }
     printf("\n");
 }
-//void fPointerToVec(int *x, int len){}
 
+void mostrarEmpleado(eEmployee *emps, int len){
+    int i;
+    for(i=0; i<len;i++){
+        printf("  emp%d: %d - %s \n",i, (emps+i)->id, (emps+i)->nombre );
+    }
 
+    /*for(i=0; i<len;i++){
+        printf("  emp: %d - %s \n", emps->id, emps->nombre );
+        emps++;
+    }*/
+}
