@@ -1,0 +1,7 @@
+ID Nombre Apellido Sueldo
+1234 Juan Perez 20000.00
+2222 ana gomez 40000.00
+3131 matias hamie 40000.00
+4545 luis majul 50000.00
+
+
