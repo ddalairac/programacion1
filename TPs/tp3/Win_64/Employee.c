@@ -33,7 +33,9 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
     }
     return this;
 }
-void employee_delete(){}
+void employee_delete(){
+
+}
 
 int employee_setId(Employee* this,int id){
     int response = false;
@@ -101,4 +103,39 @@ int employee_getSueldo(Employee* this,int* sueldo){
         response = true;
     }
     return response;
+}
+
+/*
+void displayEmployees(Employee* emp, int len){
+    int i;
+    for(i=0;i<len;i++){
+         displayEmployee( (Employee*) ll_get(listaEmpleados,i) );
+    }
+}*/
+void displayEmployee(Employee* emp){
+    if(emp != NULL){
+        printf("%d | %10s | %10d | %10d \n", emp->id, emp->nombre, emp->sueldo, emp->horasTrabajadas);
+    } else {
+        printf("NULL pointer \n");
+    }
+}
+
+int sortXSalary(void* emp1, void* emp2){
+    int retorno = 0;
+    Employee* p1;
+    Employee* p2;
+
+    if(emp1 != NULL && emp2 != NULL ){
+        p1 = (Employee*) emp1;
+        p2 = (Employee*) emp2;
+
+        if(p1->sueldo > p2->sueldo){
+            retorno = 1;
+        } else if(p1->sueldo < p2->sueldo){
+            retorno = 1;
+        } else {
+            retorno = 0;
+        }
+    }
+    return retorno;
 }

@@ -59,16 +59,17 @@
 	"LinkedList.h"
 	"Employee.h"
 
-1559602915 c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\linkedlist.h
+1559609920 c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\linkedlist.h
 
-1559606237 c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\employee.h
+1559611541 c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\employee.h
 
-1559602950 source:c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\main.c
+1559611660 source:c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Controller.h"
 	"Employee.h"
+	"ddalairac.h"
 
 1559602915 c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\controller.h
 
@@ -78,9 +79,25 @@
 	"LinkedList.h"
 	"Employee.h"
 
-1559604211 source:c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\employee.c
+1559611568 source:c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\employee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Employee.h"
+
+1559598588 source:c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+
+1559598588 c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\ddalairac.h
 
