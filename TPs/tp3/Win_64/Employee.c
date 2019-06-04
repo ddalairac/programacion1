@@ -16,18 +16,18 @@ Employee* employee_new(){
     return this;
 }
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr, char* sueldoStr){
-    int valid = false;
     Employee* this;
 
     if(idStr != NULL && nombreStr != NULL && horasTrabajadasStr != NULL && sueldoStr != NULL){
         this = employee_new();
 
         if(this != NULL ){
-            if(employee_setId(this, atoi(idStr)) &&
-               employee_setNombre(this, nombreStr) &&
-               employee_setHorasTrabajadas(this, atoi(horasTrabajadasStr)) &&
-               employee_setSueldo(this, atoi(sueldoStr)) ){
-                    valid = true;
+            if(!employee_setId(this, atoi(idStr)) ||
+               !employee_setNombre(this, nombreStr) ||
+               !employee_setHorasTrabajadas(this, atoi(horasTrabajadasStr)) ||
+               !employee_setSueldo(this, atoi(sueldoStr)) ){
+                    free(this);
+                    this = NULL;
             }
         }
     }
