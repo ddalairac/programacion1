@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1559749002 source:c:\users\diego\documents\code\utn-lab1\clases\before_parcial_2\clase17\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../../lib/ddalairac.h"
+
+1559521093 c:\users\diego\documents\code\utn-lab1\lib\ddalairac.h
+
+1559521093 source:c:\users\diego\documents\code\utn-lab1\lib\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+
