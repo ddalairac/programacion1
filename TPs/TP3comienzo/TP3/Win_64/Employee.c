@@ -171,6 +171,7 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 
 
 void mostrarEmpleado(Employee* emp){
+    printf("emp: %x \n",emp);
     if(emp != NULL){
     printf("%d  %s  %d  %d\n", emp->id, emp->nombre, emp->horasTrabajadas, emp->sueldo);
     }

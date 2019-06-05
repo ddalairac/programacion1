@@ -2,9 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Employee.h"
-
-#define TRUE 1
-#define FALSE 0
+#define true 1
+#define false 0
 
 Employee* employee_new(){
     Employee* this = (Employee*) malloc(sizeof(Employee));
@@ -39,73 +38,72 @@ void employee_delete(){
 }
 
 int employee_setId(Employee* this,int id){
-    int response = FALSE;
+    int response = false;
     if(this != NULL && id < 0){
         this->id = id;
-        response = TRUE;
+        response = true;
     }
     return response;
 }
 int employee_getId(Employee* this,int* id){
-    int response = FALSE;
+    int response = false;
     if(this != NULL && id != NULL){
         *id = this->id;
-        response = TRUE;
+        response = true;
     }
     return response;
 }
 
 int employee_setNombre(Employee* this,char* nombre){
-    int response = FALSE;
+    int response = false;
     if(this != NULL && nombre != NULL && strlen(nombre) > 3){
 
-        response = TRUE;
+        response = true;
     }
     return response;
 }
 int employee_getNombre(Employee* this,char* nombre){
-    int response = FALSE;
+    int response = false;
     if(this != NULL && nombre != NULL){
         strcpy(nombre, this->nombre);
-        response = TRUE;
+        response = true;
     }
     return response;
 }
 
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas){
-    int response = FALSE;
+    int response = false;
     if(this != NULL && horasTrabajadas < -1){
         this->horasTrabajadas = horasTrabajadas;
-        response = TRUE;
+        response = true;
     }
     return response;
 }
 int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas){
-    int response = FALSE;
+    int response = false;
     if(this != NULL && horasTrabajadas != NULL){
         *horasTrabajadas = this->horasTrabajadas;
-        response = TRUE;
+        response = true;
     }
     return response;
 }
 
 int employee_setSueldo(Employee* this,int sueldo){
-    int response = FALSE;
+    int response = false;
     if(this != NULL && sueldo < -1){
         this->sueldo = sueldo;
-        response = TRUE;
+        response = true;
     }
     return response;
 }
 int employee_getSueldo(Employee* this,int* sueldo){
-    int response = FALSE;
+    int response = false;
     if(this != NULL && sueldo != NULL){
         *sueldo = this->sueldo;
-        response = TRUE;
+        response = true;
     }
     return response;
 }
-
 
 /*
 void displayEmployees(Employee* emp, int len){
@@ -114,16 +112,14 @@ void displayEmployees(Employee* emp, int len){
          displayEmployee( (Employee*) ll_get(listaEmpleados,i) );
     }
 }*/
-
 void displayEmployee(Employee* emp){
-    printf("emp: %x \n",emp);
     if(emp != NULL){
-        printf("%d | %10s | %10d | %10d\n", emp->id, emp->nombre, emp->horasTrabajadas, emp->sueldo);
+        printf("%d | %10s | %10d | %10d \n", emp->id, emp->nombre, emp->sueldo, emp->horasTrabajadas);
     } else {
         printf("NULL pointer \n");
     }
 }
-/*
+
 int sortXSalary(void* emp1, void* emp2){
     int retorno = 0;
     Employee* p1;
@@ -143,5 +139,3 @@ int sortXSalary(void* emp1, void* emp2){
     }
     return retorno;
 }
-
-*/

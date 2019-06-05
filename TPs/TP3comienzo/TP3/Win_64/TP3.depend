@@ -83,3 +83,33 @@
 	<string.h>
 	"Employee.h"
 
+1559745067 source:c:\users\diego\documents\code\utn-lab1\tps\tp3comienzo\tp3\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1559745067 c:\users\diego\documents\code\utn-lab1\tps\tp3comienzo\tp3\win_64\linkedlist.h
+
+1559745067 c:\users\diego\documents\code\utn-lab1\tps\tp3comienzo\tp3\win_64\employee.h
+
+1559772716 source:c:\users\diego\documents\code\utn-lab1\tps\tp3comienzo\tp3\win_64\employee.c
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+
+1559772740 source:c:\users\diego\documents\code\utn-lab1\tps\tp3comienzo\tp3\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1559745067 c:\users\diego\documents\code\utn-lab1\tps\tp3comienzo\tp3\win_64\controller.h
+
+1559745067 source:c:\users\diego\documents\code\utn-lab1\tps\tp3comienzo\tp3\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
