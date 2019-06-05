@@ -1,6 +1,6 @@
 ===== Files =====
 
-**fopen()**
+**fopen()** \\
 FILE* fopen(const char* Path_al_archivo, const char* modo); \\
 devuelve un puntero a FILE
 
@@ -19,8 +19,8 @@ devuelve un puntero a FILE
 <code>
 pFile = fopen("./banco.txt","w"); 
 </code>
-
-**fclose()**
+ \\
+**fclose()**  \\
 int fclose(FILE* pArchivo); \\
 
 siemple hay que cerrar los archivos, si no, pueden quedar corruptos \\
@@ -29,8 +29,8 @@ Si se cierra correctamente devuelve 0 si hay errores -1 \\
 <code>
 fclose(pFile);
 </code>
-
-**fwrite()**
+ \\
+**fwrite()** \\
 int fwrite(void* origen, size_t tamano, size_t cantidad. FILE* arch); \\
 
 devuelve el numero de datos escritos (cantidad), si el numero devuelto es inferior al ingresado en parametro cantidad, es que hubo un error en la escritura. \\
@@ -44,8 +44,8 @@ devuelve el numero de datos escritos (cantidad), si el numero devuelto es inferi
 cant = fwrite(text,sizeof(char),len,pFile );
 cant = fwrite(&persona,sizeof(ePersona),1,pFile ); 
 </code>
-
-**fread()**
+ \\
+**fread()** \\
 int fwrite(void* destino, size_t tamano, size_t cantidad. FILE* arch); \\
 devuelve el numero de datos leidos (cantidad)
 
