@@ -46,7 +46,7 @@ int ll_clear(LinkedList* this); /** lo deja como el new, reset de los datos*/
 int ll_deleteLinkedList(LinkedList* this); /** lo saca de la lista y libera la memoria*/
 int ll_indexOf(LinkedList* this, void* pElement); /** si el elemento esta en la lista devuelve cual es el indice*/
 int ll_isEmpty(LinkedList* this);
-int ll_push(LinkedList* this, int index, void* pElement);
+int ll_push(LinkedList* this, int index, void* pElement);/** Agrega un item a la lista en el index ingresado y mueve los demas elementos */
 void* ll_pop(LinkedList* this,int index); /** devuelve la referencia y lo saca de la lista*/
 int ll_contains(LinkedList* this, void* pElement); /** dice si esta o no en la lista*/
 int ll_containsAll(LinkedList* this,LinkedList* this2); /** si un linked list esta incluido en el otro*/

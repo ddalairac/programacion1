@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include "LinkedList.h"
 #include "Employee.h"
+#include "ddalairac.h"
 
-#define true 1
-#define false 0
+#define TRUE 1
+#define FALSE 0
+#define ASC 1
+#define DESC 0
 
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo texto).
  *
@@ -80,6 +83,23 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
     return 1;
 }
 
+/** \brief imprimir un empleado
+ *
+ * \param emp Employee*
+ * \return int
+ *
+ */
+int controller_printEmployee(Employee* emp){
+    int response = 0;
+    if(emp != NULL){
+        printf("%6d | %15s | %20d | %10d \n", emp->id, emp->nombre, emp->horasTrabajadas, emp->sueldo);
+        response = 1;
+    } /* else {
+        printf("NULL pointer \n");
+    }*/
+    return response;
+}
+
 /** \brief Listar empleados
  *
  * \param path char*
@@ -87,9 +107,17 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_ListEmployee(LinkedList* pArrayListEmployee)
-{
-    return 1;
+int controller_ListEmployee(LinkedList* pArrayListEmployee){
+    int i,response = 0;
+    if(pArrayListEmployee != NULL){
+        printf("%6s | %15s | %20s | %10s \n", "id", "nombre", "horas trabajadas", "sueldo");
+        printf("-------------------------------------------------------------- \n");
+        for(i = 0; i < ll_len(pArrayListEmployee); i++){
+            controller_printEmployee( (Employee*) ll_get(pArrayListEmployee,i));
+        }
+        response = 1;
+    }
+    return response;
 }
 
 /** \brief Ordenar empleados
@@ -99,8 +127,28 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_sortEmployee(LinkedList* pArrayListEmployee)
-{
+int controller_sortEmployee(LinkedList* pArrayListEmployee){
+    int sortOption = 0;
+    char menuSort[][100] = {
+        "Por",
+        "Horas",
+        "Nombre",
+        "Salario"
+    };
+
+    sortOption = displayMenu(menuSort,3,2);
+    switch(sortOption){
+        case 1:
+            ll_sort(pArrayListEmployee,sortByHours, ASC);
+            break;
+        case 2:
+            ll_sort(pArrayListEmployee,sortByName, ASC);
+            break;
+        case 3:
+            ll_sort(pArrayListEmployee,sortBySalary, ASC);
+            break;
+    }
+    controller_ListEmployee(pArrayListEmployee);
     return 1;
 }
 

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "LinkedList.h"
 #include "Employee.h"
 
 #define TRUE 1
@@ -8,25 +9,26 @@
 
 Employee* employee_new(){
     Employee* this = (Employee*) malloc(sizeof(Employee));
-    if(this != NULL){
+
+    if( this != NULL){
         this->id = 0;
-        strcpy(this->nombre,"");
+        strcpy(this->nombre, "");
         this->horasTrabajadas = 0;
         this->sueldo = 0;
     }
+
     return this;
 }
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr, char* sueldoStr){
     Employee* this;
 
-    if(idStr != NULL && nombreStr != NULL && horasTrabajadasStr != NULL && sueldoStr != NULL){
+    if (idStr != NULL && nombreStr != NULL && horasTrabajadasStr != NULL && sueldoStr != NULL){
         this = employee_new();
-
-        if(this != NULL ){
-            if(!employee_setId(this, atoi(idStr)) ||
-               !employee_setNombre(this, nombreStr) ||
-               !employee_setHorasTrabajadas(this, atoi(horasTrabajadasStr)) ||
-               !employee_setSueldo(this, atoi(sueldoStr)) ){
+        if( this != NULL){
+            if( !employee_setId(this, atoi(idStr))||
+                !employee_setNombre(this, nombreStr) ||
+                !employee_setHorasTrabajadas(this, atoi(horasTrabajadasStr)) ||
+                !employee_setSueldo(this, atoi(sueldoStr))){
                     free(this);
                     this = NULL;
             }
@@ -40,7 +42,7 @@ void employee_delete(){
 
 int employee_setId(Employee* this,int id){
     int response = FALSE;
-    if(this != NULL && id < 0){
+    if(this != NULL && id > 0){
         this->id = id;
         response = TRUE;
     }
@@ -58,7 +60,7 @@ int employee_getId(Employee* this,int* id){
 int employee_setNombre(Employee* this,char* nombre){
     int response = FALSE;
     if(this != NULL && nombre != NULL && strlen(nombre) > 3){
-
+        strcpy(this->nombre, nombre);
         response = TRUE;
     }
     return response;
@@ -74,7 +76,7 @@ int employee_getNombre(Employee* this,char* nombre){
 
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas){
     int response = FALSE;
-    if(this != NULL && horasTrabajadas < -1){
+    if(this != NULL && horasTrabajadas >= 0){
         this->horasTrabajadas = horasTrabajadas;
         response = TRUE;
     }
@@ -91,7 +93,7 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas){
 
 int employee_setSueldo(Employee* this,int sueldo){
     int response = FALSE;
-    if(this != NULL && sueldo < -1){
+    if(this != NULL && sueldo > 0){
         this->sueldo = sueldo;
         response = TRUE;
     }
@@ -108,24 +110,26 @@ int employee_getSueldo(Employee* this,int* sueldo){
 
 
 /*
-void displayEmployees(Employee* emp, int len){
+void displayEmployees(LinkedList* listaEmpleados){
     int i;
-    for(i=0;i<len;i++){
-         displayEmployee( (Employee*) ll_get(listaEmpleados,i) );
+    if(listaEmpleados != NULL){
+        printf("%6s | %15s | %20s | %10s \n", "id", "nombre", "horas trabajadas", "sueldo");
+        for(i = 0; i < ll_len(listaEmpleados); i++){
+            displayEmployee( (Employee*) ll_get(listaEmpleados,i));
+        }
     }
-}*/
+}
 
 void displayEmployee(Employee* emp){
-    printf("emp: %x \n",emp);
     if(emp != NULL){
-        printf("%d | %10s | %10d | %10d\n", emp->id, emp->nombre, emp->horasTrabajadas, emp->sueldo);
+        printf("%6d | %15s | %20d | %10d \n", emp->id, emp->nombre, emp->horasTrabajadas, emp->sueldo);
     } else {
         printf("NULL pointer \n");
     }
-}
-/*
-int sortXSalary(void* emp1, void* emp2){
-    int retorno = 0;
+}*/
+
+int sortBySalary(void* emp1, void* emp2){
+    int response = 0;
     Employee* p1;
     Employee* p2;
 
@@ -134,14 +138,54 @@ int sortXSalary(void* emp1, void* emp2){
         p2 = (Employee*) emp2;
 
         if(p1->sueldo > p2->sueldo){
-            retorno = 1;
+            response = 1;
         } else if(p1->sueldo < p2->sueldo){
-            retorno = 1;
+            response = -1;
         } else {
-            retorno = 0;
+            response = 0;
         }
     }
-    return retorno;
+    return response;
 }
 
-*/
+int sortByHours( void* emp1, void* emp2){
+    int response = 0;
+    Employee* p1;
+    Employee* p2;
+
+    if( emp1 != NULL && emp2 != NULL){
+        p1 = (Employee*) emp1;
+        p2 = (Employee*) emp2;
+
+        if( p1->horasTrabajadas > p2->horasTrabajadas){
+            response = 1;
+        } else if( p1->horasTrabajadas < p2->horasTrabajadas){
+            response = -1;
+        } else{
+            response = 0;
+        }
+    }
+
+    return response;
+}
+
+int sortByName( void* emp1, void* emp2){
+    int response = 0;
+    Employee* p1;
+    Employee* p2;
+
+    if( emp1 != NULL && emp2 != NULL){
+        p1 = (Employee*) emp1;
+        p2 = (Employee*) emp2;
+
+        if( strcmp(p1->nombre, p2->nombre) > 0){
+            response = 1;
+        } else if( strcmp(p1->nombre, p2->nombre) < 0){
+            response = -1;
+        } else{
+            response = 0;
+        }
+    }
+
+    return response;
+}
