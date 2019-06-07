@@ -77,22 +77,22 @@ int main()
                 break;
             case 2:
                 displayTitle("2. Cargar desde binario");
-                //controller_loadFromBinary();
+                controller_loadFromBinary("data.bin",listaEmpleados);
                 setPause();
                 break;
             case 3:
                 displayTitle("3. Alta");
-                //controller_addEmployee();
+                controller_addEmployee(listaEmpleados);
                 setPause();
                 break;
             case 4:
                 displayTitle("4. Modificacion");
-                //controller_editEmployee();
+                controller_editEmployee(listaEmpleados);
                 setPause();
                 break;
             case 5:
                 displayTitle("5. Baja");
-                //controller_removeEmployee();
+                controller_removeEmployee(listaEmpleados);
                 setPause();
                 break;
             case 6:
@@ -107,11 +107,12 @@ int main()
                 break;
             case 8:
                 displayTitle("8. Guardar en csv");
-                //controller_saveAsText();
+                controller_saveAsText("data.csv",listaEmpleados);
                 setPause();
                 break;
             case 9:
                 displayTitle("9. Guardar en binario");
+                controller_saveAsBinary("data.bin",listaEmpleados);
                 setPause();
                 break;
             case 10:

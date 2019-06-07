@@ -120,3 +120,43 @@
 1559778926 c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\controller.h
 	"Employee.h"
 
+1559944478 source:c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"ddalairac.h"
+
+1559944478 c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\linkedlist.h
+
+1559944478 c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\employee.h
+
+1559944478 c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\ddalairac.h
+
+1559944478 source:c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+
+1559944478 source:c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1559944478 source:c:\users\alumno\desktop\utn-lab1\tps\tp3\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
