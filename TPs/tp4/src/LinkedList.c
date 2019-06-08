@@ -89,10 +89,22 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement){
     Node* pNode = NULL;
     int i;
     if(this != NULL && nodeIndex >= 0 && nodeIndex < this->size){
-        pNode = this->pFirstNode;
-        for(i = 0; i < nodeIndex; i++){
-            pNode = pNode->pNextNode;
-        }
+            if(nodeIndex == 0){
+                //el primero
+                pNode = this->pFirstNode;
+            } else if(nodeIndex == this->size){
+                // el ultimo apunta a NULL
+                pNode = this->pFirstNode;
+                for(i = 0; i < nodeIndex-1; i++){
+                    pNode = pNode->pNextNode;
+                }
+            } else{
+                pNode = this->pFirstNode;
+                for(i = 0; i < nodeIndex-1; i++){
+                    pNode = pNode->pNextNode;
+                }
+            }
+
     }
     return pNode;
 
