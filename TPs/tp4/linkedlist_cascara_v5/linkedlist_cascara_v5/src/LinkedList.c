@@ -13,10 +13,12 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement);
  *  \return LinkedList* Retorna (NULL) en el caso de no conseguir espacio en memoria
  *                      o el puntero al espacio reservado
  */
-LinkedList* ll_newLinkedList(void){
+LinkedList* ll_newLinkedList(void)
+{
     LinkedList* this;
     this = (LinkedList *)malloc(sizeof(LinkedList));
-    if(this != NULL){
+    if(this != NULL)
+    {
         this->size=0;
         this->pFirstNode = NULL;
     }
@@ -29,11 +31,10 @@ LinkedList* ll_newLinkedList(void){
  * \return int Retorna (-1) si el puntero es NULL o la cantidad de elementos de la lista
  *
  */
-int ll_len(LinkedList* this){
+int ll_len(LinkedList* this)
+{
     int returnAux = -1;
-    if(this != NULL){
-        returnAux = this->size;
-    }
+
     return returnAux;
 }
 
@@ -46,15 +47,10 @@ int ll_len(LinkedList* this){
                         (pElement) Si funciono correctamente
  *
  */
-static Node* getNode(LinkedList* this, int nodeIndex){
+static Node* getNode(LinkedList* this, int nodeIndex)
+{
     Node* pNode = NULL;
-    int i;
-    if(this != NULL && nodeIndex >= 0 && nodeIndex < this->size){
-        pNode = this->pFirstNode;
-        for(i = 0; i < nodeIndex; i++){
-            pNode = pNode->pNextNode;
-        }
-    }
+
     return pNode;
 }
 
@@ -66,7 +62,8 @@ static Node* getNode(LinkedList* this, int nodeIndex){
                         (pElement) Si funciono correctamente
  *
  */
-Node* test_getNode(LinkedList* this, int nodeIndex){
+Node* test_getNode(LinkedList* this, int nodeIndex)
+{
     return getNode(this, nodeIndex);
 }
 
@@ -80,7 +77,8 @@ Node* test_getNode(LinkedList* this, int nodeIndex){
                         ( 0) Si funciono correctamente
  *
  */
-static int addNode(LinkedList* this, int nodeIndex,void* pElement){
+static int addNode(LinkedList* this, int nodeIndex,void* pElement)
+{
     int returnAux = -1;
 
     return returnAux;
@@ -96,7 +94,8 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement){
                         ( 0) Si funciono correctamente
  *
  */
-int test_addNode(LinkedList* this, int nodeIndex,void* pElement){
+int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
+{
     return addNode(this,nodeIndex,pElement);
 }
 
@@ -108,11 +107,10 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement){
                         ( 0) Si funciono correctamente
  *
  */
-int ll_add(LinkedList* this, void* pElement){
+int ll_add(LinkedList* this, void* pElement)
+{
     int returnAux = -1;
-//    if(this != NULL){
-//        addNode(this,this->size,pElement);
-//    }
+
     return returnAux;
 }
 
@@ -124,11 +122,10 @@ int ll_add(LinkedList* this, void* pElement){
                             (pElement) Si funciono correctamente
  *
  */
-void* ll_get(LinkedList* this, int index){
+void* ll_get(LinkedList* this, int index)
+{
     void* returnAux = NULL;
-    if(this != NULL && index >= 0 && index < this->size){
-        returnAux = getNode(this, index);
-    }
+
     return returnAux;
 }
 
@@ -234,21 +231,10 @@ int ll_isEmpty(LinkedList* this)
                         ( 0) Si funciono correctamente
  *
  */
-int ll_push(LinkedList* this, int index, void* pElement){
+int ll_push(LinkedList* this, int index, void* pElement)
+{
     int returnAux = -1;
-    int nodeIndex = index;
-    LinkedList* thisAux = this;
-    if(this != NULL && nodeIndex >= 0 && nodeIndex < this->size){
-        thisAux = (LinkedList *)malloc(sizeof(LinkedList) * this->size);
-        if(thisAux != NULL){
-            thisAux = this;
-            if(nodeIndex == 0){
-                this->pFirstNode = pElement;
-            } else {
-                (this->pFirstNode+(nodeIndex-1))->pNextNode = pElement;
-            }
-        }
-    }
+
     return returnAux;
 }
 
