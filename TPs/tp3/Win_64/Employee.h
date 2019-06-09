@@ -21,13 +21,14 @@ int employee_getNombre(Employee* this,char* nombre);
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas);
 int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas);
 
-int employee_setSueldo(Employee* this,int sueldo);
-int employee_getSueldo(Employee* this,int* sueldo);
+int employee_setSueldo(Employee* this,int salary);
+int employee_getSueldo(Employee* this,int* salary);
 
-//void displayEmployees(LinkedList* listaEmpleados);
-//void displayEmployee(Employee* emp);
+void employee_displayEmployees(LinkedList* listaEmpleados);
+void employee_displayEmployee(Employee* emp);
 
-int sortBySalary(void* emp1, void* emp2);
-int sortByHours( void* emp1, void* emp2);
-int sortByName( void* emp1, void* emp2);
+int employee_sortBySalary(void* emp1, void* emp2);
+int employee_sortByHours( void* emp1, void* emp2);
+int employee_sortByName( void* emp1, void* emp2);;
+int employee_isValid(Employee* emp)
 #endif // employee_H_INCLUDED

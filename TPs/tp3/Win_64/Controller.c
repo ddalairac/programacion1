@@ -20,17 +20,17 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee){
 
     FILE* pFile;
     int response = 0;
-
+/*
     if(path != NULL && pArrayListEmployee != NULL){
         pFile = fopen(path,"r");
         if(pFile!=NULL){
-            //parser_EmployeeFromText(pFile,pArrayListEmployee);
+            parser_EmployeeFromText(pFile,pArrayListEmployee);
             fclose(pFile);
             response = 1;
         }else{
             response = 0;
         }
-    }
+    }*/
     return response;
 
 }
@@ -42,9 +42,21 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee){
  * \return int
  *
  */
-int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
-{
-    return 1;
+int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee){
+    FILE* pFile;
+    int response = 0;
+/*
+    if(path != NULL && pArrayListEmployee != NULL){
+        pFile = fopen(path,"rb");
+        if(pFile!=NULL){
+            parser_EmployeeFromBinary(pFile,pArrayListEmployee);
+            fclose(pFile);
+            response = 1;
+        }else{
+            response = 0;
+        }
+    }*/
+    return response;
 }
 
 /** \brief Alta de empleados
@@ -54,8 +66,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_addEmployee(LinkedList* pArrayListEmployee)
-{
+int controller_addEmployee(LinkedList* pArrayListEmployee){
     return 1;
 }
 
@@ -66,8 +77,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_editEmployee(LinkedList* pArrayListEmployee)
-{
+int controller_editEmployee(LinkedList* pArrayListEmployee){
     return 1;
 }
 
@@ -78,26 +88,8 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_removeEmployee(LinkedList* pArrayListEmployee)
-{
+int controller_removeEmployee(LinkedList* pArrayListEmployee){
     return 1;
-}
-
-/** \brief imprimir un empleado
- *
- * \param emp Employee*
- * \return int
- *
- */
-int controller_printEmployee(Employee* emp){
-    int response = 0;
-    if(emp != NULL){
-        printf("%6d | %15s | %20d | %10d \n", emp->id, emp->nombre, emp->horasTrabajadas, emp->sueldo);
-        response = 1;
-    } /* else {
-        printf("NULL pointer \n");
-    }*/
-    return response;
 }
 
 /** \brief Listar empleados
@@ -108,16 +100,7 @@ int controller_printEmployee(Employee* emp){
  *
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee){
-    int i,response = 0;
-    if(pArrayListEmployee != NULL){
-        printf("%6s | %15s | %20s | %10s \n", "id", "nombre", "horas trabajadas", "sueldo");
-        printf("-------------------------------------------------------------- \n");
-        for(i = 0; i < ll_len(pArrayListEmployee); i++){
-            controller_printEmployee( (Employee*) ll_get(pArrayListEmployee,i));
-        }
-        response = 1;
-    }
-    return response;
+    //employee_displayEmployees(pArrayListEmployee);
 }
 
 /** \brief Ordenar empleados
@@ -128,7 +111,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee){
  *
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee){
-    int sortOption = 0;
+    /*int sortOption = 0;
     char menuSort[][100] = {
         "Por",
         "Horas",
@@ -139,16 +122,16 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee){
     sortOption = displayMenu(menuSort,3,2);
     switch(sortOption){
         case 1:
-            ll_sort(pArrayListEmployee,sortByHours, ASC);
+            ll_sort(pArrayListEmployee,employee_sortByHours, ASC);
             break;
         case 2:
-            ll_sort(pArrayListEmployee,sortByName, ASC);
+            ll_sort(pArrayListEmployee,employee_sortByName, ASC);
             break;
         case 3:
-            ll_sort(pArrayListEmployee,sortBySalary, ASC);
+            ll_sort(pArrayListEmployee,employee_sortBySalary, ASC);
             break;
     }
-    controller_ListEmployee(pArrayListEmployee);
+    controller_ListEmployee(pArrayListEmployee);*/
     return 1;
 }
 

@@ -1,9 +1,10 @@
-
-typedef struct{
+#ifndef ddalairac_H_INCLUDED
+#define ddalairac_H_INCLUDED
+/*typedef struct{
     int day;
     int month;
     int year;
-} eDate;
+} eDate;*/
 
 /**********************************************
 *
@@ -383,4 +384,6 @@ int displayMenu(char menuOptions[][100], int size, int type);
  *
  */
 int displayMenuConfirmacion();
+
+#endif // ddalairac_H_INCLUDED
 
