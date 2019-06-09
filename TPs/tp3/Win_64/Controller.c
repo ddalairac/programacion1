@@ -19,8 +19,8 @@
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee){
 
     FILE* pFile;
-    int response = 0;
-/*
+    int response = FALSE;
+
     if(path != NULL && pArrayListEmployee != NULL){
         pFile = fopen(path,"r");
         if(pFile!=NULL){
@@ -28,9 +28,9 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee){
             fclose(pFile);
             response = 1;
         }else{
-            response = 0;
+            response = TRUE;
         }
-    }*/
+
     return response;
 
 }
@@ -44,8 +44,8 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee){
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee){
     FILE* pFile;
-    int response = 0;
-/*
+    int response = FALSE;
+
     if(path != NULL && pArrayListEmployee != NULL){
         pFile = fopen(path,"rb");
         if(pFile!=NULL){
@@ -53,9 +53,9 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee){
             fclose(pFile);
             response = 1;
         }else{
-            response = 0;
+            response = TRUE;
         }
-    }*/
+    }
     return response;
 }
 
@@ -67,7 +67,12 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee){
  *
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee){
-    return 1;
+    int response = FALSE;
+
+    if(pArrayListEmployee != NULL){
+        response = TRUE;
+    }
+    return response;
 }
 
 /** \brief Modificar datos de empleado
@@ -78,7 +83,12 @@ int controller_addEmployee(LinkedList* pArrayListEmployee){
  *
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee){
-    return 1;
+    int response = FALSE;
+
+    if(pArrayListEmployee != NULL){
+        response = TRUE;
+    }
+    return response;
 }
 
 /** \brief Baja de empleado
@@ -89,7 +99,12 @@ int controller_editEmployee(LinkedList* pArrayListEmployee){
  *
  */
 int controller_removeEmployee(LinkedList* pArrayListEmployee){
-    return 1;
+    int response = FALSE;
+
+    if(pArrayListEmployee != NULL){
+        response = TRUE;
+    }
+    return response;
 }
 
 /** \brief Listar empleados
@@ -100,7 +115,13 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee){
  *
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee){
-    //employee_displayEmployees(pArrayListEmployee);
+    int response = FALSE;
+
+    if(pArrayListEmployee != NULL){
+        employee_displayEmployees(pArrayListEmployee);
+        response = TRUE;
+    }
+    return response;
 }
 
 /** \brief Ordenar empleados
@@ -111,28 +132,32 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee){
  *
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee){
-    /*int sortOption = 0;
+    int sortOption = 0;
     char menuSort[][100] = {
         "Por",
         "Horas",
         "Nombre",
         "Salario"
     };
+    int response = FALSE;
 
-    sortOption = displayMenu(menuSort,3,2);
-    switch(sortOption){
-        case 1:
-            ll_sort(pArrayListEmployee,employee_sortByHours, ASC);
-            break;
-        case 2:
-            ll_sort(pArrayListEmployee,employee_sortByName, ASC);
-            break;
-        case 3:
-            ll_sort(pArrayListEmployee,employee_sortBySalary, ASC);
-            break;
+    if(pArrayListEmployee != NULL){
+        sortOption = displayMenu(menuSort,3,2);
+        switch(sortOption){
+            case 1:
+                ll_sort(pArrayListEmployee,employee_sortByHours, ASC);
+                break;
+            case 2:
+                ll_sort(pArrayListEmployee,employee_sortByName, ASC);
+                break;
+            case 3:
+                ll_sort(pArrayListEmployee,employee_sortBySalary, ASC);
+                break;
+        }
+        controller_ListEmployee(pArrayListEmployee);
+        response = TRUE;
     }
-    controller_ListEmployee(pArrayListEmployee);*/
-    return 1;
+    return response;
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo texto).
@@ -142,9 +167,13 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee){
  * \return int
  *
  */
-int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
-{
-    return 1;
+int controller_saveAsText(char* path , LinkedList* pArrayListEmployee){
+    int response = FALSE;
+
+    if(path != NULL && pArrayListEmployee != NULL){
+        response = TRUE;
+    }
+    return response;
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo binario).
@@ -154,8 +183,12 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
-{
-    return 1;
+int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee){
+    int response = FALSE;
+
+    if(path != NULL && pArrayListEmployee != NULL){
+        response = TRUE;
+    }
+    return response;
 }
 

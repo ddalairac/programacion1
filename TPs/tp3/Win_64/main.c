@@ -16,8 +16,7 @@
 *****************************************************/
 
 
-int main()
-{
+int main(){
     int option = 0;
     LinkedList* listaEmpleados = ll_newLinkedList();
     char menuOptions[][100] = {

@@ -30,5 +30,6 @@ void employee_displayEmployee(Employee* emp);
 int employee_sortBySalary(void* emp1, void* emp2);
 int employee_sortByHours( void* emp1, void* emp2);
 int employee_sortByName( void* emp1, void* emp2);;
-int employee_isValid(Employee* emp)
+int employee_isValid(Employee* emp);
+
 #endif // employee_H_INCLUDED

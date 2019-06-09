@@ -114,7 +114,7 @@ void employee_displayEmployees(LinkedList* listaEmpleados){
     if(listaEmpleados != NULL){
         printf("%6s | %15s | %20s | %10s \n", "id", "nombre", "horas trabajadas", "sueldo");
         for(i = 0; i < ll_len(listaEmpleados); i++){
-            displayEmployee( (Employee*) ll_get(listaEmpleados,i));
+            employee_displayEmployee( (Employee*) ll_get(listaEmpleados,i));
         }
     }
 }
