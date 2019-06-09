@@ -26,10 +26,12 @@ int employee_getSueldo(Employee* this,int* salary);
 
 void employee_displayEmployees(LinkedList* listaEmpleados);
 void employee_displayEmployee(Employee* emp);
+void employee_displayEmployeeHeader();
 
 int employee_sortBySalary(void* emp1, void* emp2);
 int employee_sortByHours( void* emp1, void* emp2);
-int employee_sortByName( void* emp1, void* emp2);;
+int employee_sortById( void* emp1, void* emp2);
+int employee_sortByName( void* emp1, void* emp2);
 int employee_isValid(Employee* emp);
 
 #endif // employee_H_INCLUDED

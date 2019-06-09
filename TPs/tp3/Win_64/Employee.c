@@ -108,20 +108,23 @@ int employee_getSueldo(Employee* this,int* salary){
     return response;
 }
 
-
 void employee_displayEmployees(LinkedList* listaEmpleados){
     int i;
     if(listaEmpleados != NULL){
-        printf("%6s | %15s | %20s | %10s \n", "id", "nombre", "horas trabajadas", "sueldo");
+         employee_displayEmployeeHeader();
         for(i = 0; i < ll_len(listaEmpleados); i++){
             employee_displayEmployee( (Employee*) ll_get(listaEmpleados,i));
         }
     }
 }
-
+void employee_displayEmployeeHeader(){
+    printf("%8s | %15s | %20s | %10s \n", "id", "nombre", "horas trabajadas", "sueldo");
+    margen();
+    printf("------------------------------------------------------------- \n");
+}
 void employee_displayEmployee(Employee* emp){
     if(emp != NULL){
-        printf("%6d | %15s | %20d | %10d \n", emp->id, emp->nombre, emp->horasTrabajadas, emp->sueldo);
+        printf("%8d | %15s | %20d | %10d \n", emp->id, emp->nombre, emp->horasTrabajadas, emp->sueldo);
     } else {
         printf("NULL pointer \n");
     }
@@ -146,7 +149,6 @@ int employee_sortBySalary(void* emp1, void* emp2){
     }
     return response;
 }
-
 int employee_sortByHours( void* emp1, void* emp2){
     int response = 0;
     Employee* p1;
@@ -168,6 +170,26 @@ int employee_sortByHours( void* emp1, void* emp2){
     return response;
 }
 
+int employee_sortById( void* emp1, void* emp2){
+    int response = 0;
+    Employee* p1;
+    Employee* p2;
+
+    if( emp1 != NULL && emp2 != NULL){
+        p1 = (Employee*) emp1;
+        p2 = (Employee*) emp2;
+
+        if( p1->id > p2->id){
+            response = 1;
+        } else if( p1->id < p2->id){
+            response = -1;
+        } else{
+            response = 0;
+        }
+    }
+
+    return response;
+}
 int employee_sortByName( void* emp1, void* emp2){
     int response = 0;
     Employee* p1;
@@ -206,3 +228,5 @@ int employee_isValid(Employee* emp){
     }
     return response;
 }
+
+

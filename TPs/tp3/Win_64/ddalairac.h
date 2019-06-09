@@ -124,6 +124,14 @@ void inputStr(char message[],char str[]);
  */
 int inputValidInt(char message[], int max);
 
+/** \brief Solicita introducir un entero al usuario y lo valida
+ *
+ * \param message[] char, mensaje custom
+ * \return int, numero entero validado mayor a 1;
+ *
+ */
+int inputValidId(char message[]);
+
 /** \brief Solicita introducir un flotante al usuario y lo valida
  *
  * \param message[] char, mensaje custom

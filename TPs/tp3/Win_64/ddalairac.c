@@ -266,6 +266,39 @@ int inputValidInt(char message[], int max){
     return value;
 }
 
+int inputValidId(char message[]){
+    int value;
+    char input[500] ;
+    int length;
+    int loop = TRUE;
+
+    do{
+        inputStr(message,input);
+        length = strlen (input);
+        if(length > 0){
+            if(validNumber(input)){
+                if( atoi(input) > 0){
+                    value = atoi(input);
+                    loop = FALSE;
+                } else {
+                    printf("Error, debe introducir un numero mayor a 0. \n\n");
+                }
+            } else {
+                printf("Error, debe introducir solo numeros. \n\n");
+            }
+
+        } else {
+            if(length == 0){
+                printf("Error, este campo es Obligatorio. \n\n");
+            } else {
+            }
+        }
+
+    }while(loop);
+
+    return value;
+}
+
 float inputValidFloat(char message[], int max){
     float value;
     char input[500] ;

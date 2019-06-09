@@ -53,29 +53,31 @@
 	"LinkedList.h"
 	"Employee.h"
 
-1560107568 source:c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\controller.c
+1560119540 source:c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
+	"parser.h"
 	"ddalairac.h"
 
 1559777664 c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\linkedlist.h
 
-1560107624 c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\employee.h
+1560119468 c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\employee.h
 
-1560107644 source:c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\employee.c
+1560119449 source:c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\employee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"LinkedList.h"
 	"Employee.h"
 
-1560107135 source:c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\parser.c
+1560108498 source:c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
+	"parser.h"
 
 1559521093 source:c:\users\diego\documents\code\utn-lab1\lib\ddalairac.c
 	<stdio.h>
@@ -93,7 +95,7 @@
 
 1559521093 c:\users\diego\documents\code\utn-lab1\lib\ddalairac.h
 
-1559521093 source:c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\ddalairac.c
+1560111971 source:c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\ddalairac.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -107,9 +109,9 @@
 	<Windows.h>
 	"ddalairac.h"
 
-1560107414 c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\ddalairac.h
+1560112022 c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\ddalairac.h
 
-1560107598 source:c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\main.c
+1560119169 source:c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -159,4 +161,6 @@
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
+
+1560108465 c:\users\diego\documents\code\utn-lab1\tps\tp3\win_64\parser.h
 
