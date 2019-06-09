@@ -16,8 +16,7 @@
 *****************************************************/
 
 
-int main()
-{
+int main(){
     int option = 0;
     LinkedList* listaEmpleados = ll_newLinkedList();
     char menuOptions[][100] = {
@@ -35,7 +34,7 @@ int main()
     };
 
     /** harcodeo */
-    Employee* emp1 = employee_newParametros("1234", "Diego", "234", "25000");
+    /*Employee* emp1 = employee_newParametros("1234", "Diego", "234", "25000");
     Employee* emp2 = employee_newParametros("2222", "Marcelo", "100", "55000");
     Employee* emp3 = employee_newParametros("1111", "Juana", "340", "35000");
     Employee* emp4 = employee_newParametros("5555", "Sofia", "210", "23000");
@@ -43,25 +42,7 @@ int main()
     ll_add(listaEmpleados, emp1);
     ll_add(listaEmpleados, emp2);
     ll_add(listaEmpleados, emp3);
-    ll_add(listaEmpleados, emp4);
-    /*
-    // Muestro la cantida de elementos dentro de la lista ----> 0
-    printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-    // agrego un empleado a la lista
-    if(ll_add(listaEmpleados, emp1)== 0){
-        printf("Se ha agregado el empleado con exito a la lista\n");
-    }
-    printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-    if(ll_add(listaEmpleados, emp2)== 0){
-        printf("Se ha agregado el empleado con exito a la lista\n");
-    }
-    printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-    if(ll_add(listaEmpleados, emp3)== 0){
-        printf("Se ha agregado el empleado con exito a la lista\n");
-    }
-    printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-
-    controller_ListEmployee(listaEmpleados);*/
+    ll_add(listaEmpleados, emp4);*/
     /** end harcodeo */
 
     //setPause();
