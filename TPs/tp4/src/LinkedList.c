@@ -86,14 +86,15 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement){
     Node* pNewNode = (Node*) malloc(sizeof(Node));
     Node* pAuxNode = NULL;
 
-    if(this!=NULL && nodeIndex>=0 && nodeIndex<= this->size && pNewNode!= NULL){
+    if(this != NULL && nodeIndex >= 0 && nodeIndex <= this->size && pNewNode != NULL){
 
         pNewNode->pElement = pElement;
+        pNewNode->pNextNode = NULL;
         returnAux = 0;
         this->size++;
 
         /** No hay items en la lista*/
-        if(nodeIndex==0 && this->size==0){
+        if(nodeIndex == 0 && this->size == 0){
             this->pFirstNode = pNewNode;
             //free(this->pFirstNode->pNextNode);
         }else{
@@ -143,9 +144,10 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement){
  */
 int ll_add(LinkedList* this, void* pElement){
     int returnAux = -1;
-//    if(this != NULL){
-//        addNode(this,this->size,pElement);
-//    }
+
+    if(this != NULL){
+        returnAux = addNode(this, this->size, pElement);
+    }
     return returnAux;
 }
 
@@ -158,11 +160,17 @@ int ll_add(LinkedList* this, void* pElement){
  *
  */
 void* ll_get(LinkedList* this, int index){
-    void* returnAux = NULL;
+    void* returnNode = NULL;
+    Node* auxNode;
+
     if(this != NULL && index >= 0 && index < this->size){
-        returnAux = getNode(this, index);
+        auxNode = getNode(this, index);
+        if(auxNode->pElement != NULL){
+            returnNode = auxNode->pElement;
+        }
     }
-    return returnAux;
+
+    return returnNode;
 }
 
 
@@ -175,11 +183,17 @@ void* ll_get(LinkedList* this, int index){
                         ( 0) Si funciono correctamente
  *
  */
-int ll_set(LinkedList* this, int index,void* pElement)
-{
-    int returnAux = -1;
+int ll_set(LinkedList* this, int index,void* pElement){
+    int response = -1;
+    Node* auxNode;
 
-    return returnAux;
+    if(this != NULL && index >= 0 && index < this->size){
+        auxNode = getNode(this, index);
+        auxNode->pElement = pElement;
+        response = 0;
+    }
+
+    return response;
 }
 
 
@@ -191,9 +205,83 @@ int ll_set(LinkedList* this, int index,void* pElement)
                         ( 0) Si funciono correctamente
  *
  */
-int ll_remove(LinkedList* this,int index)
-{
+int ll_remove(LinkedList* this,int index){
     int returnAux = -1;
+
+//    Node* node;
+//    Node* nextNode;
+//    Node* prevNode;
+
+    Node* prevNode;
+    Node* pDelNode;
+
+    if(this != NULL && index >= 0 && index < this->size && this->size > 0){
+
+        pDelNode = getNode(this, index);
+
+        if(index == 0){
+            this->pFirstNode = pDelNode->pElement;
+
+        } else {
+            prevNode = getNode(this, index -1);
+            prevNode->pElement = pDelNode->pElement;
+        }
+        free(pDelNode);
+        this->size--;
+        returnAux = 0;
+    }
+
+//       if(index == 0 && this->size > 2){
+//            /**
+//                Si el nodo a eliminar es el primero y la lista tiene mas de 2 elementos,
+//                el elemento 1 tomara la posicion del elemento 0, y se reducira el tamaño.
+//            **/
+//                node = getNode(this, 1);
+//                this->pFirstNode->pNextNode = node->pNextNode;
+//                this->pFirstNode->pElement = node->pElement;
+//                this->size--;
+//                returnAux = 0;
+//       }else{
+//           if(index==0 && this->size==1){
+//                /**
+//                    Si el nodo a eliminar es el primero y la ll tiene tamaño 1,
+//                    el pFirstNode de la ll es el eliminado, y se reduce el tamaño
+//                    de la lista
+//                **/
+//                this->pFirstNode=NULL;
+//                this->size--;
+//                returnAux = 0;
+//           }else{
+//               /**
+//                    Si el elemento a eliminar es el siguiente al pFirstNode,
+//                    se establece al nodo en el indice 2 como pNextNode de
+//                    pFirstNode, y se reduce el tamaño de la lista.
+//               **/
+//                if(index==1){
+//                    node=getNode(this, index);
+//                    nextNode=getNode(this, index+1);
+//                    this->pFirstNode->pNextNode=nextNode;
+//                    this->size--;
+//                    node=NULL;
+//                    returnAux = 0;
+//               }else{
+//                   /**
+//                        Si el elemento a eliminar es cualquier otro,
+//                        el nodo anterior al deseado apuntara al siguiente,
+//                        y se seteara como NULL al nodo a eliminar.
+//                        Se recude el tamaño de la lista en 1.
+//                   **/
+//                    node=getNode(this, index);
+//                    nextNode=getNode(this, index+1);
+//                    prevNode=getNode(this, index-1);
+//                    prevNode->pNextNode=nextNode;
+//                    this->size--;
+//                    node=NULL;
+//                    returnAux = 0;
+//               }
+//           }
+//        }
+//    }
 
     return returnAux;
 }
