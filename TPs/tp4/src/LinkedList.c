@@ -83,6 +83,39 @@ Node* test_getNode(LinkedList* this, int nodeIndex){
 static int addNode(LinkedList* this, int nodeIndex,void* pElement){
     int returnAux = -1;
 
+    Node* pNewNode = (Node*) malloc(sizeof(Node));
+    Node* pAuxNode = NULL;
+
+    if(this!=NULL && nodeIndex>=0 && nodeIndex<= this->size && pNewNode!= NULL){
+
+        pNewNode->pElement = pElement;
+        returnAux = 0;
+        this->size++;
+
+        /** No hay items en la lista*/
+        if(nodeIndex==0 && this->size==0){
+            this->pFirstNode = pNewNode;
+            //free(this->pFirstNode->pNextNode);
+        }else{
+            /** cambiar primer item de la lista */
+            if(nodeIndex == 0 && this->size!=0){
+                pAuxNode = getNode(this, 0); /** Guardo el link anterior */
+                this->pFirstNode = pNewNode;
+                this->pFirstNode->pNextNode = pAuxNode;
+            }else{
+                /** cambiar ultimo item de la lista */
+                if(nodeIndex == this->size){
+                    pAuxNode = getNode(this, nodeIndex-1);  /** Guardo el link anterior */
+                    pAuxNode->pNextNode = pNewNode;
+                    //free(pNewNode->pNextNode = NULL);
+                }else{
+                    pAuxNode = getNode(this, nodeIndex-1);  /** Guardo el link anterior */
+                    pAuxNode->pNextNode = pNewNode;
+                    pAuxNode->pNextNode->pNextNode = pAuxNode;
+                }
+            }
+        }
+    }
     return returnAux;
 }
 
