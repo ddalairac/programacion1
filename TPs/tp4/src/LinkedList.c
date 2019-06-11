@@ -288,10 +288,20 @@ int ll_deleteLinkedList(LinkedList* this){
                         (indice del elemento) Si funciono correctamente
  *
  */
-int ll_indexOf(LinkedList* this, void* pElement)
-{
+int ll_indexOf(LinkedList* this, void* pElement){
     int returnAux = -1;
+    int i;
 
+    Node* pAuxNode;
+    if(this!=NULL){
+        pAuxNode=this->pFirstNode;
+        for(i = 0; i < this->size; i++){
+            if(pAuxNode != NULL && pAuxNode->pElement == pElement)
+                returnAux = i;
+                break;
+        }
+        pAuxNode = pAuxNode->pNextNode;
+    }
     return returnAux;
 }
 
@@ -303,10 +313,16 @@ int ll_indexOf(LinkedList* this, void* pElement)
                         ( 1) Si la lista esta vacia
  *
  */
-int ll_isEmpty(LinkedList* this)
-{
+int ll_isEmpty(LinkedList* this){
     int returnAux = -1;
 
+    if(this != NULL){
+        if(this->size == 0 && this->pFirstNode == NULL){
+            returnAux = 1;
+        } else if(this->size != 0 && this->pFirstNode != NULL){
+            returnAux = 0;
+        }
+    }
     return returnAux;
 }
 
