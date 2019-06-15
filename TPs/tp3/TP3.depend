@@ -220,3 +220,59 @@
 	"Employee.h"
 	"ddalairac.h"
 
+1560119713 source:c:\users\diego\documents\code\utn_tps_laboratorio1\tp3\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"ddalairac.h"
+
+1559777664 c:\users\diego\documents\code\utn_tps_laboratorio1\tp3\linkedlist.h
+
+1560119713 c:\users\diego\documents\code\utn_tps_laboratorio1\tp3\employee.h
+
+1560119713 c:\users\diego\documents\code\utn_tps_laboratorio1\tp3\parser.h
+
+1560119713 c:\users\diego\documents\code\utn_tps_laboratorio1\tp3\ddalairac.h
+
+1560119713 source:c:\users\diego\documents\code\utn_tps_laboratorio1\tp3\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+
+1560120030 source:c:\users\diego\documents\code\utn_tps_laboratorio1\tp3\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"ddalairac.h"
+
+1560119713 source:c:\users\diego\documents\code\utn_tps_laboratorio1\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"ddalairac.h"
+
+1559778926 c:\users\diego\documents\code\utn_tps_laboratorio1\tp3\controller.h
+	"Employee.h"
+
+1560119713 source:c:\users\diego\documents\code\utn_tps_laboratorio1\tp3\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+

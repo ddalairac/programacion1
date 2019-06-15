@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1560556147 source:c:\users\alumno\desktop\utn_tps_laboratorio1\tp3 con tp4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"ddalairac.h"
+
+1560554773 c:\users\alumno\desktop\utn_tps_laboratorio1\tp3 con tp4\linkedlist.h
+
+1560551509 c:\users\alumno\desktop\utn_tps_laboratorio1\tp3 con tp4\controller.h
+	"Employee.h"
+	"LinkedList.h"
+
+1560556054 c:\users\alumno\desktop\utn_tps_laboratorio1\tp3 con tp4\employee.h
+
+1560559863 c:\users\alumno\desktop\utn_tps_laboratorio1\tp3 con tp4\ddalairac.h
+
+1560556216 source:c:\users\alumno\desktop\utn_tps_laboratorio1\tp3 con tp4\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1560556129 source:c:\users\alumno\desktop\utn_tps_laboratorio1\tp3 con tp4\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"ddalairac.h"
+
