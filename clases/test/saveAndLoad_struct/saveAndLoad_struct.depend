@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1561071249 source:c:\users\diego\documents\code\utn-lab1\clases\test\saveandload_struct\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ddalairac.h"
+
+1560119713 source:c:\users\diego\documents\code\utn-lab1\clases\test\saveandload_struct\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+
+1560119713 c:\users\diego\documents\code\utn-lab1\clases\test\saveandload_struct\ddalairac.h
+

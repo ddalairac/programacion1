@@ -209,7 +209,7 @@ void imprimirEmpleados(eEmpleado* lista, int tam){
             fprintf(f,"ID Nombre Apellido Sueldo\n");
             for(int i=0;i<tam;i++){
                 if((lista+i)->estado==1){
-                    fprintf(f,"%d %s %s %.2f\n",(lista+i)->id,(lista+i)->nombre,(lista+i)->apellido,(lista+i)->sueldo);
+                    fprintf(f,"%d, %s, %s, %.2f\n",(lista+i)->id,(lista+i)->nombre,(lista+i)->apellido,(lista+i)->sueldo);
                 }
             }
         }

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1561063264 source:c:\users\diego\documents\code\utn-lab1\clases\test\file_aperturalecturacierre\main.c
+	<stdio.h>
+	<stdlib.h>
+

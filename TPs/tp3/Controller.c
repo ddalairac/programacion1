@@ -399,7 +399,7 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee){
     if(path != NULL && pArrayListEmployee != NULL){
         length = ll_len(pArrayListEmployee);
         if(length > 0){
-            file = fopen(path,"w");
+            file = fopen(path,"wb");
             if(file!=NULL){
                 for(i=0;i<length;i++){
                     emp = ll_get(pArrayListEmployee,i);
