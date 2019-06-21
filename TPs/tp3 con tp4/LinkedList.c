@@ -511,3 +511,38 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order){
 
 }
 
+LinkedList* ll_map(LinkedList* this, void* (*pFunc)(void*)){
+    LinkedList* mapList = NULL;
+    void* pAuxElement = NULL;
+    int i;
+    if(this != NULL && this->size > 0){
+        mapList = ll_newLinkedList();
+        if(mapList != NULL){
+            for(i = 0; i < this->size; i++){
+                pAuxElement = ll_get(this, i);
+                pAuxElement = pFunc(pAuxElement);
+                ll_add(mapList,pAuxElement);
+            }
+        }
+    }
+    return mapList;
+}
+
+
+LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*)){
+    LinkedList* mapList = NULL;
+    void* pAuxElement = NULL;
+    int i;
+    if(this != NULL && this->size > 0){
+        mapList = ll_newLinkedList();
+        if(mapList != NULL){
+            for(i = 0; i < this->size; i++){
+                pAuxElement = ll_get(this, i);
+                if( pFunc(pAuxElement) == 1){
+                    ll_add(mapList,pAuxElement);
+                }
+            }
+        }
+    }
+    return mapList;
+}
