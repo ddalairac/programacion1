@@ -235,9 +235,9 @@ ePersona *loadFromText(char* path, ePersona *list,int *len){
     char buffer[2][30];
     int cant,i;
     ePersona* auxList = NULL;
-    pFile = fopen(path,"r");
     int response = 1;
 
+    pFile = fopen(path,"r");
     if(pFile != NULL){
         printf("Data Cargada \n");
         while(!feof(pFile)){
@@ -265,6 +265,7 @@ ePersona *loadFromText(char* path, ePersona *list,int *len){
             }
         }
     }
+    fclose(pFile);
     /** feedback*/
     if(response == 1){
         printf("Data Cargada \n");

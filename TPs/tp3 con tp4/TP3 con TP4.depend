@@ -31,3 +31,41 @@
 	"Employee.h"
 	"ddalairac.h"
 
+1560630563 source:c:\users\diego\documents\code\utn-lab1\tps\tp3 con tp4\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"ddalairac.h"
+
+1560630563 c:\users\diego\documents\code\utn-lab1\tps\tp3 con tp4\linkedlist.h
+
+1560630563 c:\users\diego\documents\code\utn-lab1\tps\tp3 con tp4\employee.h
+
+1560630564 c:\users\diego\documents\code\utn-lab1\tps\tp3 con tp4\parser.h
+
+1560630564 c:\users\diego\documents\code\utn-lab1\tps\tp3 con tp4\ddalairac.h
+
+1560630564 source:c:\users\diego\documents\code\utn-lab1\tps\tp3 con tp4\ddalairac.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	<linux/string.h>
+	<termios.h>
+	<stdio_ext.h>
+	<unistd.h>
+	<string.h>
+	<conio.h>
+	<Windows.h>
+	"ddalairac.h"
+
+1560630563 source:c:\users\diego\documents\code\utn-lab1\tps\tp3 con tp4\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"ddalairac.h"
+
