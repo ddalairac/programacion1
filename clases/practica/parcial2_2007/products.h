@@ -21,3 +21,8 @@ int p_loadData(LinkedList* list);
 int p_edit(LinkedList* list);
 int p_remove_logic(LinkedList* list);
 int p_remove_fisic(LinkedList* list);
+int p_sort(void *v1, void *v2);
+int p_sortByCode(void *v1, void *v2);
+int p_sortByDescription(void *v1, void *v2);
+int p_sortByImporte(void *v1, void *v2);
+int p_sortByCantidad(void *v1, void *v2);

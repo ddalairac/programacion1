@@ -11,7 +11,7 @@ int main(){
     LinkedList *list = ll_newLinkedList();
     if(list != NULL){
         p_loadData(list);
-        int option;
+        int option,optionSort;
         char menuOptions[][100]={
             "Admin Productos",
             "Alta",
@@ -19,10 +19,18 @@ int main(){
             "Baja logica",
             "Baja fisica",
             "Listar",
+            "Ordenar y listar",
             "Salir"
         };
-        while(option!=6){
-            option = displayMenu(menuOptions,6,0);
+        char menuSort[][100]={
+            "Ordenar",
+            "Codigo",
+            "Descripcion",
+            "Importe",
+            "Cantidad",
+        };
+        while(option!=7){
+            option = displayMenu(menuOptions,7,0);
             switch(option){
                 case 1:
                     displayTitle("1.Alta");
@@ -50,17 +58,59 @@ int main(){
                     break;
                 case 3:
                     displayTitle("3.Baja logica");
-                    p_remove_logic(list);
+                    if(p_remove_logic(list)==TRUE){
+                        printf("Baja exitosa \n");
+                        if(p_saveData(list) == TRUE){
+                            printf("Data guardada \n");
+                        }
+                    } else {
+                        printf("No se produjo la baja \n");
+                    }
                     setPause();
                     break;
                 case 4:
                     displayTitle("4.Baja fisica");
-                    p_remove_fisic(list);
+                    if(p_remove_fisic(list)==TRUE){
+                        printf("Baja exitosa \n");
+                        if(p_saveData(list) == TRUE){
+                            printf("Data guardada \n");
+                        }
+                    } else {
+                        printf("No se produjo la baja \n");
+                    }
                     setPause();
                     break;
                 case 5:
                     displayTitle("5.Listar");
                     p_printList(list);
+                    setPause();
+                    break;
+
+                case 6:
+                    displayTitle("5.Ordenar");
+                    optionSort = displayMenu(menuSort,4,1);
+                    switch(optionSort){
+                           case 1:
+                               displaySubtitle("Por codigo");
+                               ll_sort(list,p_sortByCode,1);
+                               break;
+                           case 2:
+                               displaySubtitle("Por descripcion");
+                               ll_sort(list,p_sortByDescription,1);
+                               break;
+                           case 3:
+                               displaySubtitle("Por importe");
+                               ll_sort(list,p_sortByImporte,1);
+                               break;
+                           case 4:
+                               displaySubtitle("Por cantidad");
+                               ll_sort(list,p_sortByCantidad,1);
+                               break;
+                    }
+                    p_printList(list);
+                    if(p_saveData(list) == TRUE){
+                        printf("Data guardada \n");
+                    }
                     setPause();
                     break;
             }

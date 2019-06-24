@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1561077563 source:c:\users\diego\documents\code\utn-lab1\clases\practica\parcial2_2007\linkedlist.c
+1561332430 source:c:\users\diego\documents\code\utn-lab1\clases\practica\parcial2_2007\linkedlist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -7,7 +7,7 @@
 
 1561077430 c:\users\diego\documents\code\utn-lab1\clases\practica\parcial2_2007\linkedlist.h
 
-1561265259 source:c:\users\diego\documents\code\utn-lab1\clases\practica\parcial2_2007\main.c
+1561332606 source:c:\users\diego\documents\code\utn-lab1\clases\practica\parcial2_2007\main.c
 	<stdio.h>
 	<stdlib.h>
 	"ddalairac.h"
@@ -16,11 +16,12 @@
 
 1561256223 c:\users\diego\documents\code\utn-lab1\clases\practica\parcial2_2007\ddalairac.h
 
-1561266173 c:\users\diego\documents\code\utn-lab1\clases\practica\parcial2_2007\products.h
+1561331595 c:\users\diego\documents\code\utn-lab1\clases\practica\parcial2_2007\products.h
 
-1561265986 source:c:\users\diego\documents\code\utn-lab1\clases\practica\parcial2_2007\products.c
+1561332537 source:c:\users\diego\documents\code\utn-lab1\clases\practica\parcial2_2007\products.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"ddalairac.h"
 	"LinkedList.h"
 	"products.h"
