@@ -546,3 +546,15 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*)){
     }
     return mapList;
 }
+
+void* ll_reduce(LinkedList* this, void*(*pFunc)(void*, void*),void* acumulator){
+    void* pAuxElement = NULL;
+    int i;
+    if(this != NULL && this->size > 0){
+        for(i = 0; i < this->size; i++){
+            pAuxElement = ll_get(this, i);
+            acumulator = pFunc(acumulator,pAuxElement);
+        }
+    }
+    return acumulator;
+}

@@ -33,6 +33,8 @@ int employee_sortById( void* emp1, void* emp2);
 int employee_sortByName( void* emp1, void* emp2);
 int employee_isValid(Employee* emp);
 
-Employee* employee_duplicateHours(Employee* emp);
-int employee_filterHoursMayorSemana(Employee* emp);
+void* employee_duplicateHours(void* element);
+int employee_filterHoursMayorSemana(void* element);
+void* employee_reduceTotalHours(void* acumulator,void* element);
+void* employee_reduceTotalNames(void* acumulator,void* element);
 #endif // employee_H_INCLUDED

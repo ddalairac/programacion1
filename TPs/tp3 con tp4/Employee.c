@@ -231,21 +231,44 @@ int employee_isValid(Employee* emp){
 }
 
 
-Employee* employee_duplicateHours(Employee* emp){
-    Employee* auxEmp;
+void* employee_duplicateHours(void* element){
+    Employee *auxEmp = employee_new();
+    Employee *emp = (Employee*) element;
     if(emp != NULL){
         auxEmp->horasTrabajadas = emp->horasTrabajadas * 2;
+        auxEmp->id = emp->id;
+        strcpy(auxEmp->nombre,emp->nombre);
+        auxEmp->sueldo = emp->sueldo;
     }
     return auxEmp;
 }
 
-int employee_filterHoursMayorSemana(Employee* emp){
+int employee_filterHoursMayorSemana(void* element){
     int response = 0;
+    Employee * emp = (Employee*) element;
     if(emp != NULL){
         if(emp->horasTrabajadas > 40){
             response = 1;
         }
     }
     return response;
+}
+void* employee_reduceTotalHours(void* acumulator,void* element){
+    Employee * emp = (Employee*) element;
+    int *horas = (int*)acumulator;
+    *horas = *horas + emp->horasTrabajadas;
+
+    return horas;
+}
+
+void* employee_reduceTotalNames(void* acumulator,void* element){
+    Employee * emp = (Employee*) element;
+    char *names = (char*)acumulator;
+    if(strlen(names) > 0){
+        strcat(names," | ");
+    }
+    strcat(names,emp->nombre);
+
+    return names;
 }
 

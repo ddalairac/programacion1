@@ -32,8 +32,14 @@ int main(){
         "Guardar los datos de los empleados en el archivo data.bin (modo binario).",
         "Salir",
         "ll_Map",
-        "ll_Filter"
+        "ll_Filter",
+        "ll_reduce horas",
+        "ll_reduce nombres"
     };
+    int *reduceR = (int*)calloc(1,sizeof(int));
+    char *reduceR2 = (char*)calloc(1024,sizeof(char));
+    strcpy(reduceR2,"");
+
 
     /** harcodeo */
     /*Employee* emp1 = employee_newParametros("1234", "Diego", "234", "25000");
@@ -50,7 +56,7 @@ int main(){
     //setPause();
 
     do{
-        option = displayMenu(menuOptions,12,0);
+        option = displayMenu(menuOptions,14,0);
         switch(option)
         {
             case 1:
@@ -110,10 +116,24 @@ int main(){
                 setPause();
                 break;
             case 12:
-                displayTitle("11. Filter");
+                displayTitle("12. Filter");
                 listaEmpleados = ll_filter(listaEmpleados,employee_filterHoursMayorSemana);
                 margen();
                 printf("Empleados con menos de 40 horas trabajadas, filtrados \n");
+                setPause();
+                break;
+            case 13:
+                displayTitle("13. ll_Reduce horas");
+                ll_reduce(listaEmpleados,employee_reduceTotalHours,reduceR);
+                margen();
+                printf("Total de horas trabajadas: %d \n",*reduceR);
+                setPause();
+                break;
+            case 14:
+                displayTitle("14. ll_Reduce nombres");
+                ll_reduce(listaEmpleados,employee_reduceTotalNames,reduceR2);
+                margen();
+                printf("Todos los nombres:\n %s \n",reduceR2);
                 setPause();
                 break;
         }
