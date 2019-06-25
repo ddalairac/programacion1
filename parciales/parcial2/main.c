@@ -14,15 +14,15 @@ int main(){
     LinkedList* list = ll_newLinkedList();
     LinkedList* autos = ll_newLinkedList();
     LinkedList* motos = ll_newLinkedList();
-//    char fileName[50];
-    char fileName[50] = "./datos.csv";
-    d_loadFromText(fileName,list);
+    char fileName[50];
+//    char fileName[50] = "./datos.csv";
+//    d_loadFromText(fileName,list);
 
     char menuOptions[][100] = {
         "MENU PRINCIPAL",
         "Cargar Datos",
         "Lista",
-        "",
+        "Setear tipos",
         "",
         "",
         "Salir",
@@ -57,7 +57,7 @@ int main(){
                 setPause();
                 break;
             case 4:
-                displayTitle("4. ");
+                displayTitle("4. Filtrar autos");
                 if(ll_isEmpty(list)!=-1){
                 } else {
                     printf("La lista esta vacia \n");

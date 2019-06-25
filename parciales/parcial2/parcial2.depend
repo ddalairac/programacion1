@@ -23,7 +23,7 @@
 
 1561412256 c:\users\alumno\desktop\utn-lab1\parciales\parcial2\linkedlist.h
 
-1561421046 source:c:\users\alumno\desktop\utn-lab1\parciales\parcial2\dominio.c
+1561421642 source:c:\users\alumno\desktop\utn-lab1\parciales\parcial2\dominio.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -33,7 +33,7 @@
 
 1561421080 c:\users\alumno\desktop\utn-lab1\parciales\parcial2\dominio.h
 
-1561420554 source:c:\users\alumno\desktop\utn-lab1\parciales\parcial2\main.c
+1561421851 source:c:\users\alumno\desktop\utn-lab1\parciales\parcial2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
