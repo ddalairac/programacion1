@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1561412256 source:c:\users\alumno\desktop\utn-lab1\parciales\parcial2\ddalairac.c
+1561416835 source:c:\users\alumno\desktop\utn-lab1\parciales\parcial2\ddalairac.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -23,7 +23,7 @@
 
 1561412256 c:\users\alumno\desktop\utn-lab1\parciales\parcial2\linkedlist.h
 
-1561416165 source:c:\users\alumno\desktop\utn-lab1\parciales\parcial2\dominio.c
+1561421046 source:c:\users\alumno\desktop\utn-lab1\parciales\parcial2\dominio.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -31,9 +31,9 @@
 	"ddalairac.h"
 	"dominio.h"
 
-1561415526 c:\users\alumno\desktop\utn-lab1\parciales\parcial2\dominio.h
+1561421080 c:\users\alumno\desktop\utn-lab1\parciales\parcial2\dominio.h
 
-1561416253 source:c:\users\alumno\desktop\utn-lab1\parciales\parcial2\main.c
+1561420554 source:c:\users\alumno\desktop\utn-lab1\parciales\parcial2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"

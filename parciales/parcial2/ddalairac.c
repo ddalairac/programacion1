@@ -373,13 +373,13 @@ void inputValidAlphaNumericString(char message[], char str[],int length){
         inputStr(message,input);
         inputLength = strlen (input);
         if(inputLength > 0 && inputLength < max){
-            if(validAlphaNumeric(input)){
+//            if(validAlphaNumeric(input)){
                 strcpy(str, input);
                 loop = FALSE;
 
-            } else {
-                printf("Error, debe introducir solo letras o numeros \n\n");
-            }
+//            } else {
+//                printf("Error, debe introducir solo letras o numeros \n\n");
+//            }
 
         } else {
             if(inputLength == 0){
