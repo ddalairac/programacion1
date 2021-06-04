@@ -1,6 +1,12 @@
-# UTN
+# UTN Tecnicatura en Programación
 
-## programacion1 :: C
+## Materia programacion 1
+Tema: 
+ - C
+ - Programacion funcional
+ - Linkedlist
+
+
 [funciones natiavas y librerias](http://pablin.com.ar/computer/cursos/c2/manc8.htm)
 
 ### Tipos de datos
