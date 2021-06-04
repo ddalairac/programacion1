@@ -12,7 +12,6 @@ https://docs.google.com/document/d/1m2GjBPPb6hR9IA5B0wBil9xXTLlLLlJVCAbSxLPmGRc/
 <br>
 <br>
 
-[funciones natiavas y librerias](http://pablin.com.ar/computer/cursos/c2/manc8.htm)
 
 ### Tipos de datos
 **int** numeros enteros = 10; <br>
